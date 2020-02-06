@@ -1,0 +1,24 @@
+{% macro input(data) %}
+
+    <div class="c-input form__item{%- if data.class %} {{ data.class }}{% endif -%}">
+
+        <div class="input__wrapper" title="{{ data.label }}">
+
+            <label class="input__label {%- if data.sronly %} u-sr-only{% endif -%}" for="{{ data.id }}">
+                {{ data.label | safe }}
+            </label>
+
+            <input class="input__input"
+                type="{%- if data.type %}{{ data.type }}{% else %}text{% endif -%}"
+                name="{{ data.name }}"
+                value="{{ data.value }}"
+                id="{{ data.id }}"
+                {%- if data.required %} required="required"{% endif -%}
+                {%- if data.disabled %} disabled="disabled"{% endif -%}
+                {%- if data.placeholder %} placeholder="{{ data.placeholder }}"{% endif -%}>
+                
+        </div>
+
+    </div>
+
+{% endmacro %}

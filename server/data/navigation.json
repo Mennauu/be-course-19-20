@@ -12,7 +12,7 @@
     "href": "/contact"
   },
   {
-    "label": "Error",
-    "href": "/error"
+    "label": "Log out",
+    "href": "/logout"
   }
 ]

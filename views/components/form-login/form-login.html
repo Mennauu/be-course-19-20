@@ -1,0 +1,27 @@
+{% from '../form/form.html' import form %}
+{% from '../form-input/form-input.html' import input %}
+
+{% call form({
+  class: 'c-form-login',
+  method: 'POST'
+}) %}
+
+   {{ input({
+    name: 'username',
+    id: 'username',
+    label: 'Username'
+  }) }}
+
+   {{ input({
+    name: 'password',
+    id: 'password',
+    label: 'Password'
+  }) }}
+
+  {# {{ button({ 
+    element: 'button',
+    label: 'Log in', 
+    type: 'submit'
+  }) }} #}
+
+{% endcall %}

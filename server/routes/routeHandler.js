@@ -13,10 +13,18 @@ exports.logout = (req, res) => {
   res.redirect('/')
 }
 
+exports.register = (req, res) => {
+  res.render('register')
+}
+
 exports.home = (req, res) => {
-  res.render('home', {
-    navigation: dataNavigation,
-  })
+  if (req.user) {
+    res.render('home', {
+      navigation: dataNavigation,
+    })
+  } else {
+    res.redirect('/login')
+  }
 }
 
 exports.about = (req, res) => {
