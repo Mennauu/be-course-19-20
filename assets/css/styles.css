@@ -635,6 +635,7 @@ a {
   transition: 200ms;
   -webkit-transition-property: border, color, background-color;
   transition-property: border, color, background-color;
+  text-decoration: none;
 }
 
 /* Component Imports */
