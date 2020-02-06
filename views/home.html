@@ -1,7 +1,14 @@
+{% from './components/image/image.html' import image %}
+
 {% extends 'layouts/default.html' %}
 
 {% block content %}
 
-Home
+  {{ image({
+    src: '/images/gijs.jpeg',
+    alt: 'Gijs Laarman'
+  }) }}
+
+  {% include './components/navigation/navigation.html' %}
 
 {% endblock %}

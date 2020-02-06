@@ -1,0 +1,15 @@
+{% macro image(data) %}
+
+    <figure class="c-image">
+
+      <img class="image__default" src="{{ data.src }}" alt="{{ data.alt or 'Image' }}">
+
+      {%- if data.caption %}
+      <figcaption class="c-image__caption">
+          {{ data.caption }}
+      </figcaption>
+      {% endif -%}
+
+    </figure>
+
+{% endmacro %}

@@ -1,7 +1,10 @@
+const dataNavigation = require('../data/navigation.json')
+
 exports.home = (req, res) => {
   res.render('home', {
     layout: 'default',
     template: 'template__home',
+    navigation: dataNavigation,
   })
 }
 

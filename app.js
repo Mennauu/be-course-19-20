@@ -9,10 +9,12 @@ require('dotenv').config()
 nunjucks.configure('views', {
   express: app,
   autoescape: true,
+  watch: true,
 })
 
 app.disable('x-powered-by')
 
+app.engine('html', nunjucks.render)
 app.set('view engine', 'html')
 
 app.use(
@@ -26,6 +28,6 @@ app.use(
 app.get('/', route.home)
 app.get('/about', route.about)
 app.get('/contact', route.contact)
-app.get('*', route.error)
+// app.get('*', route.error)
 
 app.listen(port, () => console.log(`BE-COURSE listening on port ${port}!`))

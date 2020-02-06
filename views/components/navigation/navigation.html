@@ -1,0 +1,10 @@
+<nav class="c-navigation">
+
+  {% for item in navigation %}
+
+    <a class="navigation__link" href="{{ item.href }}">{{ item.label }}</a>
+
+  {% endfor %}
+  
+</nav>
+
