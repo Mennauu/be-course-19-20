@@ -1,0 +1,23 @@
+// sass-lint:disable no-vendor-prefixes
+
+html,
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-width: 320px;
+  min-height: 100%;
+}
+
+html {
+  font-family: $font-stack-primary;
+  font-size: $font-size-root;
+  color: $color-black;
+  background-color: $color-white;
+  min-height: 100%;
+}
+
+body {
+  @include fluid-type($font-size-body, $font-size-mobile-body);
+  line-height: $font-line-height-body;
+  word-break: normal;
+}

@@ -1,0 +1,43 @@
+/*----------------------------------*\
+  #TYPOGRAPHY
+\*----------------------------------*/
+
+$font-stack-primary: 'DINPro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-stack-secondary: 'Quatro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+$font-size-root: 10px;
+
+$font-size-body: 1.8rem;
+$font-size-mobile-body: 1.6rem;
+
+$font-size-h1: 6rem;
+$font-size-h2: 4rem;
+$font-size-h3: 3rem;
+$font-size-h4: 2rem;
+$font-size-h5: 1.8rem;
+$font-size-h6: 1.6rem;
+
+$font-size-mobile-h1: 3.2rem;
+$font-size-mobile-h2: 2.8rem;
+$font-size-mobile-h3: 2.4rem;
+$font-size-mobile-h4: 1.8rem;
+$font-size-mobile-h5: 1.6rem;
+$font-size-mobile-h6: 1.4rem;
+
+$font-line-height-body: 2.8 / strip-unit($font-size-body);
+$font-line-height-h1: 6.6 / strip-unit($font-size-h1);
+$font-line-height-h2: 4.8 / strip-unit($font-size-h2);
+$font-line-height-h3: 3.4 / strip-unit($font-size-h3);
+$font-line-height-h4: 2.2 / strip-unit($font-size-h4);
+$font-line-height-h5: 2.4 / strip-unit($font-size-h5);
+$font-line-height-h6: 2.6 / strip-unit($font-size-h6);
+
+$font-weight-ultralight: 100;
+$font-weight-light: 200;
+$font-weight-book: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 600;
+$font-weight-extrabold: 700;
+$font-weight-black: 800;
+$font-weight-extrablack: 900;
