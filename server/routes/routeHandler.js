@@ -1,30 +1,38 @@
 const dataNavigation = require('../data/navigation.json')
 
+exports.root = (req, res) => {
+  res.redirect('/login')
+}
+
+exports.login = (req, res) => {
+  res.render('login')
+}
+
+exports.logout = (req, res) => {
+  req.logout()
+  res.redirect('/')
+}
+
 exports.home = (req, res) => {
   res.render('home', {
-    layout: 'default',
-    template: 'template__home',
     navigation: dataNavigation,
   })
 }
 
 exports.about = (req, res) => {
   res.render('about', {
-    layout: 'default',
-    template: 'template__about',
+    navigation: dataNavigation,
   })
 }
 
 exports.contact = (req, res) => {
   res.render('contact', {
-    layout: 'default',
-    template: 'template__contact',
+    navigation: dataNavigation,
   })
 }
 
 exports.error = (req, res) => {
   res.render('error', {
-    layout: 'default',
-    template: 'template__error',
+    navigation: dataNavigation,
   })
 }

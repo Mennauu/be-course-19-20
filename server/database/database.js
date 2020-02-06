@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 require('dotenv').config()
 
 const server = 'localhost'
-const database = 'test'
+const database = 'dating'
 const uristring = process.env.MONGODB_URI || `mongodb://${server}/${database}`
 
 class Database {
