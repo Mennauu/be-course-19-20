@@ -16,9 +16,12 @@
 @import 'generic/normalize.scss';
 
 /* Elements imports */
+@import 'elements/buttons.scss';
 @import 'elements/headings.scss';
 @import 'elements/links.scss';
 
 /* Component Imports */
+@import '../../views/components/button/button.scss';
+@import '../../views/components/form/form.scss';
 @import '../../views/components/image/image.scss';
 @import '../../views/components/navigation/navigation.scss';

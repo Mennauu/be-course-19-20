@@ -1,0 +1,19 @@
+$form-modal-border-radius: 5px;
+$form-modal-background-color: $color-white;
+$form-modal-padding: $global-spacing;
+
+.c-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__modal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: $form-modal-background-color;
+  border-radius: $form-modal-border-radius;
+  padding: $form-modal-padding;
+  display: inline-block;
+}

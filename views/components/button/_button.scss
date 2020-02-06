@@ -1,0 +1,41 @@
+// Style
+$button-spacing: $global-spacing;
+$button-border-radius: 0;
+$button-font-size: 1.6rem;
+
+// Colors
+$button-font-color: $color-black;
+$button-icon-color: $button-font-color;
+$button-background-color: $color-grey;
+$button-font-color-hover: $color-white;
+$button-icon-color-hover: $button-font-color-hover;
+$button-background-color-hover: darken($button-background-color, 10%);
+
+// Transitions
+$button-transition-time: 300ms;
+
+@mixin button {
+  @include button--base;
+  padding: $button-spacing * 2.7 $button-spacing * 3;
+  border-radius: $button-border-radius;
+  background-color: $button-background-color;
+  color: $button-font-color;
+  transition: $button-transition-time;
+  transition-property: color, background-color;
+  font-size: $button-font-size;
+  width: 100%;
+  text-align: left;
+
+  .button__label {
+    display: block;
+  }
+
+  &:hover {
+    color: $button-font-color-hover;
+    background-color: $button-background-color-hover;
+  }
+}
+
+.c-button {
+  @include button;
+}

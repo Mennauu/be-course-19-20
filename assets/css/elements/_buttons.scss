@@ -1,0 +1,16 @@
+@mixin button--base {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
+  vertical-align: top;
+  margin: 0;
+  text-align: center;
+  font-family: $font-stack-secondary;
+  font-weight: $font-weight-medium;
+}
+
+button {
+  @include button--base;
+}

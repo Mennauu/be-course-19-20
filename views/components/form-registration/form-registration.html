@@ -7,13 +7,13 @@
   method: 'POST'
 }) %}
 
-   {{ input({
+  {{ input({
     name: 'username',
     id: 'username',
     label: 'Username'
   }) }}
 
-   {{ input({
+  {{ input({
     name: 'password',
     id: 'password',
     label: 'Password'
@@ -21,10 +21,10 @@
 
   {{ button({ 
     element: 'button',
-    label: 'Log in', 
+    label: 'Register', 
     type: 'submit'
   }) }}
 
-  <small>Don't have an account? <a href="/register">Sign up</a></small>
+  <small>Already have an account? <a href="/login">Log in</a></small>
 
 {% endcall %}
