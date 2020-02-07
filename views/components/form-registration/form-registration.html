@@ -4,7 +4,8 @@
 
 {% call form({
   class: 'form__modal',
-  method: 'POST'
+  method: 'POST',
+  action: '/register-user'
 }) %}
 
   {{ input({
@@ -24,6 +25,8 @@
     label: 'Register', 
     type: 'submit'
   }) }}
+
+  {%- if error %}<p>{{ error }}</p>{% endif -%}
 
   <small>Already have an account? <a href="/login">Log in</a></small>
 

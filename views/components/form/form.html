@@ -1,7 +1,6 @@
 {% macro form(data) %}
 
-    <form class="c-form{%- if data.class %} {{ data.class }}{% endif -%}" 
-          action="{{ data.action or '#' }}"
+    <form class="c-form{%- if data.class %} {{ data.class }}{% endif -%}" action="{{ data.action or '#' }}"
       {%- if data.method %} method="{{ data.method }}"{% endif -%}>
 
         {{ caller() }}

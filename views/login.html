@@ -4,4 +4,10 @@
 
   {% include './components/form-login/form-login.html' %}
 
+  {% if(locals.message) %}
+    <div class="alert alert-success" role="alert">
+        <strong>Well done!</strong> {{ message.success }}
+    </div>
+  {% endif %}
+
 {% endblock %}

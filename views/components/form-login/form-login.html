@@ -4,7 +4,8 @@
 
 {% call form({
   class: 'form__modal',
-  method: 'POST'
+  method: 'POST',
+  action: '/login-authenticate'
 }) %}
 
    {{ input({
@@ -16,7 +17,8 @@
    {{ input({
     name: 'password',
     id: 'password',
-    label: 'Password'
+    label: 'Password',
+    type: 'password'
   }) }}
 
   {{ button({ 
