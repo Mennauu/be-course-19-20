@@ -1,0 +1,8 @@
+{
+  "accountHasBeenCreated": "Your account has been created, please log in",
+  "usernameCheck": "Username can only be letters and numbers",
+  "usernameLength": "Username should be 3 letters or longer",
+  "usernameIsTaken": "Username is taken, please try a different one",
+  "usernameCreationFails": "For unknown reasons your account can't be created, try again later.",
+  "passwordLength": "Password should be 5 charachters or longer"
+}

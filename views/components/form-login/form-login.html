@@ -27,6 +27,8 @@
     type: 'submit'
   }) }}
 
+  {%- if success %}<p>{{ success }}</p>{% endif -%}
+
   <small>Don't have an account? <a href="/register">Sign up</a></small>
 
 {% endcall %}

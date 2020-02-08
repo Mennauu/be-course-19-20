@@ -1,5 +1,0 @@
-{
-  "usernameCheck": "Username can only be letters and numbers",
-  "usernameLength": "Username should be 3 letters or longer",
-  "passwordLength": "Password should be 5 charachters or longer"
-}
