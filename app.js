@@ -8,19 +8,13 @@ import session from 'express-session'
 import nunjucks from 'nunjucks'
 
 import auth from './server/authentication/auth.js'
+import { loginFail, loginSucces } from './server/data/messages.json'
 
 const route = require('./server/routes/routeHandler.js')
 const app = express()
 const port = process.env.PORT || 3000
 
 require('dotenv').config()
-
-// if (app.get('env') === 'development') {
-//   const browserSync = require('browser-sync')
-//   const bs = browserSync.create().init({ logSnippet: false })
-
-//   app.use(require('connect-browser-sync')(bs))
-// }
 
 app.disable('x-powered-by')
 
@@ -54,6 +48,14 @@ app.use(
   }),
 )
 app.use(
+  '/data',
+  express.static(__dirname + '/server/data', {
+    maxAge: '365d',
+    lastModified: '',
+    etag: '',
+  }),
+)
+app.use(
   session({
     secret: process.env.SESSION_SECRET || 'Static secret (please use env file)',
     saveUninitialized: false,
@@ -78,11 +80,11 @@ app.post(
   auth.authenticate('local', {
     successRedirect: '/home',
     failureRedirect: '/login',
-    failureFlash: 'Invalid username or password!',
-    successFlash: 'Welcome!',
+    failureFlash: loginFail,
+    successFlash: loginSucces,
   }),
 )
 
 app.post('/register-user', route.registerUser)
 
-app.listen(port, () => console.log(`BE-COURSE listening on port ${port}!`))
+app.listen(port, () => console.log(`Server is listening on port: ${port}`))

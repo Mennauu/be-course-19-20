@@ -5,7 +5,8 @@
   "description": "Backend · 2019-2020 · University of Amsterdam assignment",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon -r esm app.js & (sleep 3 && browser-sync start --proxy 'localhost:3000' --files 'assets' 'views')"
+    "start": "",
+    "dev": "nodemon -r esm app.js & (sleep 3 && browser-sync start --proxy 'localhost:3000' --files 'assets' 'views')"
   },
   "dependencies": {
     "connect-flash": "^0.1.1",

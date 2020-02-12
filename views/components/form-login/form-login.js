@@ -14,17 +14,10 @@ export const formLogin = () => {
         this.element.addEventListener('submit', this.formHandler())
       }
 
-
-
       formHandler(event) {
         console.log(event)
-
-        
       }
     }
-
-
-
 
     new FormLogin(ELEMENT_FORM_LOGIN)
   }
