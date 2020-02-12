@@ -5,7 +5,8 @@
 {% call form({
   class: 'form__modal',
   method: 'POST',
-  action: '/login-authenticate'
+  action: '/login-authenticate',
+  hook: 'form-login'
 }) %}
 
    {{ input({
@@ -18,7 +19,8 @@
     name: 'password',
     id: 'password',
     label: 'Password',
-    type: 'password'
+    type: 'password',
+    autocomplete: true
   }) }}
 
   {{ button({ 
@@ -27,6 +29,7 @@
     type: 'submit'
   }) }}
 
+  {%- if error %}<p>{{ error }}</p>{% endif -%}
   {%- if success %}<p>{{ success }}</p>{% endif -%}
 
   <small>Don't have an account? <a href="/register">Sign up</a></small>

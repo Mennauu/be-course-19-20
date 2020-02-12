@@ -1,11 +1,11 @@
-import { root } from './get/root.js'
-import { login } from './get/login.js'
-import { logout } from './get/logout.js'
-import { register } from './get/register.js'
-import { home } from './get/home.js'
 import { about } from './get/about.js'
 import { contact } from './get/contact.js'
 import { error } from './get/error.js'
+import { home } from './get/home.js'
+import { login } from './get/login.js'
+import { logout } from './get/logout.js'
+import { register } from './get/register.js'
+import { root } from './get/root.js'
 import { registerUser } from './post/registerUser.js'
 
 // GET

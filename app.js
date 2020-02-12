@@ -1,17 +1,21 @@
-import express from 'express'
-import nunjucks from 'nunjucks'
+import './server/database/database.js'
+
 import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
+import express from 'express'
 import flash from 'express-flash'
 import session from 'express-session'
+import nunjucks from 'nunjucks'
+
 import auth from './server/authentication/auth.js'
-import './server/database/database.js'
 
 const route = require('./server/routes/routeHandler.js')
 const app = express()
 const port = process.env.PORT || 3000
 
 require('dotenv').config()
+
+app.disable('x-powered-by')
 
 app.engine('html', nunjucks.render)
 app.set('view engine', 'html')
@@ -22,12 +26,20 @@ nunjucks.configure('views', {
   watch: true,
 })
 
-app.disable('x-powered-by')
+// Set correct Content Type Header per file extension
+app.get(['*.js', '*.css'], (req, res, next) => {
+  const extensionIndex = req.originalUrl.lastIndexOf('.')
+  const extension = req.originalUrl.slice(extensionIndex)
+
+  res.set('Content-Type', extension === '.js' ? 'text/javascript' : 'text/css')
+  next()
+})
 
 app.use(cookieParser())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(
+  '/assets',
   express.static(__dirname + '/assets', {
     maxAge: '365d',
     lastModified: '',

@@ -1,6 +1,7 @@
-import User from '../../database/models/user.js'
 import validator from 'validator'
+
 import message from '../../data/messages.json'
+import User from '../../database/models/user.js'
 
 export const registerUser = (req, res) => {
   const { username, password } = req.body
@@ -26,9 +27,9 @@ export const registerUser = (req, res) => {
   createNewUser(req, res, username, password)
 }
 
-const validateUsernameLength = username => !validator.isByteLength(username, { min: 3 })
+const validateUsernameLength = username => !validator.isByteLength(username, { min: 3, max: 20 })
 const validateUsernameAlpha = username => !validator.isAlpha(username)
-const validatePasswordLength = password => !validator.isByteLength(password, { min: 5 })
+const validatePasswordLength = password => !validator.isByteLength(password, { min: 6, max: 256 })
 
 const createNewUser = (req, res, username, password) => {
   const newUser = new User({ username, password })

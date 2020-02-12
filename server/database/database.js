@@ -20,6 +20,7 @@ class Database {
       })
       .catch(err => {
         console.error('Database connection error: ' + uristring)
+        console.error(err)
       })
   }
 }
