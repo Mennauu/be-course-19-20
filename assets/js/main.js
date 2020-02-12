@@ -42,14 +42,13 @@
             {
               key: 'bindEvents',
               value: function bindEvents() {
-                this.element.addEventListener('submit', this.formHandler(event))
+                this.element.addEventListener('submit', this.formHandler())
               },
             },
             {
               key: 'formHandler',
               value: function formHandler(event) {
-                event.preventDefault()
-                console.log('dit is een test')
+                console.log(event)
               },
             },
           ])

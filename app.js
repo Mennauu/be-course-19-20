@@ -15,6 +15,13 @@ const port = process.env.PORT || 3000
 
 require('dotenv').config()
 
+// if (app.get('env') === 'development') {
+//   const browserSync = require('browser-sync')
+//   const bs = browserSync.create().init({ logSnippet: false })
+
+//   app.use(require('connect-browser-sync')(bs))
+// }
+
 app.disable('x-powered-by')
 
 app.engine('html', nunjucks.render)
@@ -48,7 +55,7 @@ app.use(
 )
 app.use(
   session({
-    secret: process.env.SESSION_SECRET || 'Static secret',
+    secret: process.env.SESSION_SECRET || 'Static secret (please use env file)',
     saveUninitialized: false,
     resave: true,
   }),

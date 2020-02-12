@@ -5,11 +5,9 @@
   "description": "Backend · 2019-2020 · University of Amsterdam assignment",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon -r esm app.js",
-    "eslint": "npm run eslint"
+    "start": "nodemon -r esm app.js & (sleep 3 && browser-sync start --proxy 'localhost:3000' --files 'assets' 'views')"
   },
   "dependencies": {
-    "@babel/preset-env": "^7.8.4",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.4",
     "dotenv": "^8.0.0",
@@ -27,8 +25,11 @@
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
     "@rollup/plugin-node-resolve": "^7.1.1",
     "babel-eslint": "^10.0.3",
+    "browser-sync": "^2.26.7",
+    "connect-browser-sync": "^2.1.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-import": "^2.20.1",
