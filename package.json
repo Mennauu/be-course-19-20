@@ -6,7 +6,7 @@
   "main": "app.js",
   "scripts": {
     "start": "",
-    "dev": "nodemon -r esm app.js & (sleep 3 && browser-sync start --proxy 'localhost:3000' --files 'assets' 'views')"
+    "dev": "nodemon -r esm app.js & (sleep 3 && browser-sync start --proxy 'localhost:3000' --files 'assets' 'views') & node-sass --importer node_modules/node-sass-glob-importer/dist/cli.js -o assets /css/styles.scss"
   },
   "dependencies": {
     "connect-flash": "^0.1.1",
@@ -37,6 +37,7 @@
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-simple-import-sort": "^5.0.1",
     "eslint-utils": "^2.0.0",
+    "node-sass-glob-importer": "^5.3.2",
     "prettier": "^1.19.1",
     "rollup": "^1.31.0",
     "rollup-plugin-babel": "^4.3.3",

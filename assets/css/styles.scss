@@ -1,27 +1,17 @@
 /* Top level imports */
-@import 'tools/strip-unit.scss';
+@import '00_top-level/*.scss';
 
 /* Settings imports */
-@import 'settings/colors.scss';
-@import 'settings/spacing.scss';
-@import 'settings/typography.scss';
-@import 'settings/breakpoints.scss';
+@import '01_settings/*.scss';
 
 /* Tools imports */
-@import 'tools/fluid-type.scss';
-@import 'tools/headings.scss';
+@import '02_tools/*.scss';
 
 /* Generic imports */
-@import 'generic/html.scss';
-@import 'generic/normalize.scss';
+@import '03_generic/*.scss';
 
 /* Elements imports */
-@import 'elements/buttons.scss';
-@import 'elements/headings.scss';
-@import 'elements/links.scss';
+@import '04_elements/*.scss';
 
 /* Component Imports */
-@import '../../views/components/button/button.scss';
-@import '../../views/components/form/form.scss';
-@import '../../views/components/image/image.scss';
-@import '../../views/components/navigation/navigation.scss';
+@import '../../views/components/**/*.scss';
