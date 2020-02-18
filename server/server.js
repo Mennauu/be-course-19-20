@@ -1,4 +1,8 @@
-import './server/database/database.js'
+// Call and read process.env file
+require('dotenv').config()
+
+// Initialize database on server startup
+import './database/database.js'
 
 import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
@@ -7,17 +11,14 @@ import flash from 'express-flash'
 import session from 'express-session'
 import nunjucks from 'nunjucks'
 
-import { loginFail, loginSucces } from './server/data/messages.json'
-import auth from './server/middleware/authentication/auth.js'
+import { loginFail, loginSucces } from './data/messages.json'
+import auth from './middleware/authentication/auth.js'
 
 const shrinkRay = require('shrink-ray-current')
-const serve = require('./server/middleware/headers/serve.js')
-const route = require('./server/routes/routeHandler.js')
+const serve = require('./middleware/headers/serve.js')
+const route = require('./routes/routeHandler.js')
 const app = express()
 const port = process.env.PORT || 3000
-
-// Call and read process.env file
-require('dotenv').config()
 
 // Disable x-powered-by header
 app.disable('x-powered-by')
@@ -68,13 +69,13 @@ app.use(flash())
 // Allow files to be accessible client-side + set cache headers
 app.use(
   '/assets',
-  express.static(__dirname + '/assets', {
+  express.static(__dirname + '/../assets', {
     maxAge: '365d',
     lastModified: '',
     etag: '',
   }),
 )
-app.use('/data', express.static(__dirname + '/server/data'))
+app.use('/data', express.static(__dirname + '/../server/data'))
 
 // Middleware for serving correct content type header
 app.get(['*.js', '*.css'], serve.serveContentTypes)

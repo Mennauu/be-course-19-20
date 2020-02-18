@@ -96,6 +96,7 @@
       return FormLogin
     })()
 
+  // Written by: TamTam
   var ModuleInit =
     /*#__PURE__*/
     (function() {
@@ -180,5 +181,6 @@
   var moduleInit = new ModuleInit()
 
   // Components
+
   moduleInit.sync('[js-hook-form-login]', FormLogin)
 })()

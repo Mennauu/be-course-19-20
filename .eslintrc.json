@@ -33,5 +33,6 @@
     "import/no-unresolved": "off",
     "simple-import-sort/sort": "warn",
     "import/named": "off"
-  }
+  },
+  "ignorePatterns": ["assets/js/main.js"]
 }
