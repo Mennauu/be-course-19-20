@@ -1,7 +1,7 @@
-import { formLogin } from 'form-login/form-login'
+// Components
+import FormLogin from 'form-login/form-login'
 
-const init = () => {
-  formLogin()
-}
+// Utilities
+import moduleInit from './utilities/module-init'
 
-init()
+moduleInit.sync('[js-hook-form-login]', FormLogin)
