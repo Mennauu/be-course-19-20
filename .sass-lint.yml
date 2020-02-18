@@ -30,3 +30,6 @@ rules:
     - 1
     - 'extra-properties':
         - 'overflow-scrolling'
+files:
+  ignore:
+    - 'node_modules/**'
