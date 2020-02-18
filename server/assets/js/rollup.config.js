@@ -3,7 +3,7 @@ import babel from 'rollup-plugin-babel'
 import prettier from 'rollup-plugin-prettier'
 
 const config = {
-  input: 'assets/js/main-es.js',
+  input: 'server/assets/js/main-es.js',
   output: {
     file: 'assets/js/main.js',
     format: 'iife',
@@ -17,6 +17,10 @@ const config = {
     }),
     prettier({ parser: 'babel' }),
   ],
+  watch: {
+    exclude: ['node_modules/**'],
+    clearScreen: false,
+  },
 }
 
 export default config

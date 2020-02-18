@@ -1,17 +1,8 @@
-/* Top level imports */
 @import '00_top-level/*.scss';
-
-/* Settings imports */
 @import '01_settings/*.scss';
-
-/* Tools imports */
 @import '02_tools/*.scss';
-
-/* Generic imports */
 @import '03_generic/*.scss';
-
-/* Elements imports */
 @import '04_elements/*.scss';
 
 /* Component Imports */
-@import '../../views/components/**/*.scss';
+@import '../../components/**/*.scss';

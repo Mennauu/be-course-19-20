@@ -1,8 +1,0 @@
-{
-  "ignore": ["/assets/js/main.js"],
-  "events": {
-    "start": "eslint '**/*.js'",
-    "restart": ["rollup --config assets/js/rollup.config.js"]
-  },
-  "delay": "250"
-}

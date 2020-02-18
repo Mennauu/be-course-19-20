@@ -7,38 +7,65 @@ import flash from 'express-flash'
 import session from 'express-session'
 import nunjucks from 'nunjucks'
 
-import auth from './server/authentication/auth.js'
 import { loginFail, loginSucces } from './server/data/messages.json'
+import auth from './server/middleware/authentication/auth.js'
 
+const shrinkRay = require('shrink-ray-current')
+const serve = require('./server/middleware/headers/serve.js')
 const route = require('./server/routes/routeHandler.js')
 const app = express()
 const port = process.env.PORT || 3000
 
+// Call and read process.env file
 require('dotenv').config()
 
+// Disable x-powered-by header
 app.disable('x-powered-by')
 
+// Configure Nunjucks as templating engine
 app.engine('html', nunjucks.render)
 app.set('view engine', 'html')
 
-nunjucks.configure('views', {
+nunjucks.configure(['server/views', 'server/components'], {
   express: app,
   autoescape: true,
   watch: true,
 })
 
-// Set correct Content Type Header per file extension
-app.get(['*.js', '*.css'], (req, res, next) => {
-  const extensionIndex = req.originalUrl.lastIndexOf('.')
-  const extension = req.originalUrl.slice(extensionIndex)
+// Brotli/GZIP HTML file compression
+app.use(
+  shrinkRay({
+    filter: req => req.headers['accept'].includes(['text/html']),
+  }),
+)
 
-  res.set('Content-Type', extension === '.js' ? 'text/javascript' : 'text/css')
-  next()
-})
-
+/* cookieParser is used to allow other middleware to
+   to populate req.cookies */
 app.use(cookieParser())
+
+/* bodyParser is used in order to read HTTP POST data
+   in req.body */
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
+
+// Middleware to create a server-side stored session
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET || 'Static secret (please use env file)',
+    saveUninitialized: false,
+    resave: true,
+  }),
+)
+
+/* Middleware that initialises Passport and changes 
+  the (user) session id */
+app.use(auth.initialize())
+app.use(auth.session())
+
+// Server side message handler
+app.use(flash())
+
+// Allow files to be accessible client-side + set cache headers
 app.use(
   '/assets',
   express.static(__dirname + '/assets', {
@@ -47,25 +74,12 @@ app.use(
     etag: '',
   }),
 )
-app.use(
-  '/data',
-  express.static(__dirname + '/server/data', {
-    maxAge: '365d',
-    lastModified: '',
-    etag: '',
-  }),
-)
-app.use(
-  session({
-    secret: process.env.SESSION_SECRET || 'Static secret (please use env file)',
-    saveUninitialized: false,
-    resave: true,
-  }),
-)
-app.use(auth.initialize())
-app.use(auth.session())
-app.use(flash())
+app.use('/data', express.static(__dirname + '/server/data'))
 
+// Middleware for serving correct content type header
+app.get(['*.js', '*.css'], serve.serveContentTypes)
+
+// GET routes
 app.get('/', route.root)
 app.get('/login', route.login)
 app.get('/logout', route.logout)
@@ -75,6 +89,8 @@ app.get('/about', route.about)
 app.get('/contact', route.contact)
 app.get('*', route.error)
 
+// POST routes
+app.post('/register-user', route.registerUser)
 app.post(
   '/login-authenticate',
   auth.authenticate('local', {
@@ -85,6 +101,5 @@ app.post(
   }),
 )
 
-app.post('/register-user', route.registerUser)
-
+// Initialize server
 app.listen(port, () => console.log(`Server is listening on port: ${port}`))
