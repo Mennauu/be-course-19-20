@@ -1,3 +1,5 @@
+// Written by: TamTam
+
 class ModuleInit {
   async(selector, moduleName, opt_arguments) {
     return new Promise(resolve => {
