@@ -1,4 +1,4 @@
-import { formLogin } from '../../components/form-login/form-login.js'
+import { formLogin } from 'form-login/form-login'
 
 const init = () => {
   formLogin()

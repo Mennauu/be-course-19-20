@@ -6,7 +6,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node -r esm app.js",
-    "dev": "npm run start & npm run browser-sync & npm run lint-js & npm run build-js & chokidar '**/*.js' -c 'npm run lint-js -s & npm run build-js' --ignore 'assets/js/main.js'  & npm run build-css & npm run lint-css & chokidar '**/*.scss' -c 'npm run build-css & npm run lint-css'",
+    "dev": "npm run start & npm run browser-sync & npm run lint-js -s & npm run build-js & chokidar '**/*.js' -c 'npm run lint-js -s & npm run build-js' --ignore 'assets/js/main.js'  & npm run build-css & npm run lint-css & chokidar '**/*.scss' -c 'npm run build-css & npm run lint-css'",
     "browser-sync": "(sleep 5 && browser-sync start --proxy 'localhost:3000' --files 'assets' 'views')",
     "lint-js": "eslint '**/*.js'",
     "lint-css": "sass-lint -c .sass-lint.yml '**/*.scss' -v -q",
@@ -27,6 +27,7 @@
     "nunjucks": "^3.2.0",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
+    "rollup-plugin-includepaths": "^0.2.3",
     "shrink-ray-current": "^4.1.2",
     "validator": "^12.2.0"
   },
