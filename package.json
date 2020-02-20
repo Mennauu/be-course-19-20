@@ -5,10 +5,10 @@
   "description": "Backend · 2019-2020 · University of Amsterdam assignment",
   "main": "server/server.js",
   "scripts": {
-    "start": "node -r esm server/server.js",
+    "server": "node -r esm server/server.js",
     "build": "npm run build-directories && npm run build-images && npm run build-js && npm run build-css && npm run move-images && npm run move-fonts",
-    "prod": "npm run start & npm run move-fonts & npm run move-images & npm run build-images & npm run build-js & npm run build-css",
-    "dev": "npm run start & npm run lint-js -s & npm run lint-css && npm run build && npm run browser-sync & npm run watch",
+    "start": "npm run server & npm run build",
+    "dev": "npm run server & npm run lint-js -s & npm run lint-css && npm run build && npm run browser-sync & npm run watch",
     "browser-sync": "browser-sync start --proxy 'localhost:3000' --files 'assets' 'views'",
     "lint-js": "eslint '**/*.js'",
     "lint-css": "sass-lint -c .sass-lint.yml '**/*.scss' -v -q",
