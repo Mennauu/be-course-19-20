@@ -34,5 +34,5 @@
     "simple-import-sort/sort": "warn",
     "import/named": "off"
   },
-  "ignorePatterns": ["assets/js/*.js"]
+  "ignorePatterns": ["build/assets/js/*.js"]
 }

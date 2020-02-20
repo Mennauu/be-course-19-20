@@ -75,7 +75,7 @@ app.use(flash())
 // Allow files to be accessible client-side + set cache headers
 app.use(
   '/assets',
-  express.static(__dirname + '/../assets', {
+  express.static(__dirname + '/../build/assets', {
     maxAge: '365d',
     lastModified: '',
     etag: '',

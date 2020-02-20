@@ -11,7 +11,7 @@ const localConfig = {
   input: 'server/assets/js/main-es.js',
   output: [
     {
-      file: 'assets/js/main-es.js',
+      file: 'build/assets/js/main-es.js',
       format: 'es',
     },
   ],
@@ -31,20 +31,20 @@ const productionConfig = {
   input: 'server/assets/js/main-es.js',
   output: [
     {
-      file: 'assets/js/main-es.js',
+      file: 'build/assets/js/main-es.js',
       format: 'es',
     },
     {
-      file: 'assets/js/main-es.min.js',
+      file: 'build/assets/js/main-es.min.js',
       format: 'es',
       plugins: [terser()],
     },
     {
-      file: 'assets/js/main.js',
+      file: 'build/assets/js/main.js',
       format: 'system',
     },
     {
-      file: 'assets/js/main.min.js',
+      file: 'build/assets/js/main.min.js',
       format: 'system',
       plugins: [terser()],
     },

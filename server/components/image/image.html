@@ -2,7 +2,10 @@
 
     <figure class="c-image">
 
-      <img class="image__default" src="{{ data.src }}" alt="{{ data.alt or 'Image' }}">
+      <picture>
+        {%- if data.srcset %} <source srcset="{{ data.srcset }}" type="image/webp">{% endif -%}
+        <img class="image__default" src="{{ data.image }}" alt="{{ data.alt or 'Image' }}">
+      </picture>
 
       {%- if data.caption %}
       <figcaption class="c-image__caption">
