@@ -12,7 +12,8 @@
    {{ input({
     name: 'username',
     id: 'username',
-    label: 'username'
+    label: 'username',
+    hook: 'input-username'
   }) }}
 
    {{ input({
@@ -20,7 +21,8 @@
     id: 'password',
     label: 'Password',
     type: 'password',
-    autocomplete: true
+    autocomplete: true,
+    hook: 'input-password'
   }) }}
 
   {{ button({ 

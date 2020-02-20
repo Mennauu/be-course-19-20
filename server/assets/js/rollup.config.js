@@ -1,35 +1,72 @@
+import alias from '@rollup/plugin-alias'
+import commonjs from '@rollup/plugin-commonjs'
 import resolve from '@rollup/plugin-node-resolve'
 import babel from 'rollup-plugin-babel'
-import includePaths from 'rollup-plugin-includepaths'
 import prettier from 'rollup-plugin-prettier'
+import { terser } from 'rollup-plugin-terser'
 
-const includePathOptions = {
-  include: {},
-  paths: ['server/components'],
-  external: [],
-  extensions: ['.js'],
-}
+require('dotenv').config()
 
-const config = {
+const localConfig = {
   input: 'server/assets/js/main-es.js',
-  output: {
-    file: 'assets/js/main.js',
-    format: 'iife',
-  },
+  output: [
+    {
+      file: 'assets/js/main-es.js',
+      format: 'es',
+    },
+  ],
   plugins: [
     resolve(),
+    commonjs({ sourceMap: false }),
+    alias({
+      entries: [
+        { find: '@utilities', replacement: './utilities' },
+        { find: '@components', replacement: '../../components' },
+      ],
+    }),
+  ],
+}
+
+const productionConfig = {
+  input: 'server/assets/js/main-es.js',
+  output: [
+    {
+      file: 'assets/js/main-es.js',
+      format: 'es',
+    },
+    {
+      file: 'assets/js/main-es.min.js',
+      format: 'es',
+      plugins: [terser()],
+    },
+    {
+      file: 'assets/js/main.js',
+      format: 'system',
+    },
+    {
+      file: 'assets/js/main.min.js',
+      format: 'system',
+      plugins: [terser()],
+    },
+  ],
+  plugins: [
+    resolve(),
+    commonjs({ sourceMap: false }),
     babel({
       exclude: 'node_modules/**',
       babelrc: false,
       presets: [['@babel/env', { modules: false }]],
     }),
     prettier({ parser: 'babel' }),
-    includePaths(includePathOptions),
+    alias({
+      entries: [
+        { find: '@utilities', replacement: './utilities' },
+        { find: '@components', replacement: '../../components' },
+      ],
+    }),
   ],
-  watch: {
-    exclude: ['node_modules/**'],
-    clearScreen: false,
-  },
 }
+
+const config = process.env.ENVIRONMENT === 'local' ? localConfig : productionConfig
 
 export default config

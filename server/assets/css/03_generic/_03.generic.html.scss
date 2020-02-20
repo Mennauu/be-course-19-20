@@ -19,6 +19,6 @@ body {
   @include fluid-type($font-size-body, $font-size-mobile-body);
   line-height: $font-line-height-body;
   word-break: normal;
-  background-color: $color-secondary;
+  background-color: $color-primary;
   min-height: 100vh;
 }

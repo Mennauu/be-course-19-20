@@ -16,7 +16,8 @@
                 {%- if data.required %} required="required"{% endif -%}
                 {%- if data.disabled %} disabled="disabled"{% endif -%}
                 {%- if data.placeholder %} placeholder="{{ data.placeholder }}"{% endif -%}
-                {%- if data.autocomplete %} autocomplete="on"{% endif -%}>
+                {%- if data.autocomplete %} autocomplete="on"{% endif -%}
+                {%- if data.hook %} js-hook-{{ data.hook }}{% endif -%}>
                 
         </div>
 

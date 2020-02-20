@@ -37,7 +37,12 @@
 
         </main>
 
-        <script async="async" src="/assets/js/main.js"></script>
+        {% if environment == 'local' %}
+            <script type="module" async="async" src="/assets/js/main-es.js"></script>
+        {% else %}
+            <script type="module" async="async" src="/assets/js/main-es.min.js"></script>
+            <script nomodule="nomodule" async="async" src="/assets/js/main.min.js"></script>
+        {% endif %}
 
     </body>
 

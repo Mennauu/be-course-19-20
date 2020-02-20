@@ -2,7 +2,7 @@
 require('dotenv').config()
 
 // Initialize database on server startup
-import './database/database.js'
+import './database/database'
 
 import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
@@ -33,6 +33,12 @@ nunjucks.configure(['server/views', 'server/components'], {
   watch: true,
 })
 
+// Set global variables to use in templating
+app.use((req, res, next) => {
+  res.locals.environment = process.env.ENVIRONMENT
+  next()
+})
+
 // Brotli/GZIP HTML file compression
 app.use(
   shrinkRay({
@@ -40,7 +46,7 @@ app.use(
   }),
 )
 
-/* cookieParser is used to allow other middleware to
+/* cookieParser is used (to allow other middleware)
    to populate req.cookies */
 app.use(cookieParser())
 
