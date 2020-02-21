@@ -35,7 +35,7 @@ nunjucks.configure(['server/views', 'server/components'], {
 
 // Set global variables to use in templating
 app.use((req, res, next) => {
-  res.locals.environment = process.env.ENVIRONMENT
+  res.locals.environment = process.env.ENVIRONMENT === 'local' ? 'local' : process.env.ENVIRONMENT
   next()
 })
 

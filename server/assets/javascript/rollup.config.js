@@ -8,7 +8,7 @@ import { terser } from 'rollup-plugin-terser'
 require('dotenv').config()
 
 const localConfig = {
-  input: 'server/assets/js/main-es.js',
+  input: 'server/assets/javascript/main-es.js',
   output: [
     {
       file: 'build/assets/js/main-es.js',
@@ -28,7 +28,7 @@ const localConfig = {
 }
 
 const productionConfig = {
-  input: 'server/assets/js/main-es.js',
+  input: 'server/assets/javascript/main-es.js',
   output: [
     {
       file: 'build/assets/js/main-es.js',
