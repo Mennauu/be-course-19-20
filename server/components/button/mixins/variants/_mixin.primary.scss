@@ -1,0 +1,11 @@
+$button-primary-background-color: $color-primary;
+$button-primary-background-color-hover: $color-black;
+
+@mixin button--primary {
+  @include button;
+  background-color: $button-primary-background-color;
+
+  &::after {
+    background-color: $button-primary-background-color-hover;
+  }
+}

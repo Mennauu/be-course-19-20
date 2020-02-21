@@ -1,0 +1,9 @@
+$button-black-background-color-hover: $color-primary;
+
+@mixin button--black {
+  @include button;
+
+  &::after {
+    background-color: $button-black-background-color-hover;
+  }
+}

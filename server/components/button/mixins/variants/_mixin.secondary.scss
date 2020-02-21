@@ -1,0 +1,11 @@
+$button-secondary-background-color: $color-secondary;
+$button-secondary-background-color-hover: $color-black;
+
+@mixin button--secondary {
+  @include button;
+  background-color: $button-secondary-background-color;
+
+  &::after {
+    background-color: $button-secondary-background-color-hover;
+  }
+}

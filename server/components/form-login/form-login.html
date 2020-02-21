@@ -1,5 +1,7 @@
 {% from '../form/form.html' import form %}
-{% from '../form-input/form-input.html' import input %}
+{% from '../form-elements/form-input/form-input.html' import input %}
+{% from '../form-elements/form-message/form-message.html' import message %}
+{% from '../form-elements/form-notice/form-notice.html' import notice %}
 {% from '../button/button.html' import button %}
 
 {% call form({
@@ -28,12 +30,17 @@
   {{ button({ 
     element: 'button',
     label: 'Log in', 
-    type: 'submit'
+    type: 'submit',
+    variant: 'black'
   }) }}
 
-  {%- if error %}<p>{{ error }}</p>{% endif -%}
-  {%- if success %}<p>{{ success }}</p>{% endif -%}
+  {% if error != '' %} {{ message({ text: error }) }} {% endif %}
+  {% if success != '' %} {{ message({ text: success }) }} {% endif %}
 
-  <small>Don't have an account? <a href="/register">Sign up</a></small>
+  {{ notice({ 
+    text: 'Don`t have an account?',
+    linkLabel: 'Sign up',
+    url: '/register' 
+  }) }}
 
 {% endcall %}

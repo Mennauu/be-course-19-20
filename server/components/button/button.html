@@ -1,10 +1,12 @@
 {% macro button( data ) %}
 
-    <{{ data.element or 'a' }} class="c-button
+    <{{ data.element or 'a' }} class="
+    {%- if data.variant %}c-button--{{ data.variant }}{% else %}c-button{% endif -%}
     {%- if data.class %} {{ data.class }}{% endif -%}"
     {%- if data.type %} type="{{ data.type }}"{% endif -%}
     {%- if not data.type and data.element == 'button' %} type="button"{% endif -%}
     {%- if data.url %} href="{{ data.url }}"{% endif -%}
+    {%- if data.hook %} js-hook-{{ data.hook }}{% endif -%}
     {%- if data.controls %} aria-controls="{{ data.controls }}"{% endif -%}>
 
         <span class="button__label">{{ data.label }}</span>

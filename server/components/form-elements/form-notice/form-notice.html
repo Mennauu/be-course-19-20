@@ -1,0 +1,11 @@
+{% macro notice(data) %}
+
+    <small class="form__notice">
+        {{ data.text }} 
+
+        {%- if data.url %}
+            <a href="{{ data.url }}">{{ data.linkLabel }}</a>
+        {% endif -%}
+    </small>
+
+{% endmacro %}

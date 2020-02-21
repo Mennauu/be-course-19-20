@@ -1,0 +1,50 @@
+// Style
+$button-font-size: $font-size-body;
+$button-spacing: $global-spacing;
+$button-border-radius: 3px;
+
+// Colors
+$button-font-color: $color-white;
+$button-background-color: $color-black;
+$button-background-color-hover: $color-primary;
+
+// Transitions
+$button-transition-time: 600ms;
+$button-transition-ease: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
+@mixin button {
+  @include button--base;
+  font-size: $button-font-size;
+  padding: $button-spacing * 1.6 $button-spacing * 2;
+  border-radius: $button-border-radius;
+  background-color: $button-background-color;
+  color: $button-font-color;
+  transition: $button-transition-time $button-transition-ease;
+  transition-property: color, background-color;
+  overflow: hidden;
+
+  &:hover {
+    &::after {
+      transform: scaleX(1) skewX(-30deg) translate3d(-20%, 0, 0);
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    transform: skewX(-30deg) translate3d(-110%, 0, 0);
+    transition: transform $button-transition-time cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    width: calc(100% + 150px);
+  }
+
+  .button__label {
+    position: relative;
+    z-index: 1;
+    display: block;
+  }
+}
