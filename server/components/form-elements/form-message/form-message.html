@@ -1,5 +1,7 @@
 {% macro message(data) %}
 
-    <p class="form__message">{{ data.text }}</p>
+    <p class="form__message" {%- if data.hook %} js-hook-{{ data.hook }}{% endif -%}>
+        {{ data.text }}
+    </p>
 
 {% endmacro %}

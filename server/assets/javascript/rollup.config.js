@@ -1,5 +1,6 @@
 import alias from '@rollup/plugin-alias'
 import commonjs from '@rollup/plugin-commonjs'
+import json from '@rollup/plugin-json'
 import resolve from '@rollup/plugin-node-resolve'
 import babel from 'rollup-plugin-babel'
 import prettier from 'rollup-plugin-prettier'
@@ -18,6 +19,7 @@ const localConfig = {
   plugins: [
     resolve(),
     commonjs({ sourceMap: false }),
+    json(),
     alias({
       entries: [
         { find: '@utilities', replacement: './utilities' },
@@ -44,6 +46,7 @@ const productionConfig = {
   plugins: [
     resolve(),
     commonjs({ sourceMap: false }),
+    json(),
     babel({
       exclude: 'node_modules/**',
       babelrc: false,

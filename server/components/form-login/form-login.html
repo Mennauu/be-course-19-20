@@ -27,6 +27,17 @@
     hook: 'input-password'
   }) }}
 
+  {% if error %} 
+    {{ message({ 
+      text: error ,
+      hook: 'form-error'
+    }) }} 
+  {% endif %}
+
+  {% if success != '' %} 
+    {{ message({ text: success }) }} 
+  {% endif %}
+
   {{ button({ 
     element: 'button',
     label: 'Log in', 
@@ -34,9 +45,6 @@
     variant: 'black',
     class: 'form__button'
   }) }}
-
-  {% if error != '' %} {{ message({ text: error }) }} {% endif %}
-  {% if success != '' %} {{ message({ text: success }) }} {% endif %}
 
   {{ notice({ 
     text: 'Don`t have an account?',

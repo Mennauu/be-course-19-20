@@ -1,12 +1,12 @@
 $input-border-width: 1px;
 $input-border-radius: 0;
-$input-border-color: $color-black;
+$input-border-color: $color-red;
 $input-fill-color: $color-grey-light;
 $input-padding-top: $global-spacing;
 $input-padding-bottom: $global-spacing;
 $input-padding-left: $global-spacing * 2;
 $input-padding-right: $global-spacing * 4;
-$input-transition-time: 200ms;
+$input-transition-time: 750ms;
 $input-transition-ease: cubic-bezier(0.455, 0.03, 0.515, 0.955);
 
 .c-input {
@@ -27,9 +27,9 @@ $input-transition-ease: cubic-bezier(0.455, 0.03, 0.515, 0.955);
   padding-right: $input-padding-right;
   border-radius: $input-border-radius;
   border: 0;
-  // box-shadow: 0 0 0 $input-border-width $input-border-color inset;
   background-color: $input-fill-color;
   line-height: $font-line-height-body;
+  transition: box-shadow $input-transition-time $input-transition-ease;
 
   &[disabled] {
     cursor: default;
@@ -43,4 +43,8 @@ $input-transition-ease: cubic-bezier(0.455, 0.03, 0.515, 0.955);
 
 .input__wrapper {
   position: relative;
+}
+
+.input--has-error {
+  box-shadow: 0 0 0 $input-border-width $input-border-color inset;
 }

@@ -1,3 +1,18 @@
+$form-error-transition-time: 750ms;
+$form-error-transition-ease: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
 .form__message {
   display: block;
+  color: $color-red;
+  min-height: $global-spacing * 5.6;
+  transition: transform $form-error-transition-time $form-error-transition-ease,
+    opacity $form-error-transition-time $form-error-transition-ease;
+  transform: translateX(15px);
+  opacity: 0;
+}
+
+.form__message--has-error {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(0);
 }
