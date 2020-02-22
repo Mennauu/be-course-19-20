@@ -4,6 +4,10 @@
       {%- if data.method %} method="{{ data.method }}"{% endif -%}
       {%- if data.hook %} js-hook-{{ data.hook }}{% endif -%}>
 
+        {%- if data.title %}
+          <h1 class="form__title">{{ data.title }}</h1>
+        {% endif -%}
+
         {{ caller() }}
 
     </form>

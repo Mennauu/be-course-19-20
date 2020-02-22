@@ -4,3 +4,15 @@ $breakpoint-tablet-portrait: 768px;
 $breakpoint-tablet-landscape: 1024px;
 $breakpoint-laptop: 1240px;
 $breakpoint-desktop: 1600px;
+
+$mobile-start: $breakpoint-mobile;
+$mobile-end: $breakpoint-mobile-plus - 0.5;
+$mobile-plus-start: $breakpoint-mobile-plus;
+$mobile-plus-end: $breakpoint-tablet-portrait - 0.5;
+$tablet-portrait-start: $breakpoint-tablet-portrait;
+$tablet-portrait-end: $breakpoint-tablet-landscape - 0.5;
+$tablet-landscape-start: $breakpoint-tablet-landscape;
+$tablet-landscape-end: $breakpoint-laptop - 0.5;
+$laptop-start: $breakpoint-laptop;
+$laptop-end: $breakpoint-desktop - 0.5;
+$desktop-start: $breakpoint-desktop;

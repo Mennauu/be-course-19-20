@@ -1,3 +1,8 @@
 .form__notice {
   display: block;
+  margin-top: $global-spacing;
+
+  a:hover {
+    text-decoration: underline;
+  }
 }

@@ -1,20 +1,20 @@
-{% from '../form/form.html' import form %}
+{% from '../form-elements/form/form.html' import form %}
 {% from '../form-elements/form-input/form-input.html' import input %}
 {% from '../form-elements/form-message/form-message.html' import message %}
 {% from '../form-elements/form-notice/form-notice.html' import notice %}
 {% from '../button/button.html' import button %}
 
 {% call form({
-  class: 'form__modal',
   method: 'POST',
   action: '/login-authenticate',
-  hook: 'form-login'
+  hook: 'form-login',
+  title: 'Get ready'
 }) %}
 
    {{ input({
     name: 'username',
     id: 'username',
-    label: 'username',
+    label: 'Username',
     hook: 'input-username'
   }) }}
 
@@ -31,7 +31,8 @@
     element: 'button',
     label: 'Log in', 
     type: 'submit',
-    variant: 'black'
+    variant: 'black',
+    class: 'form__button'
   }) }}
 
   {% if error != '' %} {{ message({ text: error }) }} {% endif %}

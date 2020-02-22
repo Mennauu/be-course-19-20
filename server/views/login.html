@@ -1,7 +1,29 @@
+{% from '../components/card/card.html' import card %}
+{% from '../components/image/image.html' import image %}
+
 {% extends 'layouts/default.html' %}
 
 {% block content %}
 
-  {% include '../components/form-login/form-login.html' %}
+  {% call card({
+    center: true,
+    padding: false
+  }) %}
+
+    {{ image({
+    image: '/assets/images/couple.jpeg',
+    srcset: '/assets/images/coupple@320w.webp 320w,
+             /assets/images/coulple@480w.webp 480w,
+             /assets/images/couple@768w.webp 768w,
+             /assets/images/couple@1024w.webp 1024w,
+             /assets/images/couple@1280w.webp 1280w,
+             /assets/images/couple@1440w.webp 1440w,
+             /assets/images/couple@1920w.webp 1920w',
+    alt: 'Gijs Laarman'
+  }) }}
+
+    {% include '../components/form-login/form-login.html' %}
+
+  {% endcall %}
 
 {% endblock %}

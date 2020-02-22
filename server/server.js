@@ -46,12 +46,10 @@ app.use(
   }),
 )
 
-/* cookieParser is used (to allow other middleware)
-   to populate req.cookies */
+// (allow other middleware to) populate req.cookies
 app.use(cookieParser())
 
-/* bodyParser is used in order to read HTTP POST data
-   in req.body */
+// read HTTP POST data in req.body
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 

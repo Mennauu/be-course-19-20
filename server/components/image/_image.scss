@@ -1,0 +1,11 @@
+.c-image {
+  position: relative;
+}
+
+.image__default {
+  min-width: 100%;
+  min-height: 100%;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}

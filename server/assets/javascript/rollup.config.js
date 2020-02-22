@@ -31,17 +31,9 @@ const productionConfig = {
   input: 'server/assets/javascript/main-es.js',
   output: [
     {
-      file: 'build/assets/js/main-es.js',
-      format: 'es',
-    },
-    {
       file: 'build/assets/js/main-es.min.js',
       format: 'es',
       plugins: [terser()],
-    },
-    {
-      file: 'build/assets/js/main.js',
-      format: 'system',
     },
     {
       file: 'build/assets/js/main.min.js',

@@ -1,6 +1,6 @@
 // Style
 $button-font-size: $font-size-body;
-$button-spacing: $global-spacing;
+$button-spacing: $global-spacing * 1.25 $global-spacing-sm;
 $button-border-radius: 3px;
 
 // Colors
@@ -15,7 +15,7 @@ $button-transition-ease: cubic-bezier(0.455, 0.03, 0.515, 0.955);
 @mixin button {
   @include button--base;
   font-size: $button-font-size;
-  padding: $button-spacing * 1.6 $button-spacing * 2;
+  padding: $button-spacing;
   border-radius: $button-border-radius;
   background-color: $button-background-color;
   color: $button-font-color;

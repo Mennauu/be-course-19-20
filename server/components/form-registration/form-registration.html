@@ -1,11 +1,10 @@
-{% from '../form/form.html' import form %}
+{% from '../form-elements/form/form.html' import form %}
 {% from '../form-elements/form-input/form-input.html' import input %}
 {% from '../form-elements/form-message/form-message.html' import message %}
 {% from '../form-elements/form-notice/form-notice.html' import notice %}
 {% from '../button/button.html' import button %}
 
 {% call form({
-  class: 'form__modal',
   method: 'POST',
   action: '/register-user'
 }) %}

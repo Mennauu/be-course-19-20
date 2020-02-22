@@ -1,0 +1,16 @@
+.c-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__item {
+  margin-bottom: $global-spacing-sm;
+}
+
+.form__button {
+  margin-top: $global-spacing-md;
+}
+
+.form__title {
+  margin-top: -$global-spacing;
+}

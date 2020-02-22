@@ -20,9 +20,11 @@ class FormLogin {
     event.preventDefault()
     console.log(this.inputUsername.value)
     if (validator.isByteLength(this.inputUsername.value, { min: 3, max: 20 })) {
-      console.log(`Username isn't long enough`)
+      this.errorHandler()
     }
   }
+
+  errorHandler() {}
 }
 
 export default FormLogin
