@@ -1,5 +1,5 @@
 <p align="center">
-<img alt="Linernote logo" src="docs/be.png" width="150">
+<img alt="Linernote logo" src="be.png" width="150">
 </p>
 
 <h1 align="center">Back-end Course @cmda-bt 19-20</h1>
@@ -21,7 +21,7 @@
 
 <br>
 
-![Feature Preview](docs/preview.png)
+![Feature Preview](preview.png)
 
 <br>
 
