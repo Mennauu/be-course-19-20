@@ -9,7 +9,7 @@ const JS_HOOK_FORM_ERROR = '[js-hook-form-error]'
 const CLASS_FORM_ERROR = 'form__message--has-error'
 const CLASS_INPUT_ERROR = 'input--has-error'
 
-class FormLogin {
+class FormRegister {
   constructor(element) {
     this.form = element
     this.inputUsername = element.querySelector(JS_HOOK_INPUT_USERNAME)
@@ -35,7 +35,7 @@ class FormLogin {
       return this.errorHandler(
         this.messageElement,
         this.inputUsername,
-        message.usernameLoginLength,
+        message.usernameLength,
         CLASS_FORM_ERROR,
         CLASS_INPUT_ERROR,
       )
@@ -45,7 +45,7 @@ class FormLogin {
       return this.errorHandler(
         this.messageElement,
         this.inputUsername,
-        message.usernameLoginCheck,
+        message.usernameCheck,
         CLASS_FORM_ERROR,
         CLASS_INPUT_ERROR,
       )
@@ -55,7 +55,7 @@ class FormLogin {
       return this.errorHandler(
         this.messageElement,
         this.inputPassword,
-        message.passwordLoginLength,
+        message.passwordLength,
         CLASS_FORM_ERROR,
         CLASS_INPUT_ERROR,
       )
@@ -115,4 +115,4 @@ const removeActiveClasses = (element, errorClass) => {
   element.classList.remove(errorClass)
 }
 
-export default FormLogin
+export default FormRegister

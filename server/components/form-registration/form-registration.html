@@ -4,15 +4,20 @@
 {% from '../form-elements/form-notice/form-notice.html' import notice %}
 {% from '../button/button.html' import button %}
 
+{% set errorClass = 'form__message--has-error' if error != '' %}
+
 {% call form({
   method: 'POST',
-  action: '/register-user'
+  action: '/register-user',
+  hook: 'form-register',
+  title: 'Register'
 }) %}
 
   {{ input({
     name: 'username',
     id: 'username',
-    label: 'Username'
+    label: 'Username',
+    hook: 'input-username'
   }) }}
 
   {{ input({
@@ -20,19 +25,25 @@
     id: 'password',
     label: 'Password',
     type: 'password',
-    autocomplete: true
+    autocomplete: true,
+    hook: 'input-password'
   }) }}
+
+  {% if error %} 
+    {{ message({ 
+      text: error ,
+      hook: 'form-error',
+      class: errorClass
+    }) }} 
+  {% endif %}
 
   {{ button({ 
     element: 'button',
     label: 'Register', 
     type: 'submit',
-    variant: 'black'
+    variant: 'black',
+    class: 'form__button'
   }) }}
-
-  {% if error != '' %} 
-    {{ message({ text: error }) }} 
-  {% endif %}
 
   {{ notice({ 
     text: "Already have an account?",

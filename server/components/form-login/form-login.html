@@ -4,7 +4,20 @@
 {% from '../form-elements/form-notice/form-notice.html' import notice %}
 {% from '../button/button.html' import button %}
 
-{% set errorClass = 'form__message--has-error' if error != '' %}
+{% set errorClass = 'form__message--has-error' if error|length %}
+{% set successClass = 'form__message--has-success' if success|length %}
+
+{% if error|length %}
+  {% set messageText = error %}
+{% elif success|length %}
+  {% set messageText = success %}
+{% endif %}
+
+{% if errorClass|length %}
+  {% set messageClass = errorClass %}
+{% elif successClass|length %}
+  {% set messageClass = successClass %}
+{% endif %}
 
 {% call form({
   method: 'POST',
@@ -13,14 +26,14 @@
   title: 'Get ready'
 }) %}
 
-   {{ input({
+  {{ input({
     name: 'username',
     id: 'username',
     label: 'Username',
     hook: 'input-username'
   }) }}
 
-   {{ input({
+  {{ input({
     name: 'password',
     id: 'password',
     label: 'Password',
@@ -29,17 +42,11 @@
     hook: 'input-password'
   }) }}
 
-  {% if error %} 
-    {{ message({ 
-      text: error ,
-      hook: 'form-error',
-      class: errorClass
-    }) }} 
-  {% endif %}
-
-  {% if success != '' %} 
-    {{ message({ text: success }) }} 
-  {% endif %}
+  {{ message({ 
+    text: messageText,
+    hook: 'form-error',
+    class: messageClass
+  }) }} 
 
   {{ button({ 
     element: 'button',

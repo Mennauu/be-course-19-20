@@ -3,7 +3,6 @@ $form-error-transition-ease: cubic-bezier(0.455, 0.03, 0.515, 0.955);
 
 .form__message {
   display: block;
-  color: $color-red;
   min-height: $global-spacing * 5.6;
   transform: translateX(15px);
   opacity: 0;
@@ -14,4 +13,11 @@ $form-error-transition-ease: cubic-bezier(0.455, 0.03, 0.515, 0.955);
 .form__message--has-error {
   opacity: 1;
   transform: translateX(0);
+  color: $color-red;
+}
+
+.form__message--has-success {
+  opacity: 1;
+  transform: translateX(0);
+  color: $color-green;
 }

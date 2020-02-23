@@ -24,12 +24,14 @@ $card-shadow: 0 5px 10px rgba($color-black, 0.15);
 
 .card__wrapper {
   position: relative;
-  height: 100vh;
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  padding-top: $global-spacing-sm;
+  padding-bottom: $global-spacing-sm;
 }
 
 .card--is-centered {
-  @include center;
-
   @include screen-tablet-portrait-and-bigger {
     flex-direction: row;
     justify-content: stretch;
