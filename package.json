@@ -9,7 +9,7 @@
     "build": "del build && npm run build-directories && npm run build-images && npm run build-js && npm run build-css && npm run move-images && npm run move-fonts && npm run revision-js && npm run revision-css",
     "start": "npm run server & npm run build",
     "dev": "npm run server & npm run watch & npm run lint-js -s & npm run lint-css & npm run build && npm run browser-sync",
-    "browser-sync": "browser-sync start --proxy 'localhost:3000' --files 'server/assets' 'server/views' 'server/components'",
+    "browser-sync": "browser-sync start --proxy 'localhost:3000' --files 'server/build' 'server/views' 'server/components/**/*.html'",
     "lint-js": "eslint '**/*.js'",
     "lint-css": "sass-lint -c .sass-lint.yml '**/*.scss' -v -q",
     "move-fonts": "ncp server/assets/fonts build/assets/fonts",
@@ -25,6 +25,7 @@
   "dependencies": {
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.4",
+    "debounce": "^1.2.0",
     "dotenv": "^8.0.0",
     "esm": "^3.2.25",
     "express": "^4.16.4",

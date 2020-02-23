@@ -1,10 +1,13 @@
 {
   "accountHasBeenCreated": "Your account has been created, please log in",
   "usernameCheck": "Username can only be letters and numbers",
+  "usernameLoginCheck": "Your username exists of only letters and/or numbers",
   "usernameLength": "Username should be between 3 and 20 charachters",
+  "usernameLoginLength": "Your username is between 3 and 20 charachters",
   "usernameIsTaken": "Username is taken, please try a different one",
   "usernameCreationFails": "For unknown reasons your account can't be created, try again later",
   "passwordLength": "Password should be 6 charachters or longer",
-  "loginFail": "Invalid username or password",
+  "passwordLoginLength": "Your password is 6 charachters or longer",
+  "loginFail": "You filled in a wrong username or password",
   "loginSucces": "Log in succesfull, welcome!"
 }

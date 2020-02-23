@@ -26,24 +26,92 @@ class FormLogin {
   formHandler(event) {
     event.preventDefault()
 
-    this.messageElement.textContent = ''
+    this.validationEvents(this.inputUsername.value, this.inputPassword.value)
+  }
 
-    if (!validator.isByteLength(this.inputUsername.value, { min: 3, max: 20 })) {
-      this.errorHandler(message.usernameLength)
+  validationEvents(username, password) {
+    // Validate username length
+    if (!validator.isByteLength(username, { min: 3, max: 20 })) {
+      return this.errorHandler(
+        this.messageElement,
+        this.inputUsername,
+        message.usernameLoginLength,
+        CLASS_FORM_ERROR,
+        CLASS_INPUT_ERROR,
+      )
+    }
+    // Check if username contains only letters
+    if (!validator.isAlpha(username)) {
+      return this.errorHandler(
+        this.messageElement,
+        this.inputUsername,
+        message.usernameLoginCheck,
+        CLASS_FORM_ERROR,
+        CLASS_INPUT_ERROR,
+      )
+    }
+    // Validate password length
+    if (!validator.isByteLength(password, { min: 6, max: 256 })) {
+      return this.errorHandler(
+        this.messageElement,
+        this.inputPassword,
+        message.passwordLoginLength,
+        CLASS_FORM_ERROR,
+        CLASS_INPUT_ERROR,
+      )
+    }
 
-      // this.inputUsername.classList.add(CLASS_INPUT_ERROR) -----> FIX THIS
+    this.submitForm()
+  }
+
+  errorHandler(element, input, message, formErrorClass, inputErrorClass) {
+    if (element.classList.contains(formErrorClass)) {
+      this.removeActiveClasses(element, formErrorClass)
+
+      element.addEventListener('transitionend', () => {
+        this.emptyMessage(element)
+        this.addActiveClasses(element, formErrorClass)
+        this.setMessage(element, message)
+      })
+    } else {
+      this.emptyMessage(element)
+      this.addActiveClasses(element, formErrorClass)
+      this.setMessage(element, message)
+    }
+
+    if (input !== this.inputUsername && this.inputUsername.classList.contains(inputErrorClass)) {
+      this.removeActiveClasses(this.inputUsername, inputErrorClass)
+    }
+
+    if (input.classList.contains(inputErrorClass)) {
+      this.removeActiveClasses(input, inputErrorClass)
+
+      input.addEventListener('transitionend', () => {
+        this.addActiveClasses(input, inputErrorClass)
+      })
+    } else {
+      this.addActiveClasses(input, inputErrorClass)
     }
   }
 
-  errorHandler(message) {
-    this.messageElement.textContent = ''
+  emptyMessage(element) {
+    element.textContent = ''
+  }
 
-    if (this.messageElement.classList.contains(CLASS_FORM_ERROR))
-      this.messageElement.classList.remove(CLASS_FORM_ERROR)
+  removeActiveClasses(element, errorClass) {
+    element.classList.remove(errorClass)
+  }
 
-    this.messageElement.textContent = message
+  setMessage(element, message) {
+    element.textContent = message
+  }
 
-    this.messageElement.classList.add(CLASS_FORM_ERROR)
+  addActiveClasses(element, errorClass) {
+    element.classList.add(errorClass)
+  }
+
+  submitForm() {
+    this.form.submit()
   }
 }
 

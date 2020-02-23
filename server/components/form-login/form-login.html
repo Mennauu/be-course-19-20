@@ -4,6 +4,8 @@
 {% from '../form-elements/form-notice/form-notice.html' import notice %}
 {% from '../button/button.html' import button %}
 
+{% set errorClass = 'form__message--has-error' if error != '' %}
+
 {% call form({
   method: 'POST',
   action: '/login-authenticate',
@@ -30,7 +32,8 @@
   {% if error %} 
     {{ message({ 
       text: error ,
-      hook: 'form-error'
+      hook: 'form-error',
+      class: errorClass
     }) }} 
   {% endif %}
 

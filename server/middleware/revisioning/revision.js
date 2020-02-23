@@ -43,8 +43,8 @@ gulp.task('revision-css', () => {
 
 gulp.task('replace-js', ['revision-js'], () => {
   const buildFolder = '../../../build/assets'
-  const revisionFile = '../../views/revisions/default.html'
-  const layoutFolder = '../../views/layouts'
+  const revisionFile = '../../views/layouts/default.html'
+  const layoutFolder = '../../views/rev-layouts'
   const manifest = gulp.src(`${buildFolder}/rev-manifest.json`)
 
   return gulp
@@ -55,8 +55,8 @@ gulp.task('replace-js', ['revision-js'], () => {
 
 gulp.task('replace-css', ['revision-css'], () => {
   const buildFolder = '../../../build/assets'
-  const revisionFile = '../../views/revisions/default.html'
-  const layoutFolder = '../../views/layouts'
+  const revisionFile = '../../views/layouts/default.html'
+  const layoutFolder = '../../views/rev-layouts'
   const manifest = gulp.src(`${buildFolder}/rev-manifest.json`)
 
   return gulp

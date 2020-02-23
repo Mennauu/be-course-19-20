@@ -18,7 +18,12 @@ const localConfig = {
   ],
   plugins: [
     resolve(),
-    commonjs({ sourceMap: false }),
+    commonjs({
+      sourceMap: false,
+      namedExports: {
+        debounce: ['debounce'],
+      },
+    }),
     json(),
     alias({
       entries: [
@@ -45,7 +50,12 @@ const productionConfig = {
   ],
   plugins: [
     resolve(),
-    commonjs({ sourceMap: false }),
+    commonjs({
+      sourceMap: false,
+      namedExports: {
+        debounce: ['debounce'],
+      },
+    }),
     json(),
     babel({
       exclude: 'node_modules/**',
