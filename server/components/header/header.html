@@ -1,0 +1,32 @@
+{% macro header( data ) %}
+
+    <header class="c-header {% if data.shadow %} header--has-shadow{% endif %}" 
+        {% if data.condenses %} condenses{% endif %}
+        {% if data.reveals %} reveals{% endif %}
+        {% if data.fixed %} fixed{% endif %}
+        js-hook-header>
+
+        <div class="o-container">
+
+            <div class="header__wrapper">
+
+                <a class="header__logo" href="/">
+                    <span><</span>
+                    <img src="/assets/images/logo_white.svg" alt="Logo">
+                    <span class="logo__text">HTMLovers</span>
+                    <span>/></span>
+                </a>
+
+                <div class="header__navigation">
+
+                     {{ caller() }}
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+{% endmacro %}

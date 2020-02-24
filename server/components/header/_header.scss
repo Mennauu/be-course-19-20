@@ -1,0 +1,45 @@
+$header-shadow-color: inset 0 2px 4px -3px rgba($color-black, 0.2);
+
+.c-header {
+  background-color: transparent;
+  width: 100%;
+}
+
+.header__wrapper {
+  padding-top: $global-spacing-md;
+  padding-bottom: $global-spacing-md;
+  display: flex;
+  align-items: center;
+}
+
+.header__navigation {
+  margin-left: auto;
+}
+
+.header__logo {
+  height: 50px;
+  display: flex;
+  align-items: center;
+
+  img,
+  svg {
+    height: 100%;
+    margin-left: $global-spacing;
+  }
+
+  span {
+    font-family: $font-stack-secondary;
+    font-size: 2.8rem;
+    display: inline-block;
+    color: $color-white;
+  }
+
+  .logo__text {
+    margin-left: $global-spacing;
+    margin-right: $global-spacing;
+  }
+}
+
+.header--has-shadow {
+  box-shadow: $header-shadow-color;
+}

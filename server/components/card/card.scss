@@ -26,7 +26,7 @@ $card-shadow: 0 5px 10px rgba($color-black, 0.15);
   position: relative;
   display: flex;
   align-items: center;
-  min-height: 100vh;
+  min-height: calc(100vh - #{$global-spacing * 11});
   padding-top: $global-spacing-sm;
   padding-bottom: $global-spacing-sm;
 }

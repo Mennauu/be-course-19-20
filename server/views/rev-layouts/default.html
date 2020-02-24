@@ -1,3 +1,5 @@
+{% from '../../components/header/header.html' import header %}
+
 <!DOCTYPE html>
 <html lang="nl" dir="ltr">
 
@@ -11,7 +13,7 @@
 
         <title>BE Course 2020</title>
 
-        <link rel="stylesheet" href="/assets/css/styles-eff9c2773c.min.css">
+        <link rel="stylesheet" href="/assets/css/styles-67342097c5.min.css">
 
         <!-- Favicons -->
         <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon.png">
@@ -27,6 +29,10 @@
     </head>
 
     <body>
+
+        {% call header() %}
+            
+        {% endcall %}
 
         <main id="content" role="main">
 
