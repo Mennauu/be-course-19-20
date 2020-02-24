@@ -6,8 +6,7 @@ $form-error-transition-ease: cubic-bezier(0.455, 0.03, 0.515, 0.955);
   min-height: $global-spacing * 5.6;
   transform: translateX(15px);
   opacity: 0;
-  transition: opacity $form-error-transition-time $form-error-transition-ease,
-    transform $form-error-transition-time $form-error-transition-ease;
+  transition: all $form-error-transition-time $form-error-transition-ease;
 }
 
 .form__message--has-error {
