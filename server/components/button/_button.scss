@@ -1,7 +1,10 @@
 @import 'mixins/mixin.button';
 @import 'mixins/variants/mixin.black';
+@import 'mixins/variants/mixin.white';
 @import 'mixins/variants/mixin.primary';
 @import 'mixins/variants/mixin.secondary';
+@import 'mixins/variants/mixin.tertiary';
+@import 'mixins/size/mixin.large';
 
 .c-button {
   @include button;
@@ -14,10 +17,25 @@
   @include button--black;
 }
 
+.c-button--white {
+  @include button--white;
+}
+
 .c-button--primary {
   @include button--primary;
 }
 
 .c-button--secondary {
   @include button--secondary;
+}
+
+.c-button--tertiary {
+  @include button--tertiary;
+}
+
+/**
+* Button sizes
+*/
+.button--large {
+  @include button--large;
 }

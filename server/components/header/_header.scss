@@ -3,6 +3,15 @@ $header-shadow-color: inset 0 2px 4px -3px rgba($color-black, 0.2);
 .c-header {
   background-color: transparent;
   width: 100%;
+  position: relative;
+  z-index: 1;
+
+  @include screen-tablet-portrait-and-bigger {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+  }
 }
 
 .header__wrapper {
@@ -17,26 +26,30 @@ $header-shadow-color: inset 0 2px 4px -3px rgba($color-black, 0.2);
 }
 
 .header__logo {
-  height: 50px;
+  @include fluid-type(5, 4, 'height');
   display: flex;
   align-items: center;
+  font-family: $font-stack-secondary;
+  color: $color-white;
 
-  img,
-  svg {
+  .logo__image {
     height: 100%;
     margin-left: $global-spacing;
+    margin-right: $global-spacing;
   }
 
   span {
-    font-family: $font-stack-secondary;
     font-size: 2.8rem;
     display: inline-block;
-    color: $color-white;
   }
 
   .logo__text {
-    margin-left: $global-spacing;
     margin-right: $global-spacing;
+    display: none;
+
+    @include screen-tablet-portrait-and-bigger {
+      display: block;
+    }
   }
 }
 

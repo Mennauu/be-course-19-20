@@ -1,0 +1,13 @@
+@mixin button--white {
+  @include button;
+  background-color: $color-white;
+  color: $color-primary !important;
+
+  &:hover {
+    color: $color-white !important;
+  }
+
+  &::after {
+    background-color: $color-black;
+  }
+}

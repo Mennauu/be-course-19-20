@@ -21,3 +21,11 @@
   font-weight: $font-weight-extrablack;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'Tomica';
+  src: url('/assets/fonts/tomica-bold.woff2') format('woff2'),
+    url('/assets/fonts/tomica-bold.woff') format('woff');
+  font-weight: $font-weight-bold;
+  font-style: normal;
+}

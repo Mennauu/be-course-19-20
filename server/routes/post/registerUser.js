@@ -53,7 +53,7 @@ const createNewUser = (req, res, username, password) => {
       if (add) {
         req.flash('success', message.accountHasBeenCreated)
 
-        res.redirect(`${process.env.LOCAL_URI}home`)
+        res.redirect(`${process.env.LOCAL_URI}login`)
       }
     }
   })

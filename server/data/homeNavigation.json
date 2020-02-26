@@ -1,0 +1,9 @@
+[
+  {
+    "label": "Log in",
+    "href": "/login",
+    "element": "a",
+    "type": "button",
+    "variant": "white"
+  }
+]

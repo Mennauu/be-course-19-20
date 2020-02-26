@@ -28,10 +28,10 @@
 
     </head>
 
-    <body>
+    <body class="{{ bodyClass }}">
 
         {% call header() %}
-            
+            {% include '../../components/navigation/navigation.html' %}
         {% endcall %}
 
         <main id="content" role="main">

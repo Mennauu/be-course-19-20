@@ -1,0 +1,13 @@
+{% macro intro(data) %}
+
+  <div class="o-container">
+
+    <div class="c-intro {%- if data.textCenter %} intro__text--is-centered {% endif -%}">
+
+      {{ caller() }}
+
+    </div>
+
+  </div>
+
+{% endmacro %}

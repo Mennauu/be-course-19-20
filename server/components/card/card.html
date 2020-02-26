@@ -6,8 +6,10 @@
 
       <div class="c-card
         {%- if data.class %} {{ data.class }}{% endif -%}
-        {%- if data.padding %} card-has-padding{% endif -%}
-        {%- if data.center %} card--is-centered{% endif -%}"
+        {%- if data.padding %} card--has-padding{% endif -%}
+        {%- if data.center %} card--is-centered{% endif -%}
+        {%- if data.shadow %} card--has-shadow{% endif -%}
+        {%- if data.transparent %} card--is-transparent{% endif -%}"
         {%- if data.hook %} js-hook-{{ data.hook }}{% endif -%}>
 
           {{ caller() }}

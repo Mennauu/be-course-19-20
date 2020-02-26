@@ -1,0 +1,9 @@
+.c-navigation {
+  display: flex;
+  flex-direction: row;
+}
+
+.navigation__link {
+  margin-left: $global-spacing-md;
+  color: $color-white;
+}

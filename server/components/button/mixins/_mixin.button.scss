@@ -45,6 +45,12 @@ $button-transition-ease: cubic-bezier(0.455, 0.03, 0.515, 0.955);
   .button__label {
     position: relative;
     z-index: 1;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      margin-right: $global-spacing;
+    }
   }
 }

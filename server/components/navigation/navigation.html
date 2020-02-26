@@ -1,10 +1,26 @@
 <nav class="c-navigation">
 
-  {% for item in navigation %}
+    {% for item in navigation %}
 
-    <a class="navigation__link" href="{{ item.href }}">{{ item.label }}</a>
+        <{{ item.element or 'a' }} class="navigation__link
+           {%- if item.type == 'button' %} c-button
+           {%- if item.variant %}--{{ item.variant }}{% endif -%}{% endif -%}" 
+           {%- if item.href %} href={{ item.href }}{% endif -%}
+           {%- if item.ariaControls %} aria-controls={{ item.ariaControls }}{% endif -%}
+           {%- if item.ariaLabel %} aria-label={{ item.ariaLabel }} {% endif -%}
+           {%- if item.target %} target={{ item.target }} {% endif -%}
+           {%- if item.external %} rel="noopener" {% endif -%}>
 
-  {% endfor %}
-  
+           {% if item.type == 'button' %}
+             <span class="button__label">{{ item.label }}</span>
+           {% else %}
+             {{ item.label }}
+           {% endif %}
+
+        </{{ item.element or 'a' }}>
+
+    {% endfor %}
+    
+
 </nav>
 

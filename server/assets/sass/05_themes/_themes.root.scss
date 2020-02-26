@@ -1,0 +1,37 @@
+.t-root {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 45% 72.5%;
+    background-image: url('/assets/images/couple2.jpg');
+    animation: switchBackground 18s infinite;
+    filter: invert(15%) sepia(50%) saturate(200%) hue-rotate(328deg) brightness(92%) contrast(98%);
+  }
+}
+
+@keyframes switchBackground {
+  10%,
+  30% {
+    background-image: url('/assets/images/couple2.jpg');
+  }
+  40%,
+  62.5% {
+    background-image: url('/assets/images/couple3.jpg');
+  }
+
+  // 50% {
+  //   background-position: 55% 100%;
+  // }
+  72.5%,
+  92.5% {
+    background-image: url('/assets/images/couple7.jpg');
+  }
+}

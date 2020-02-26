@@ -3,7 +3,20 @@ $button-black-background-color-hover: $color-primary;
 @mixin button--black {
   @include button;
 
+  &:hover {
+    color: $color-black;
+
+    svg g {
+      fill: $color-black;
+    }
+  }
+
   &::after {
     background-color: $button-black-background-color-hover;
+  }
+
+  svg g {
+    fill: $color-white;
+    transition: fill 600ms;
   }
 }

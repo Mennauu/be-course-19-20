@@ -6,9 +6,10 @@
   "main": "server/server.js",
   "scripts": {
     "server": "node -r esm server/server.js",
+    "server-nodemon": "nodemon -r esm server/server.js",
     "build": "del build && npm run build-directories && npm run build-images && npm run build-js && npm run build-css && npm run move-images && npm run move-fonts && npm run revision-js && npm run revision-css && npm run optimize-svgs",
     "start": "npm run server & npm run build",
-    "dev": "npm run server & npm run watch & npm run lint-js -s & npm run lint-css & npm run build && npm run browser-sync",
+    "dev": "npm run kill-port & npm run server-nodemon & npm run watch & npm run lint-js -s & npm run lint-css & npm run build && npm run browser-sync",
     "browser-sync": "browser-sync start --proxy 'localhost:3000' --files 'server/build' 'server/views' 'server/components/**/*.html'",
     "optimize-svgs": "svgo -f build/assets/images",
     "lint-js": "eslint '**/*.js'",
@@ -21,6 +22,7 @@
     "build-css": "del build/assets/css && node-sass --importer node_modules/node-sass-glob-importer/dist/cli.js server/assets/sass/main.scss build/assets/css/styles.min.css --output-style compressed",
     "revision-js": "gulp --gulpfile server/middleware/revisioning/revision.js replace-js",
     "revision-css": "gulp --gulpfile server/middleware/revisioning/revision.js replace-css",
+    "kill-port": "kill-port 3000",
     "watch": "chokidar '**/*.js' -c 'npm run lint-js -s & npm run build-js && npm run revision-js' --ignore 'build/assets/js/*.js' --ignore 'server/server.js' & chokidar '**/*.scss' -c 'npm run build-css & npm run lint-css && npm run revision-css' & chokidar 'server/assets/fonts/*' -c 'npm run move-fonts' --throttle 5000 & chokidar 'server/assets/images/*' -c 'npm run move-images' --throttle 5000"
   },
   "dependencies": {
@@ -67,9 +69,11 @@
     "gulp-rev": "^9.0.0",
     "gulp-rev-delete-original": "^0.2.3",
     "gulp-rev-replace": "^0.4.4",
+    "kill-port": "^1.6.0",
     "make-dir-cli": "^2.0.0",
     "ncp": "^2.0.0",
     "node-sass-glob-importer": "^5.3.2",
+    "nodemon": "^2.0.2",
     "prettier": "^1.19.1",
     "rollup": "^1.31.0",
     "rollup-plugin-babel": "^4.3.3",

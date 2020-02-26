@@ -1,7 +1,24 @@
+{% from '../components/button/button.html' import button %}
+{% from '../components/intro/intro.html' import intro %}
+
 {% extends 'rev-layouts/default.html' %}
 
 {% block content %}
 
-Error :-()
+{% call intro() %}
+
+    <h1 class="intro__title">Lost in love.</h1>
+
+    <p class="intro__copy">Strange holws of nothingness, it feels unknown and empty here.</p>
+
+    {{ button({ 
+      element: 'a',
+      label: 'Go back',
+      variant: 'black',
+      url: '/',
+      arrowLeft: true
+    }) }}
+
+  {% endcall %}
 
 {% endblock %}

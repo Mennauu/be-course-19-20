@@ -1,0 +1,11 @@
+$button-tertiary-background-color: $color-tertiary;
+$button-tertiary-background-color-hover: $color-black;
+
+@mixin button--tertiary {
+  @include button;
+  background-color: $button-tertiary-background-color;
+
+  &::after {
+    background-color: $button-tertiary-background-color-hover;
+  }
+}

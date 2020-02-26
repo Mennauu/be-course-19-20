@@ -1,0 +1,35 @@
+.c-intro {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  height: calc(100vh - #{$global-spacing * 11.3});
+  color: $color-white;
+
+  @include screen-tablet-portrait-and-bigger {
+    height: 100vh;
+  }
+}
+
+.intro__title {
+  @include fluid-type(10, 5);
+  color: $color-white;
+}
+
+.intro__copy {
+  margin-bottom: $global-spacing-md;
+}
+
+.intro__link {
+  color: $color-white;
+  text-decoration: underline;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.intro__text--is-centered {
+  align-items: center;
+}

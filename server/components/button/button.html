@@ -2,14 +2,25 @@
 
     <{{ data.element or 'a' }} class="
     {%- if data.variant %}c-button--{{ data.variant }}{% else %}c-button{% endif -%}
-    {%- if data.class %} {{ data.class }}{% endif -%}"
+    {%- if data.class %} {{ data.class }}{% endif -%}
+    {%- if data.size %} button--{{ data.size }}{% endif -%}"
     {%- if data.type %} type="{{ data.type }}"{% endif -%}
     {%- if not data.type and data.element == 'button' %} type="button"{% endif -%}
     {%- if data.url %} href="{{ data.url }}"{% endif -%}
     {%- if data.hook %} js-hook-{{ data.hook }}{% endif -%}
     {%- if data.controls %} aria-controls="{{ data.controls }}"{% endif -%}>
 
-        <span class="button__label">{{ data.label }}</span>
+        <span class="button__label">
+            {%- if data.arrowLeft %} 
+                <svg width="16" height="15" xmlns="http://www.w3.org/2000/svg"><g transform="matrix(-1 0 0 1 16 -1)" fill="#000" fill-rule="nonzero"><rect y="8" width="14" height="1.5" rx=".75"/><g transform="translate(6.359 .909)"><rect transform="rotate(45 5 4.75)" y="4" width="10" height="1.5" rx=".75"/><rect transform="rotate(-45 5 11.041)" y="10.291" width="10" height="1.5" rx=".75"/></g></g></svg>
+            {% endif -%}
+        
+            {{ data.label }}
+
+             {%- if data.arrowRight %} 
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="15"><g fill-rule="evenodd" transform="translate(0 -1)"><rect width="14" height="1.5" y="8" rx=".75"/><g transform="translate(6.359 .909)"><rect width="10" height="1.5" y="4" rx=".75" transform="rotate(45 5 4.75)"/><rect width="10" height="1.5" y="10.291" rx=".75" transform="rotate(-45 5 11.041)"/></g></g></svg>
+            {% endif -%} 
+        </span>
 
     </{{ data.element or 'a' }}>
 
