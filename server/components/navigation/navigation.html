@@ -20,7 +20,14 @@
         </{{ item.element or 'a' }}>
 
     {% endfor %}
+
+    {% if username %}
+      <a class="navigation__link navigation__profile" href="/#profile">
+        <span class="navigation__label">{{ username }}</span>
+        <div class="navigation__image">
+          <img src="{{ avatar }}" alt="Avatar">
+        </div>
+      </a>
+    {% endif %}
     
-
 </nav>
-

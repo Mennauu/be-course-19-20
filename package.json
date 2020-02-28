@@ -23,7 +23,7 @@
     "revision-js": "gulp --gulpfile server/middleware/revisioning/revision.js replace-js",
     "revision-css": "gulp --gulpfile server/middleware/revisioning/revision.js replace-css",
     "kill-port": "kill-port 3000",
-    "watch": "chokidar '**/*.js' -c 'npm run lint-js -s & npm run build-js && npm run revision-js' --ignore 'build/assets/js/*.js' --ignore 'server/server.js' & chokidar '**/*.scss' -c 'npm run build-css & npm run lint-css && npm run revision-css' & chokidar 'server/assets/fonts/*' -c 'npm run move-fonts' --throttle 5000 & chokidar 'server/assets/images/*' -c 'npm run move-images' --throttle 5000"
+    "watch": "chokidar '**/*.js' -c 'npm run lint-js -s & npm run build-js && npm run revision-js' --ignore 'build/assets/js/*.js' --ignore 'server/server.js' --ignore 'server/routes/**/*' --ignore 'server/middleware/**/*' --ignore 'server/database/**/*' & chokidar '**/*.scss' -c 'npm run build-css & npm run lint-css && npm run revision-css' & chokidar 'server/assets/fonts/*' -c 'npm run move-fonts' --throttle 5000 & chokidar 'server/assets/images/*' -c 'npm run move-images' --throttle 5000"
   },
   "dependencies": {
     "connect-flash": "^0.1.1",

@@ -4,10 +4,10 @@ $button-black-background-color-hover: $color-primary;
   @include button;
 
   &:hover {
-    color: $color-black;
+    color: $color-white;
 
     svg g {
-      fill: $color-black;
+      fill: $color-white;
     }
   }
 

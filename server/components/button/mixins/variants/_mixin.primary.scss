@@ -5,6 +5,10 @@ $button-primary-background-color-hover: $color-black;
   @include button;
   background-color: $button-primary-background-color;
 
+  &:hover {
+    color: $color-white;
+  }
+
   &::after {
     background-color: $button-primary-background-color-hover;
   }
