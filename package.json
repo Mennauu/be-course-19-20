@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "author": "Menno de Vries",
   "description": "Backend · 2019-2020 · University of Amsterdam assignment",
+  "engines": {
+    "node": "10.16.3"
+  },
   "main": "server/server.js",
   "scripts": {
     "server": "node -r esm server/server.js",
