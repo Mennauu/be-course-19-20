@@ -44,7 +44,9 @@
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "shrink-ray-current": "^4.1.2",
-    "validator": "^12.2.0",
+    "validator": "^12.2.0"
+  },
+  "devDependencies": {
     "@babel/core": "^7.8.4",
     "@babel/preset-env": "^7.8.4",
     "@babel/runtime-corejs3": "^7.8.4",

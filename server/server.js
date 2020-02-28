@@ -14,7 +14,7 @@ import nunjucks from 'nunjucks'
 import { loginFail, loginSucces } from './data/messages.json'
 import auth from './middleware/authentication/auth.js'
 
-// const shrinkRay = require('shrink-ray-current')
+const shrinkRay = require('shrink-ray-current')
 const serve = require('./middleware/headers/serve.js')
 const route = require('./routes/routeHandler.js')
 const app = express()
@@ -40,11 +40,11 @@ app.use((req, res, next) => {
 })
 
 // Brotli/GZIP HTML file compression
-// app.use(
-//   shrinkRay({
-//     filter: req => req.headers['accept'].includes(['text/html']),
-//   }),
-// )
+app.use(
+  shrinkRay({
+    filter: req => req.headers['accept'].includes(['text/html']),
+  }),
+)
 
 // (allow other middleware to) populate req.cookies
 app.use(cookieParser())
@@ -79,6 +79,7 @@ app.use(
     etag: '',
   }),
 )
+
 app.use('/data', express.static(__dirname + '/../server/data'))
 
 // Middleware for serving correct content type header
