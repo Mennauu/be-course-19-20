@@ -1,4 +1,24 @@
 main {
   position: relative;
   z-index: 1;
+
+  .user--is-authenticated & {
+    color: $color-white;
+    padding-top: $global-spacing-lg;
+    padding-bottom: $global-spacing-lg;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: $color-white;
+    }
+
+    @include screen-tablet-portrait-and-bigger {
+      padding-top: $global-spacing * 8;
+      padding-bottom: $global-spacing * 8;
+    }
+  }
 }

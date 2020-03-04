@@ -8,4 +8,9 @@ $button-tertiary-background-color-hover: $color-black;
   &::after {
     background-color: $button-tertiary-background-color-hover;
   }
+
+  svg > g {
+    fill: $color-white;
+    transition: fill 600ms;
+  }
 }

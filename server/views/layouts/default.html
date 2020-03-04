@@ -1,4 +1,7 @@
 {% from '../../components/header/header.html' import header %}
+{% set headerClass = 'header--is-white' if authenticated %}
+{% set authenticatedClass = 'user--is-authenticated' if authenticated %}
+{% set logoImage = 'logo' if authenticated else 'logo_white' %}
 
 <!DOCTYPE html>
 <html lang="nl" dir="ltr">
@@ -28,10 +31,15 @@
 
     </head>
 
-    <body class="{{ bodyClass }}">
+    <body class="{{ bodyClass }} {{ authenticatedClass }}">
 
-        {% call header() %}
+        {% call header({
+            class: headerClass,
+            image: logoImage
+        }) %}
+
             {% include '../../components/navigation/navigation.html' %}
+
         {% endcall %}
 
         <main id="content" role="main">

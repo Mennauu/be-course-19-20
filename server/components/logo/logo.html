@@ -1,0 +1,12 @@
+{% macro logo(data) %}
+
+  <div class="c-logo">
+
+    <span class="logo__side"><</span>
+    <img class="logo__image" src="/assets/images/{{ data.image }}.svg" alt="Logo">
+    <span class="logo__text">{{ data.text }}</span>
+    <span class="logo__side">/></span>
+
+  </div>
+
+{% endmacro %}

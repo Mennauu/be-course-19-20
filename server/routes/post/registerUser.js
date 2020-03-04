@@ -12,7 +12,7 @@ export const registerUser = (req, res) => {
     return res.redirect('back')
   }
 
-  if (validateUsernameAlpha(username)) {
+  if (validateUsernameAlphaNumeric(username)) {
     req.flash('error', message.usernameCheck)
 
     return res.redirect('back')
@@ -28,7 +28,7 @@ export const registerUser = (req, res) => {
 }
 
 const validateUsernameLength = username => !validator.isByteLength(username, { min: 3, max: 20 })
-const validateUsernameAlpha = username => !validator.isAlpha(username)
+const validateUsernameAlphaNumeric = username => !validator.isAlphanumeric(username)
 const validatePasswordLength = password => !validator.isByteLength(password, { min: 6, max: 256 })
 
 const createNewUser = (req, res, username, password) => {

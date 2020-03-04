@@ -13,6 +13,10 @@ $navigation-transition-speed: 600ms;
   &::first-letter {
     text-transform: uppercase;
   }
+
+  .header--is-white & {
+    color: $color-black;
+  }
 }
 
 .navigation__profile {
@@ -40,10 +44,6 @@ $navigation-transition-speed: 600ms;
   font-weight: $font-weight-bold;
   transform: translateY(0);
   transition: transform $navigation-transition-speed;
-
-  &::first-letter {
-    text-transform: uppercase;
-  }
 }
 
 .navigation__image {

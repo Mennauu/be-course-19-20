@@ -4,16 +4,16 @@
 
 {% block content %}
 
-  {{ image({
-    image: '/assets/images/gijs.jpeg',
-    srcset: '/assets/images/gijs@320w.webp 320w,
-             /assets/images/gijs@480w.webp 480w,
-             /assets/images/gijs@768w.webp 768w,
-             /assets/images/gijs@1024w.webp 1024w,
-             /assets/images/gijs@1280w.webp 1280w,
-             /assets/images/gijs@1440w.webp 1440w,
-             /assets/images/gijs@1920w.webp 1920w',
-    alt: 'Gijs Laarman'
-  }) }}
+<div class="o-container">
+
+  <div class="o-grid">
+
+    <div class="o-col-8--md u-pre-2--md">
+      {% include '../components/form-settings/form-settings.html' %}
+    </div>
+
+  </div>
+
+</div>
 
 {% endblock %}

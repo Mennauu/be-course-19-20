@@ -2,8 +2,5 @@
   {
     "label": "Log out",
     "href": "/logout"
-  },
-  {
-    "href": "/profile"
   }
 ]

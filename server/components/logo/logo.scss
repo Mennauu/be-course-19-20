@@ -1,0 +1,31 @@
+.c-logo {
+  display: flex;
+  font-family: $font-stack-secondary;
+  color: $color-white;
+  height: 100%;
+
+  .header--is-white & {
+    color: $color-black;
+  }
+}
+
+.logo__side {
+  font-size: 2.8rem;
+  display: inline-block;
+}
+
+.logo__image {
+  height: 100%;
+  margin-left: $global-spacing;
+  margin-right: $global-spacing;
+}
+
+.logo__text {
+  font-size: 2.8rem;
+  margin-right: $global-spacing;
+  display: none;
+
+  @include screen-tablet-portrait-and-bigger {
+    display: block;
+  }
+}

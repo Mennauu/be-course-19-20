@@ -1,0 +1,98 @@
+{% from '../form-elements/form/form.html' import form %}
+{% from '../form-elements/form-radio-wrapper/form-radio-wrapper.html' import radioWrapper %}
+{% from '../form-elements/form-input/form-input.html' import input %}
+{% from '../form-elements/form-message/form-message.html' import message %}
+{% from '../form-elements/form-notice/form-notice.html' import notice %}
+{% from '../form-elements/form-radio/form-radio.html' import radio %}
+{% from '../button/button.html' import button %}
+
+{% set errorClass = 'form__message--has-error' if error != '' %}
+
+{% call form({
+  method: 'POST',
+  action: '/user-settings',
+  class: 'form__settings',
+  hook: 'form-settings',
+  title: 'Hello ' +  username + '.',
+  subtitle: 'Since this is your first time visiting you have to fill in some information.'
+}) %}
+
+  {{ input({
+    name: 'name',
+    id: 'name',
+    label: 'What is your real name?',
+    hook: 'input-name',
+    autofocus: true,
+    class: 'form__item--is-visible'
+  }) }}
+
+  {% call radioWrapper({
+    label: 'What is your gender?',
+    hook: 'gender-form',
+    class: 'form__item--is-visible'
+  }) %}
+
+    {{ radio({
+      name: 'gender',
+      value: 'Male',
+      image: '/assets/images/male.png'
+    }) }}
+
+    {{ radio({
+      name: 'gender',
+      value: 'Female',
+      image: '/assets/images/female.png'
+    }) }}
+
+    {{ radio({
+      name: 'gender',
+      value: 'Any',
+      image: '/assets/images/gender.png'
+    }) }}
+  
+  {% endcall %}
+
+  {% call radioWrapper({
+    label: 'Which gender do you fall for?',
+    hook: 'gender-form',
+    class: 'form__item--is-visible'
+  }) %}
+
+    {{ radio({
+      name: 'attraction',
+      value: 'Males',
+      image: '/assets/images/male.png'
+    }) }}
+
+    {{ radio({
+      name: 'attraction',
+      value: 'Females',
+      image: '/assets/images/female.png'
+    }) }}
+
+    {{ radio({
+      name: 'attraction',
+      value: 'Anyone',
+      image: '/assets/images/gender.png'
+    }) }}
+  
+  {% endcall %}
+
+  {% if error %} 
+    {{ message({ 
+      text: error ,
+      hook: 'form-error',
+      class: errorClass
+    }) }} 
+  {% endif %}
+
+  {{ button({ 
+    element: 'button',
+    label: 'Next',
+    variant: 'secondary',
+    arrowRight: true,
+    class: 'form__button',
+    hook: 'next-button'
+  }) }}
+
+{% endcall %}

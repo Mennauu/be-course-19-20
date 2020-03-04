@@ -8,6 +8,7 @@ export const home = (req, res) => {
       navigation: dataNavigation,
       username: req.user.username,
       avatar: req.user.avatar || avatar,
+      authenticated: true,
     })
   } else {
     res.redirect('/login')

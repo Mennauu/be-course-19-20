@@ -1,0 +1,76 @@
+.form__settings {
+  .form__item {
+    margin-bottom: $global-spacing-lg;
+    height: 0;
+    visibility: hidden;
+    transition: height 600ms;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  .form__title {
+    // animation: fadeIn 1.5s;
+  }
+
+  .form__subtitle {
+    margin-bottom: $global-spacing * 10;
+    // animation: delayedFadeIn 2.5s;
+  }
+
+  .input__label {
+    font-weight: bold;
+  }
+
+  .input__input {
+    @include fluid-type(5, 3);
+    background-color: transparent;
+    padding-left: 0;
+    color: $color-black;
+    font-family: $font-stack-secondary;
+    border-bottom: 5px solid rgba($color-black, 0.8);
+  }
+
+  .form__button {
+    align-self: flex-end;
+  }
+
+  .form__item--is-visible {
+    visibility: visible;
+    height: 100%;
+
+    &:first-of-type {
+      // animation: delayedFadeIn 5s;
+    }
+
+    .input__input {
+      @include fluid-type(10, 7.5, 'height');
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(#{$global-spacing-sm});
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes delayedFadeIn {
+  0% {
+    opacity: 0;
+  }
+  66% {
+    opacity: 0;
+    transform: translateY(#{$global-spacing-sm});
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

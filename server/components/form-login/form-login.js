@@ -1,5 +1,11 @@
 import validator from 'validator'
 
+import {
+  addActiveClasses,
+  emptyText,
+  removeActiveClasses,
+  setText,
+} from '../../assets/javascript/pure/pure.js'
 import message from '../../data/messages.json'
 
 const JS_HOOK_INPUT_USERNAME = '[js-hook-input-username]'
@@ -40,8 +46,8 @@ class FormLogin {
         CLASS_INPUT_ERROR,
       )
     }
-    // Check if username contains only letters
-    if (!validator.isAlpha(username)) {
+    // Check if username contains only letters and numbers
+    if (!validator.isAlphanumeric(username)) {
       return this.errorHandler(
         this.messageElement,
         this.inputUsername,
@@ -69,14 +75,14 @@ class FormLogin {
       removeActiveClasses(element, formErrorClass)
 
       element.addEventListener('transitionend', () => {
-        emptyMessage(element)
+        emptyText(element)
         addActiveClasses(element, formErrorClass)
-        setMessage(element, message)
+        setText(element, message)
       })
     } else {
-      emptyMessage(element)
+      emptyText(element)
       addActiveClasses(element, formErrorClass)
-      setMessage(element, message)
+      setText(element, message)
     }
 
     if (input !== this.inputUsername && this.inputUsername.classList.contains(inputErrorClass)) {
@@ -97,22 +103,6 @@ class FormLogin {
   submitForm() {
     this.form.submit()
   }
-}
-
-const setMessage = (element, message) => {
-  element.textContent = message
-}
-
-const emptyMessage = element => {
-  element.textContent = ''
-}
-
-const addActiveClasses = (element, errorClass) => {
-  element.classList.add(errorClass)
-}
-
-const removeActiveClasses = (element, errorClass) => {
-  element.classList.remove(errorClass)
 }
 
 export default FormLogin

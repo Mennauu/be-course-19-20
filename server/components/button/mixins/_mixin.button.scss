@@ -48,9 +48,42 @@ $button-transition-ease: cubic-bezier(0.455, 0.03, 0.515, 0.955);
     display: flex;
     align-items: center;
     justify-content: center;
+  }
 
+  &:disabled,
+  &[disabled] {
+    background-color: $color-grey-light;
+    color: $color-grey;
+    pointer-events: none;
+
+    svg > g {
+      fill: $color-grey;
+    }
+  }
+}
+
+.button--has-arrowright {
+  svg {
+    margin-left: $global-spacing;
+    transition: transform $button-transition-time;
+  }
+
+  &:hover {
     svg {
-      margin-right: $global-spacing;
+      transform: translateX(4px);
+    }
+  }
+}
+
+.button--has-arrowleft {
+  svg {
+    margin-right: $global-spacing;
+    transition: transform $button-transition-time;
+  }
+
+  &:hover {
+    svg {
+      transform: translateX(-4px);
     }
   }
 }

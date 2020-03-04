@@ -6,7 +6,7 @@ $button-black-background-color-hover: $color-primary;
   &:hover {
     color: $color-white;
 
-    svg g {
+    svg > g {
       fill: $color-white;
     }
   }
@@ -15,7 +15,7 @@ $button-black-background-color-hover: $color-primary;
     background-color: $button-black-background-color-hover;
   }
 
-  svg g {
+  svg > g {
     fill: $color-white;
     transition: fill 600ms;
   }

@@ -1,0 +1,51 @@
+.form__radio--is-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding: $global-spacing-lg;
+  cursor: pointer;
+  margin-bottom: $global-spacing-sm;
+  margin-right: $global-spacing-sm;
+  min-width: $global-spacing * 18;
+
+  &:hover {
+    .form__radio-background {
+      background-color: $color-white;
+    }
+  }
+
+  .form__radio {
+    @include sr-only;
+
+    &:checked + .form__radio-background {
+      background-color: $color-tertiary;
+    }
+  }
+}
+
+.form__radio-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: darken($color-primary, 5%);
+  transition: background-color 600ms;
+}
+
+.form__radio-image {
+  position: relative;
+  z-index: 10;
+  width: $global-spacing * 6.4;
+  height: $global-spacing * 6.4;
+}
+
+.form__radio-title {
+  position: relative;
+  z-index: 10;
+  color: $color-black;
+  font-weight: $font-weight-bold;
+  font-family: $font-stack-secondary;
+  margin-bottom: $global-spacing;
+}

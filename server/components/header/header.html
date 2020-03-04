@@ -1,6 +1,10 @@
+{% from '../logo/logo.html' import logo %}
+
 {% macro header( data ) %}
 
-    <header class="c-header {% if data.shadow %} header--has-shadow{% endif %}" 
+    <header class="c-header 
+        {% if data.shadow %} header--has-shadow{% endif %}
+        {% if data.class %} {{ data.class }}{% endif %}" 
         {% if data.condenses %} condenses{% endif %}
         {% if data.reveals %} reveals{% endif %}
         {% if data.fixed %} fixed{% endif %}
@@ -12,11 +16,14 @@
 
                 <a class="header__logo" href="/">
 
-                    <span><</span>
-                    <img class="logo__image" src="/assets/images/logo_white.svg" alt="Logo">
-                    <span class="logo__text">HTMLovers</span>
-                    <span>/></span>
-                    
+                {% if data.image %}
+
+                    {{ logo({
+                        text: 'HTMLovers',
+                        image: data.image
+                    }) }}
+
+                {% endif %}
 
                 </a>
 

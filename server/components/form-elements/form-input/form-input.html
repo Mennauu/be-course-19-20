@@ -13,8 +13,9 @@
                 name="{{ data.name }}"
                 value="{{ data.value }}"
                 id="{{ data.id }}"
-                {%- if data.required %} required="required"{% endif -%}
-                {%- if data.disabled %} disabled="disabled"{% endif -%}
+                {%- if data.required %} required{% endif -%}
+                {%- if data.autofocus %} autofocus{% endif -%}
+                {%- if data.disabled %} disabled{% endif -%}
                 {%- if data.placeholder %} placeholder="{{ data.placeholder }}"{% endif -%}
                 {%- if data.autocomplete %} autocomplete="on"{% endif -%}
                 {%- if data.hook %} js-hook-{{ data.hook }}{% endif -%}>

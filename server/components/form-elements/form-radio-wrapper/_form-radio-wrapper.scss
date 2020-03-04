@@ -1,0 +1,9 @@
+.radio__wrapper {
+  display: flex;
+}
+
+.radio__label {
+  display: block;
+  font-weight: $font-weight-bold;
+  margin-bottom: $global-spacing-md;
+}

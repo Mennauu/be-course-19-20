@@ -3,7 +3,9 @@
     <{{ data.element or 'a' }} class="
     {%- if data.variant %}c-button--{{ data.variant }}{% else %}c-button{% endif -%}
     {%- if data.class %} {{ data.class }}{% endif -%}
-    {%- if data.size %} button--{{ data.size }}{% endif -%}"
+    {%- if data.size %} button--{{ data.size }}{% endif -%}
+    {%- if data.arrowLeft %} button--has-arrowleft{% endif -%}
+    {%- if data.arrowRight %} button--has-arrowright{% endif -%}"
     {%- if data.type %} type="{{ data.type }}"{% endif -%}
     {%- if not data.type and data.element == 'button' %} type="button"{% endif -%}
     {%- if data.url %} href="{{ data.url }}"{% endif -%}

@@ -1,0 +1,15 @@
+{% macro radioWrapper(data) %}
+
+    <div class="c-radio form__item{%- if data.class %} {{ data.class }}{% endif -%}"
+      {%- if data.hook %} js-hook-{{ data.hook }}{% endif -%}>
+
+        <span class="radio__label">{{ data.label }}</span>
+        <div class="radio__wrapper" title="{{ data.label }}">
+
+            {{ caller() }}
+                
+        </div>
+
+    </div>
+
+{% endmacro %}
