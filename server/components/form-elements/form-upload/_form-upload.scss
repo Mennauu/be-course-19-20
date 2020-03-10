@@ -1,0 +1,53 @@
+.input--file {
+  .input__input {
+    cursor: pointer;
+    padding-top: 0;
+
+    &:hover {
+      &::before {
+        transform: translateY(-5px);
+      }
+    }
+
+    &::before {
+      content: '\002B';
+      position: absolute;
+      left: 0;
+      padding: $global-spacing-lg;
+      background-color: rgba($color-black, 0.05);
+      font-family: $font-stack-secondary;
+      font-weight: $font-weight-black;
+      width: 100%;
+      text-align: center;
+      max-width: $global-spacing * 16;
+      color: rgba($color-black, 0.1);
+      margin-top: $global-spacing-lg;
+      font-size: 3rem;
+      font-style: normal;
+      transition: transform 300ms;
+      border-radius: 3px;
+    }
+  }
+}
+
+.file__label {
+  font-size: 1.2rem !important;
+}
+
+.input__preview {
+  position: absolute;
+  top: $global-spacing-lg;
+  left: 0;
+  z-index: 10;
+
+  img {
+    height: 100%;
+    width: 100%;
+    max-width: $global-spacing * 20;
+    border-radius: 3px;
+  }
+}
+
+.input__file-wrapper {
+  position: relative;
+}

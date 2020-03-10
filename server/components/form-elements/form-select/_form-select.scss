@@ -1,0 +1,27 @@
+.select__label {
+  display: block;
+  font-weight: $font-weight-bold;
+  margin-bottom: $global-spacing-md;
+}
+
+.select__select {
+  color: $color-black;
+  background-color: transparent;
+  font-family: $font-stack-secondary;
+  font-weight: $font-weight-bold;
+  font-size: 8rem;
+  border-radius: 3px;
+  border-width: 0;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+
+  &::-ms-expand {
+    display: none;
+  }
+
+  option {
+    font-size: 1.6rem;
+  }
+}

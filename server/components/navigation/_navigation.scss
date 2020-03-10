@@ -1,4 +1,4 @@
-$navigation-transition-speed: 600ms;
+$navigation-transition-speed: 300ms;
 
 .c-navigation {
   display: flex;
@@ -20,21 +20,18 @@ $navigation-transition-speed: 600ms;
 }
 
 .navigation__profile {
-  background-color: $color-white;
   color: $color-black;
   border-radius: 3px;
-  padding: $global-spacing $global-spacing * 1.5;
   display: flex;
   align-items: center;
 
-  transition: background-color $navigation-transition-speed;
-
   &:hover {
-    background-color: darken($color-white, 10%);
-
-    .navigation__label,
     .navigation__image {
-      transform: translateY(-2px);
+      box-shadow: inset 0 0 6px 0 $color-primary;
+    }
+
+    .navigation__label {
+      box-shadow: inset 0 -2px 0 0 $color-primary;
     }
   }
 }
@@ -42,20 +39,18 @@ $navigation-transition-speed: 600ms;
 .navigation__label {
   margin-right: $global-spacing;
   font-weight: $font-weight-bold;
-  transform: translateY(0);
-  transition: transform $navigation-transition-speed;
+  transition: box-shadow $navigation-transition-speed;
 }
 
 .navigation__image {
   background-color: $color-grey-light;
-  padding: 10px;
+  padding: $global-spacing;
   border-radius: 100%;
   line-height: 0;
-  transform: translateY(0);
-  transition: transform $navigation-transition-speed;
+  transition: box-shadow $navigation-transition-speed;
 
   img {
-    height: 20px;
-    width: 20px;
+    height: $global-spacing-sm;
+    width: $global-spacing-sm;
   }
 }

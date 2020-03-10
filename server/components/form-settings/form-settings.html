@@ -4,6 +4,9 @@
 {% from '../form-elements/form-message/form-message.html' import message %}
 {% from '../form-elements/form-notice/form-notice.html' import notice %}
 {% from '../form-elements/form-radio/form-radio.html' import radio %}
+{% from '../form-elements/form-select/form-select.html' import select %}
+{% from '../form-elements/form-range/form-range.html' import range %}
+{% from '../form-elements/form-upload/form-upload.html' import upload %}
 {% from '../button/button.html' import button %}
 
 {% set errorClass = 'form__message--has-error' if error != '' %}
@@ -20,16 +23,43 @@
   {{ input({
     name: 'name',
     id: 'name',
-    label: 'What is your real name?',
+    label: 'Firstly, what is your real name?',
     hook: 'input-name',
     autofocus: true,
-    class: 'form__item--is-visible'
+    class: 'form__item--is-visible',
+    maxlength: '256',
+    placeholder: 'Robin Williams'
   }) }}
 
-  {% call radioWrapper({
-    label: 'What is your gender?',
-    hook: 'gender-form',
+  {{ input({
+    name: 'age',
+    id: 'age',
+    label: 'And what is your age?',
+    hook: 'input-age',
+    type: 'text',
+    placeholder: '26',
+    pattern: '\\d*',
+    maxlength: '2'
+  }) }}
+
+  {# {% call select({
+     name: 'age',
+    label: 'And what is your age?',
+    hook: 'input-age',
     class: 'form__item--is-visible'
+  }) %}
+
+    <option value="">--</option>
+
+    {% for age in range(18, 120) %}
+      <option value="{{ age }}">{{ age }}</option>
+    {% endfor %}
+
+  {% endcall %} #}
+
+  {% call radioWrapper({
+    label: 'And your gender?',
+    hook: 'gender-form'
   }) %}
 
     {{ radio({
@@ -53,9 +83,8 @@
   {% endcall %}
 
   {% call radioWrapper({
-    label: 'Which gender do you fall for?',
-    hook: 'gender-form',
-    class: 'form__item--is-visible'
+    label: "Who are you looking for?",
+    hook: 'looking-form'
   }) %}
 
     {{ radio({
@@ -78,6 +107,11 @@
   
   {% endcall %}
 
+  {{ range({
+    label: 'And at which age range?',
+    hook: 'input-age-range'
+  }) }}
+
   {% if error %} 
     {{ message({ 
       text: error ,
@@ -86,13 +120,55 @@
     }) }} 
   {% endif %}
 
+  {{ upload({
+    name: 'avatar',
+    id: 'avatar',
+    label: 'Almost there. How do you look?',
+    hook: 'input-avatar'
+  }) }}
+
+  {% call radioWrapper({
+    label: "Lastly, what is your coding level?",
+    hook: 'level-form'
+  }) %}
+
+    {{ radio({
+      name: 'level',
+      value: 'Noob',
+      image: '/assets/images/noob.png'
+    }) }}
+
+    {{ radio({
+      name: 'level',
+      value: 'Advanced',
+      image: '/assets/images/specialist.png'
+    }) }}
+
+    {{ radio({
+      name: 'level',
+      value: 'God',
+      image: '/assets/images/god.png'
+    }) }}
+  
+  {% endcall %}
+
   {{ button({ 
     element: 'button',
     label: 'Next',
     variant: 'secondary',
     arrowRight: true,
-    class: 'form__button',
+    class: 'form__button u--is-hidden',
     hook: 'next-button'
+  }) }}
+
+  {{ button({ 
+    element: 'button',
+    label: 'Submit and start journey',
+    variant: 'green',
+    size: 'large',
+    class: 'form__button form__settings-submit',
+    type: 'submit',
+    hook: 'submit-button'
   }) }}
 
 {% endcall %}

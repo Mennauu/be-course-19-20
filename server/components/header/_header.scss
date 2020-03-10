@@ -11,10 +11,6 @@ $header-shadow-color: inset 0 2px 4px -3px rgba($color-black, 0.2);
     top: 0;
     left: 0;
     z-index: 99;
-
-    .user--is-authenticated & {
-      position: relative;
-    }
   }
 }
 
@@ -23,6 +19,11 @@ $header-shadow-color: inset 0 2px 4px -3px rgba($color-black, 0.2);
   padding-bottom: $global-spacing-md;
   display: flex;
   align-items: center;
+
+  .header--is-white & {
+    padding-top: $global-spacing;
+    padding-bottom: $global-spacing;
+  }
 }
 
 .header__navigation {
@@ -31,6 +32,10 @@ $header-shadow-color: inset 0 2px 4px -3px rgba($color-black, 0.2);
 
 .header__logo {
   @include fluid-type(5, 4, 'height');
+
+  .header--is-white & {
+    height: auto;
+  }
 }
 
 .header--has-shadow {

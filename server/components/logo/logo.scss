@@ -12,18 +12,30 @@
 .logo__side {
   font-size: 2.8rem;
   display: inline-block;
+
+  .header--is-white & {
+    font-size: 1.6rem;
+  }
 }
 
 .logo__image {
   height: 100%;
   margin-left: $global-spacing;
   margin-right: $global-spacing;
+
+  .header--is-white & {
+    max-height: $global-spacing * 2.5;
+  }
 }
 
 .logo__text {
   font-size: 2.8rem;
   margin-right: $global-spacing;
   display: none;
+
+  .header--is-white & {
+    font-size: 1.6rem;
+  }
 
   @include screen-tablet-portrait-and-bigger {
     display: block;

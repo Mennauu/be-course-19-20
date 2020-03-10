@@ -1,11 +1,6 @@
 import validator from 'validator'
 
-import {
-  addActiveClasses,
-  emptyText,
-  removeActiveClasses,
-  setText,
-} from '../../assets/javascript/pure/pure.js'
+import { addClass, emptyText, removeClass, setText } from '../../assets/javascript/pure/pure.js'
 import message from '../../data/messages.json'
 
 const JS_HOOK_INPUT_USERNAME = '[js-hook-input-username]'
@@ -72,31 +67,31 @@ class FormLogin {
 
   errorHandler(element, input, message, formErrorClass, inputErrorClass) {
     if (element.classList.contains(formErrorClass)) {
-      removeActiveClasses(element, formErrorClass)
+      removeClass(element, formErrorClass)
 
       element.addEventListener('transitionend', () => {
         emptyText(element)
-        addActiveClasses(element, formErrorClass)
+        addClass(element, formErrorClass)
         setText(element, message)
       })
     } else {
       emptyText(element)
-      addActiveClasses(element, formErrorClass)
+      addClass(element, formErrorClass)
       setText(element, message)
     }
 
     if (input !== this.inputUsername && this.inputUsername.classList.contains(inputErrorClass)) {
-      removeActiveClasses(this.inputUsername, inputErrorClass)
+      removeClass(this.inputUsername, inputErrorClass)
     }
 
     if (input.classList.contains(inputErrorClass)) {
-      removeActiveClasses(input, inputErrorClass)
+      removeClass(input, inputErrorClass)
 
       input.addEventListener('transitionend', () => {
-        addActiveClasses(input, inputErrorClass)
+        addClass(input, inputErrorClass)
       })
     } else {
-      addActiveClasses(input, inputErrorClass)
+      addClass(input, inputErrorClass)
     }
   }
 

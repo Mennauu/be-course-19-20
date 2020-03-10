@@ -4,7 +4,7 @@ main {
 
   .user--is-authenticated & {
     color: $color-white;
-    padding-top: $global-spacing-lg;
+    padding-top: $global-spacing * 10;
     padding-bottom: $global-spacing-lg;
 
     h1,
@@ -17,7 +17,7 @@ main {
     }
 
     @include screen-tablet-portrait-and-bigger {
-      padding-top: $global-spacing * 8;
+      padding-top: $global-spacing * 14;
       padding-bottom: $global-spacing * 8;
     }
   }

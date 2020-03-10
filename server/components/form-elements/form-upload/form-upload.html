@@ -1,0 +1,28 @@
+{% macro upload(data) %}
+
+    <div class="c-input form__item input--file
+        {%- if data.class %} {{ data.class }}{% endif -%}">
+
+        <div class="input__wrapper" title="{{ data.label }}">
+            <span class="input__label">
+                {{ data.label | safe }}
+            </span>
+            <div class="input__file-wrapper">
+                <label class="input__input file__label" for="{{ data.id }}" js-hook-file-label>Upload an image of yourself, please.</label>
+                <input class="u--sr-only"
+                    type="file"
+                    name="{{ data.name }}"
+                    id="{{ data.id }}"
+                    {%- if data.hook %} js-hook-{{ data.hook }} {% endif -%}
+                    {%- if data.required %} required="required"{% endif -%}
+                    {%- if data.disabled %} disabled="disabled"{% endif -%}
+                    js-hook-input-file
+                    {%- if data.accept %} accept="{{ data.accept }}"{% endif -%}
+                    {%- if data.multiple %} multiple data-multiple-label="{count} files selected"{% endif -%}>
+              <div class="input__preview" js-hook-preview-image></div>
+            </div>
+        </div>
+
+    </div>
+
+{% endmacro %}

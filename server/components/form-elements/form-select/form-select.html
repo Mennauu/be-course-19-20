@@ -1,0 +1,19 @@
+{% macro select(data) %}
+
+    <div class="c-select form__item{%- if data.class %} {{ data.class }}{% endif -%}">
+
+        <div class="select__wrapper" title="{{ data.label }}">
+
+            <label class="select__label">{{ data.label }}</label>
+
+            <select class="select__select" name="{{ data.value }}">
+
+              {{ caller() }}
+
+            </select>
+                
+        </div>
+
+    </div>
+
+{% endmacro %}

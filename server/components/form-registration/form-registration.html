@@ -29,6 +29,15 @@
     hook: 'input-password'
   }) }}
 
+  {{ input({
+    name: 'password-check',
+    id: 'password-check',
+    label: 'Confirm password',
+    type: 'password',
+    autocomplete: true,
+    hook: 'input-password-check'
+  }) }}
+
   {% if error %} 
     {{ message({ 
       text: error ,

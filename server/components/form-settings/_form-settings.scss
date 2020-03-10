@@ -1,22 +1,17 @@
 .form__settings {
   .form__item {
-    margin-bottom: $global-spacing-lg;
-    height: 0;
-    visibility: hidden;
-    transition: height 600ms;
-
-    &:last-of-type {
-      margin-bottom: 0;
-    }
+    display: none;
+    animation: fadeIn 900ms;
+    margin-bottom: $global-spacing * 15;
   }
 
   .form__title {
-    // animation: fadeIn 1.5s;
+    animation: fadeIn 1.5s;
   }
 
   .form__subtitle {
     margin-bottom: $global-spacing * 10;
-    // animation: delayedFadeIn 2.5s;
+    animation: delayedFadeIn 2.5s;
   }
 
   .input__label {
@@ -27,9 +22,29 @@
     @include fluid-type(5, 3);
     background-color: transparent;
     padding-left: 0;
+    padding-right: 0;
     color: $color-black;
     font-family: $font-stack-secondary;
-    border-bottom: 5px solid rgba($color-black, 0.8);
+    // border-bottom: 5px solid rgba($color-black, 0.8);
+
+    &::placeholder {
+      color: rgba($color-black, 0.15);
+    }
+
+    &[maxlength='2'] {
+      border-bottom: 0;
+    }
+
+    &[type='number'] {
+      width: auto;
+      -moz-appearance: textfield;
+      appearance: textfield;
+
+      &::-webkit-inner-spin-button,
+      &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+      }
+    }
   }
 
   .form__button {
@@ -37,17 +52,22 @@
   }
 
   .form__item--is-visible {
-    visibility: visible;
-    height: 100%;
+    display: block;
 
     &:first-of-type {
-      // animation: delayedFadeIn 5s;
+      animation: delayedFadeIn 4.2s;
     }
 
     .input__input {
       @include fluid-type(10, 7.5, 'height');
     }
   }
+}
+
+.form__settings-submit {
+  animation: fadeIn 1.25s;
+  margin-bottom: $global-spacing * 10;
+  align-self: center !important;
 }
 
 @keyframes fadeIn {

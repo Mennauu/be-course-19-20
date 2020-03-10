@@ -8,6 +8,7 @@
   "usernameCreationFails": "For unknown reasons your account can't be created, try again later",
   "passwordLength": "Password should be 6 characters or longer",
   "passwordLoginLength": "Your password is 6 characters or longer",
+  "passwordConfirmedCheck": "Passwords don't match, please try again.",
   "loginFail": "You filled in a wrong username or password",
   "loginSucces": "Log in succesfull, welcome!"
 }

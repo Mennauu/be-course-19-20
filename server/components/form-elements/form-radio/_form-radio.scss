@@ -10,8 +10,10 @@
   min-width: $global-spacing * 18;
 
   &:hover {
-    .form__radio-background {
-      background-color: $color-white;
+    .form__radio-title,
+    .form__radio-background,
+    .form__radio-image {
+      transform: translateY(-5px);
     }
   }
 
@@ -19,7 +21,7 @@
     @include sr-only;
 
     &:checked + .form__radio-background {
-      background-color: $color-tertiary;
+      background-color: $color-white;
     }
   }
 }
@@ -30,8 +32,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: darken($color-primary, 5%);
-  transition: background-color 600ms;
+  background-color: rgba($color-black, 0.05);
+  border-radius: 3px;
 }
 
 .form__radio-image {
@@ -48,4 +50,10 @@
   font-weight: $font-weight-bold;
   font-family: $font-stack-secondary;
   margin-bottom: $global-spacing;
+}
+
+.form__radio-background,
+.form__radio-image,
+.form__radio-title {
+  transition: transform 300ms, background-color 300ms;
 }

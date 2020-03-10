@@ -80,7 +80,7 @@ app.use(
   }),
 )
 
-app.use('/data', express.static(__dirname + '/../server/data'))
+// app.use('/data', express.static(__dirname + '/../server/data'))
 
 // Middleware for serving correct content type header
 app.get(['*.js', '*.css'], serve.serveContentTypes)

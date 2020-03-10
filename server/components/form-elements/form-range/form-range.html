@@ -1,0 +1,31 @@
+{% macro range(data) %}
+
+    <div class="c-range form__item{%- if data.class %} {{ data.class }}{% endif -%}">
+
+        <div class="range__wrapper" title="{{ data.label }}">
+
+            <span class="range__label">{{ data.label }}</span>
+
+            <div {%- if data.hook %} js-hook-{{ data.hook }}{% endif -%}>
+            
+              <noscript>
+              
+                <div class="range__wrapper--gd">
+
+                  <label class="input__label" for="fromAge">From</label>
+                  <input class="input__input" type="number" name="fromAge" value="" min="18" max="98">
+
+                  <label class="input__label" for="toAge">To</label>
+                  <input class="input__input" type="number" name="toAge" value="" min="19" max="99">
+
+                </div>
+
+              </noscript>
+
+            </div>
+                
+        </div>
+
+    </div>
+
+{% endmacro %}
