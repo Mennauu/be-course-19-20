@@ -1,0 +1,18 @@
+.t-dashboard {
+  background-color: $color-white;
+  color: $color-black !important;
+
+  h1,
+  h2,
+  h3 {
+    color: $color-black !important;
+
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  .navigation__image {
+    border: 2px solid $color-white;
+  }
+}

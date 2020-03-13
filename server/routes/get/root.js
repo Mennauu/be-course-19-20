@@ -7,6 +7,7 @@ export const root = (req, res) => {
     res.render('root', {
       navigation: rootNavigation,
       bodyClass: 't-root',
+      firstvisit: true,
     })
   }
 }

@@ -6,21 +6,31 @@
 
             <span class="range__label">{{ data.label }}</span>
 
-            <div {%- if data.hook %} js-hook-{{ data.hook }}{% endif -%}>
-            
-              <noscript>
-              
-                <div class="range__wrapper--gd">
+            <div {%- if data.hook %} js-hook-{{ data.hook }}{% endif -%}></div>
 
-                  <label class="input__label" for="fromAge">From</label>
-                  <input class="input__input" type="number" name="fromAge" value="" min="18" max="98">
+            <div class="range__wrapper--gd">
 
-                  <label class="input__label" for="toAge">To</label>
-                  <input class="input__input" type="number" name="toAge" value="" min="19" max="99">
+              <label class="input__label" for="from{{ data.name }}">From</label>
+              <input 
+                class="input__input" 
+                type="number" 
+                name="from{{ data.name }}" 
+                value="" 
+                min="{{ data.min }}" 
+                max="{{ data.max }}" 
+                js-hook-range-from
+              >
 
-                </div>
-
-              </noscript>
+              <label class="input__label" for="to{{ data.name }}">To</label>
+              <input 
+                class="input__input" 
+                type="number" 
+                name="to{{ data.name }}" 
+                value="" 
+                min="{{ data.min }}" 
+                max="{{ data.max }}" 
+                js-hook-range-to
+              >
 
             </div>
                 

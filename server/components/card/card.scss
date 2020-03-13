@@ -24,8 +24,6 @@ $card-shadow: 0 5px 10px rgba($color-black, 0.15);
 .card__wrapper {
   position: relative;
   display: flex;
-  min-height: 100vh;
-  padding-top: $global-spacing-sm;
   padding-bottom: $global-spacing-sm;
 
   @include screen-tablet-portrait-and-bigger {

@@ -1,0 +1,12 @@
+{% macro fieldset(data) %}
+
+    <fieldset class="{%- if data.class %}{{ data.class }}{% endif -%}">
+        <legend class="{%- if data.sronly %}u--sr-only{% endif -%}">
+            {{ data.legend }}
+        </legend>
+
+            {{ caller() }}
+
+    </fieldset>
+
+{% endmacro %}

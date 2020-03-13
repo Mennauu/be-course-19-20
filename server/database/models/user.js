@@ -6,12 +6,16 @@ const userSchema = new mongoose.Schema({
   name: String,
   age: Number,
   gender: String,
-  attractedGender: String,
-  ageMin: Number,
-  ageMax: Number,
+  attraction: String,
+  fromAge: Number,
+  toAge: Number,
   level: String,
   avatar: String,
   images: [],
+  firstVisit: Boolean,
+  liked: [],
+  disliked: [],
+  matched: [],
 })
 
 module.exports = mongoose.model('User', userSchema)

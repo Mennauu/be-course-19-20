@@ -1,0 +1,52 @@
+{# {% import 'form-elements.html' as form %}
+{% from 'button.html' import button %}
+
+{% call form.form({
+    action: '/cookie-settings.html',
+    hook: 'cookies-form'
+}) %}
+
+
+    {% call form.fieldset({
+        legend: 'Change your cookie preferences',
+        sronly: true
+    }) %}
+
+        <div class="u-margin-bottom--sm">
+
+            {{ form.checkbox({
+                name: 'cookies',
+                options: [
+                    {
+                        label: 'Functional: Cookies die ervoor zorgen dat de site goed werkt.',
+                        id: 'functional',
+                        value: 'functional',
+                        checked: true,
+                        disabled: true,
+                        hook: 'cookies-option'
+                    },
+                    {
+                        label: 'Analytics: Cookies waarmee we het gebruik van de site kunnen meten. De verzamelde gegevens worden gecombineerd en geaggregeerd zodat we statische analyses kunnen uitvoeren',
+                        id: 'analytics',
+                        value: 'analytics',
+                        checked: true,
+                        disabled: true,
+                        hook: 'cookies-option'
+                    }
+                ]
+            }) }}
+
+        </div>
+
+        {{ button( {
+            element: 'button',
+            type: 'submit',
+            label: 'Aanpassingen opslaan',
+            hook: 'cookies-form-accept',
+            variant: 'secondary',
+            icon: 'triangle-right'
+        } ) }}
+
+    {% endcall %}
+
+{% endcall %} #}

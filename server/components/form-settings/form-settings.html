@@ -13,6 +13,7 @@
 
 {% call form({
   method: 'POST',
+  enctype: 'multipart/form-data',
   action: '/user-settings',
   class: 'form__settings',
   hook: 'form-settings',
@@ -36,6 +37,7 @@
     id: 'age',
     label: 'And what is your age?',
     hook: 'input-age',
+    class: 'form__item--is-visible',
     type: 'text',
     placeholder: '26',
     pattern: '\\d*',
@@ -59,7 +61,8 @@
 
   {% call radioWrapper({
     label: 'And your gender?',
-    hook: 'gender-form'
+    hook: 'gender-form',
+    class: 'form__item--is-visible'
   }) %}
 
     {{ radio({
@@ -84,7 +87,8 @@
 
   {% call radioWrapper({
     label: "Who are you looking for?",
-    hook: 'looking-form'
+    hook: 'looking-form',
+    class: 'form__item--is-visible'
   }) %}
 
     {{ radio({
@@ -109,7 +113,11 @@
 
   {{ range({
     label: 'And at which age range?',
-    hook: 'input-age-range'
+    hook: 'input-age-range',
+    min: '18',
+    max: '99',
+    name: 'Age',
+    class: 'form__item--is-visible'
   }) }}
 
   {% if error %} 
@@ -124,12 +132,14 @@
     name: 'avatar',
     id: 'avatar',
     label: 'Almost there. How do you look?',
-    hook: 'input-avatar'
+    hook: 'input-avatar',
+    class: 'form__item--is-visible'
   }) }}
 
   {% call radioWrapper({
     label: "Lastly, what is your coding level?",
-    hook: 'level-form'
+    hook: 'level-form',
+    class: 'form__item--is-visible'
   }) %}
 
     {{ radio({
@@ -157,7 +167,7 @@
     label: 'Next',
     variant: 'secondary',
     arrowRight: true,
-    class: 'form__button u--is-hidden',
+    class: 'form__button form__settings-next u--is-hidden',
     hook: 'next-button'
   }) }}
 

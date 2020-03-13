@@ -9,6 +9,7 @@ import cookieParser from 'cookie-parser'
 import express from 'express'
 import flash from 'express-flash'
 import session from 'express-session'
+import multer from 'multer'
 import nunjucks from 'nunjucks'
 
 import { loginFail, loginSucces } from './data/messages.json'
@@ -17,6 +18,7 @@ import auth from './middleware/authentication/auth.js'
 const shrinkRay = require('shrink-ray-current')
 const serve = require('./middleware/headers/serve.js')
 const route = require('./routes/routeHandler.js')
+const upload = multer({ dest: 'server/assets/uploads/' })
 const app = express()
 const port = process.env.PORT || 3000
 
@@ -80,6 +82,15 @@ app.use(
   }),
 )
 
+app.use(
+  '/assets/uploads',
+  express.static(__dirname + '/../server/assets/uploads', {
+    maxAge: '365d',
+    lastModified: '',
+    etag: '',
+  }),
+)
+
 // app.use('/data', express.static(__dirname + '/../server/data'))
 
 // Middleware for serving correct content type header
@@ -91,12 +102,12 @@ app.get('/login', route.login)
 app.get('/logout', route.logout)
 app.get('/register', route.register)
 app.get('/home', route.home)
-app.get('/about', route.about)
-app.get('/contact', route.contact)
 app.get('*', route.error)
 
 // POST routes
 app.post('/register-user', route.registerUser)
+app.post('/user-settings', upload.single('avatar'), route.userSettings)
+app.post('/user-matches', route.userMatches)
 app.post(
   '/login-authenticate',
   auth.authenticate('local', {
@@ -104,6 +115,7 @@ app.post(
     failureRedirect: '/login',
     failureFlash: loginFail,
     successFlash: loginSucces,
+    session: true,
   }),
 )
 

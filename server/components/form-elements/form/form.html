@@ -12,6 +12,7 @@
 
     <form class="form__form" action="{{ data.action or '#' }}"
       {%- if data.method %} method="{{ data.method }}"{% endif -%}
+      {%- if data.enctype %} enctype="{{ data.enctype }}"{% endif -%}
       {%- if data.hook %} js-hook-{{ data.hook }}{% endif -%}>
 
         {{ caller() }}

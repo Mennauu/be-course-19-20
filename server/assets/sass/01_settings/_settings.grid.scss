@@ -16,3 +16,14 @@ $grid-config: (
   add-push-pull: true,
   add-pre-post: true,
 );
+
+.o-container-fluid {
+  padding-left: 0;
+  padding-right: 0;
+
+  .o-grid {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}

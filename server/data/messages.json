@@ -10,5 +10,9 @@
   "passwordLoginLength": "Your password is 6 characters or longer",
   "passwordConfirmedCheck": "Passwords don't match, please try again.",
   "loginFail": "You filled in a wrong username or password",
-  "loginSucces": "Log in succesfull, welcome!"
+  "loginSucces": "Log in succesfull, welcome!",
+  "userSettingsFail": "Couldn't update your information. Please check if you filled in everything.",
+  "userSettingsSuccess": "Your information has been updated.",
+  "userMatchFail": "Couldn't sample this person, please try again.",
+  "userMatchSuccess": "Person has been liked/disliked"
 }

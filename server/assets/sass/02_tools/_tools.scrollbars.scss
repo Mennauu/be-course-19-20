@@ -1,0 +1,8 @@
+@mixin hide-scrollbars {
+  scrollbar-width: none;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

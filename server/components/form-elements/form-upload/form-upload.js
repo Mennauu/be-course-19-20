@@ -1,15 +1,14 @@
 const JS_HOOK_PREVIEW_IMAGE = '[js-hook-preview-image]'
+const JS_HOOK_FILE_LABEL = '[js-hook-file-label]'
 
 class FormUpload {
   constructor(element) {
     this.input = element
     this.preview = document.querySelector(JS_HOOK_PREVIEW_IMAGE)
+    this.label = document.querySelector(JS_HOOK_FILE_LABEL)
 
-    this.initialLoadEvents()
     this.bindEvents()
   }
-
-  initialLoadEvents() {}
 
   bindEvents() {
     this.input.addEventListener('change', target => this.handleFiles(target))
@@ -39,6 +38,8 @@ class FormUpload {
     })(img)
 
     reader.readAsDataURL(file)
+
+    this.label.classList.add('u--sr-only')
   }
 }
 

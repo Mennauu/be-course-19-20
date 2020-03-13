@@ -4,13 +4,18 @@ $header-shadow-color: inset 0 2px 4px -3px rgba($color-black, 0.2);
   background-color: transparent;
   width: 100%;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 
-  @include screen-tablet-portrait-and-bigger {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 99;
+  .user--is-authenticated & {
+    padding-left: $global-spacing-sm;
+    padding-right: $global-spacing-sm;
+
+    @include screen-tablet-portrait-and-bigger {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 99;
+    }
   }
 }
 
@@ -19,11 +24,6 @@ $header-shadow-color: inset 0 2px 4px -3px rgba($color-black, 0.2);
   padding-bottom: $global-spacing-md;
   display: flex;
   align-items: center;
-
-  .header--is-white & {
-    padding-top: $global-spacing;
-    padding-bottom: $global-spacing;
-  }
 }
 
 .header__navigation {
@@ -32,10 +32,6 @@ $header-shadow-color: inset 0 2px 4px -3px rgba($color-black, 0.2);
 
 .header__logo {
   @include fluid-type(5, 4, 'height');
-
-  .header--is-white & {
-    height: auto;
-  }
 }
 
 .header--has-shadow {
@@ -44,4 +40,56 @@ $header-shadow-color: inset 0 2px 4px -3px rgba($color-black, 0.2);
 
 .header--is-white {
   background-color: $color-white;
+
+  .user--is-authenticated & {
+    padding-left: 0;
+    padding-right: 0;
+    position: relative;
+  }
+
+  .c-logo {
+    color: $color-black;
+  }
+
+  .navigation__link {
+    color: $color-black;
+  }
+}
+
+.header--is-visited {
+  background-color: $color-primary;
+  box-shadow: 0 8px 6px -6px rgba($color-black, 0.075);
+
+  .navigation__label {
+    color: $color-white;
+  }
+
+  .navigation__profile {
+    &:hover {
+      .navigation__label {
+        box-shadow: inset 0 -2px 0 0 $color-white;
+      }
+    }
+  }
+}
+
+.header--is-white,
+.header--is-visited {
+  .header__logo {
+    height: auto;
+  }
+
+  .header__wrapper {
+    padding-top: $global-spacing;
+    padding-bottom: $global-spacing;
+  }
+
+  .logo__side,
+  .logo__text {
+    font-size: 1.6rem;
+  }
+
+  .logo__image {
+    max-height: $global-spacing * 2.5;
+  }
 }

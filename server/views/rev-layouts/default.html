@@ -1,7 +1,17 @@
 {% from '../../components/header/header.html' import header %}
-{% set headerClass = 'header--is-white' if authenticated %}
 {% set authenticatedClass = 'user--is-authenticated' if authenticated %}
-{% set logoImage = 'logo' if authenticated else 'logo_white' %}
+{% set dashboard = 't-dashboard' if not firstvisit %}
+
+{% if not firstvisit %}
+    {% set logo = 'logo_white' %}
+    {% set headerClass = 'header--is-visited' %}
+{% elif authenticated %}
+    {% set logo = 'logo' %}
+    {% set headerClass = 'header--is-white' %}
+{% else %}
+    {% set logo = 'logo_white' %} 
+{% endif %}
+
 
 <!DOCTYPE html>
 <html lang="nl" dir="ltr">
@@ -16,7 +26,7 @@
 
         <title>BE Course 2020</title>
 
-        <link rel="stylesheet" href="/assets/css/styles-2681a8993f.min.css">
+        <link rel="stylesheet" href="/assets/css/styles-7d4d5f547d.min.css">
 
         <!-- Favicons -->
         <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon.png">
@@ -31,11 +41,12 @@
 
     </head>
 
-    <body class="{{ bodyClass }} {{ authenticatedClass }}">
+    <body class="{{ bodyClass }} {{ authenticatedClass }} {{ dashboard }}">
 
         {% call header({
             class: headerClass,
-            image: logoImage
+            image: logo,
+            visit: firstvisit
         }) %}
 
             {% include '../../components/navigation/navigation.html' %}
@@ -53,7 +64,7 @@
         </main>
 
         {% if environment == 'local' %}
-            <script type="module" async="async" src="/assets/js/main-es-9449088732.js"></script>
+            <script type="module" async="async" src="/assets/js/main-es-eb9654e02f.js"></script>
         {% else %}
             <script type="module" async="async" src="/assets/js/main-es.min.js"></script>
             <script nomodule="nomodule" async="async" src="/assets/js/main.min.js"></script>

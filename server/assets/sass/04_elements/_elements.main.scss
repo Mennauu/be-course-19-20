@@ -5,7 +5,7 @@ main {
   .user--is-authenticated & {
     color: $color-white;
     padding-top: $global-spacing * 10;
-    padding-bottom: $global-spacing-lg;
+    padding-bottom: $global-spacing-sm;
 
     h1,
     h2,
@@ -19,6 +19,21 @@ main {
     @include screen-tablet-portrait-and-bigger {
       padding-top: $global-spacing * 14;
       padding-bottom: $global-spacing * 8;
+    }
+
+    @include screen-tablet-portrait-and-smaller {
+      overflow: hidden;
+    }
+  }
+
+  .t-dashboard & {
+    min-height: 100vh;
+    padding-top: 0;
+    padding-bottom: $global-spacing * 6;
+
+    @include screen-tablet-portrait-and-bigger {
+      padding-bottom: 0;
+      padding-top: $global-spacing * 6;
     }
   }
 }

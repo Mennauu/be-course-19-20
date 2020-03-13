@@ -1,0 +1,33 @@
+{# {% from 'button.html' import button %}
+
+<div class="c-cookie-bar" tabindex="-1" aria-label="Cookiebar" js-hook-cookies-bar data-policy-version="1">
+
+    <div class="o-container">
+
+        <div class="cookie-bar__content">
+
+            <div class="cookie-bar__text">
+                <p>Net zoals andere websites maken ook wij gebruik van cookies (en daarmee vergelijkbare technieken) 
+                    om het bezoek van www.bumper.nl voor jou nog makkelijker en persoonlijker te maken. Hiermee kunnen 
+                    wij en derde partijen advertenties aanpassen aan jouw interesses en kun je informatie delen via social media. <a class="cookie-bar__link" href="/cookie-settings.html" />Pas cookies hier aan</a>
+                </p>
+            </div>
+
+            <div class="cookie-bar__button-holder">
+                {{ button( {
+                    element: 'button',
+                    type: 'button',
+                    variant: 'secondary',
+                    label: 'Akkoord',
+                    class: 'cookie-bar__button',
+                    attr: 'on:click="cookies::dismiss" tabindex="-1"',
+                    hook: 'cookies-dismiss',
+                    icon: 'triangle-right'
+                } ) }}
+            </div>
+
+        </div>
+
+    </div>
+
+</div> #}

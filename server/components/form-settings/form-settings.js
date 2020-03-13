@@ -1,15 +1,16 @@
 import debounce from 'debounce'
-import slider from 'nouislider'
+import noUiSlider from 'nouislider'
 import wNumb from 'wnumb'
 
 const JS_HOOK_NEXT_BUTTON = '[js-hook-next-button]'
 const JS_HOOK_INPUT_NAME = '[js-hook-input-name]'
 const JS_HOOK_INPUT_AGE = '[js-hook-input-age]'
-const JS_HOOK_GENDER_FORM = '[js-hook-gender-form]'
 const JS_HOOK_INPUT_AGE_RANGE = '[js-hook-input-age-range]'
 const JS_HOOK_SUBMIT_BUTTON = '[js-hook-submit-button]'
 const JS_HOOK_LEVEL_FORM = '[js-hook-level-form]'
 const JS_HOOK_INPUT_FILE = '[js-hook-input-file]'
+const JS_HOOK_RANGE_FROM = '[js-hook-range-from]'
+const JS_HOOK_RANGE_TO = '[js-hook-range-to]'
 
 const CLASS_INPUT_IS_VISIBLE = 'form__item--is-visible'
 const CLASS_UTILITY_IS_INVISIBLE = 'u--is-hidden'
@@ -19,12 +20,14 @@ class FormSettings {
   constructor(element) {
     this.form = element
     this.inputName = element.querySelector(JS_HOOK_INPUT_NAME)
-    // this.inputAge = element.querySelector(JS_HOOK_INPUT_AGE)
-    // this.inputAgeForm = getUpperParent(this.inputAge)
-    // this.genderForm = element.querySelector(JS_HOOK_GENDER_FORM)
+    this.inputAge = element.querySelector(JS_HOOK_INPUT_AGE)
     this.inputAgeRange = element.querySelector(JS_HOOK_INPUT_AGE_RANGE)
     this.levelForm = element.querySelector(JS_HOOK_LEVEL_FORM)
     this.fileUpload = element.querySelector(JS_HOOK_INPUT_FILE)
+    this.inputRangeFrom = element.querySelector(JS_HOOK_RANGE_FROM)
+    this.inputRangeTo = element.querySelector(JS_HOOK_RANGE_TO)
+
+    this.inputRanges = [this.inputRangeFrom, this.inputRangeTo]
     this.formItems = [...element.querySelectorAll('.' + CLASS_FORM_ITEM)]
 
     this.nextButton = element.querySelector(JS_HOOK_NEXT_BUTTON)
@@ -37,9 +40,19 @@ class FormSettings {
   initialLoadEvents() {
     this.submitButton.classList.add(CLASS_UTILITY_IS_INVISIBLE)
     this.nextButton.classList.remove(CLASS_UTILITY_IS_INVISIBLE)
-    this.disableButton(this.nextButton)
 
-    slider.create(this.inputAgeRange, {
+    this.inputRangeFrom.setAttribute('readonly', '')
+    this.inputRangeTo.setAttribute('readonly', '')
+
+    if (this.inputName.value.length < 2) {
+      this.disableButton(this.nextButton)
+    }
+
+    for (const [i, item] of this.formItems.entries()) {
+      if (i !== 0) item.classList.remove(CLASS_INPUT_IS_VISIBLE)
+    }
+
+    noUiSlider.create(this.inputAgeRange, {
       start: [18, 30],
       connect: true,
       tooltips: true,
@@ -62,7 +75,17 @@ class FormSettings {
         this.enableButton(element)
       }, 200),
     )
+    this.inputAge.addEventListener(
+      'keydown',
+      debounce(element => {
+        this.enableButton(element)
+      }, 200),
+    )
     this.fileUpload.addEventListener('change', () => this.formHandler())
+
+    this.inputAgeRange.noUiSlider.on('update', (values, handle) =>
+      this.updateRangeInputValues(values, handle),
+    )
   }
 
   formHandler() {
@@ -74,11 +97,28 @@ class FormSettings {
 
         if (itemInput) itemInput.focus()
 
+        if (i === 1) {
+          // Place event at the end of the event loop
+          setTimeout(() => {
+            if (!this.nextButton.hasAttribute('disabled')) {
+              this.nextButton.setAttribute('disabled', '')
+            }
+          }, 0)
+        }
+
         if (item.classList.contains('c-radio')) {
           const itemLabels = getInputsFromParent(item)
 
+          this.nextButton.setAttribute('disabled', '')
+
           for (const label of itemLabels) {
             label.addEventListener('click', () => this.formHandler())
+          }
+        } else if (item.classList.contains('input--file')) {
+          this.nextButton.setAttribute('disabled', '')
+        } else {
+          if (this.nextButton.hasAttribute('disabled')) {
+            this.nextButton.removeAttribute('disabled')
           }
         }
 
@@ -99,14 +139,12 @@ class FormSettings {
     }
   }
 
-  scrollToBottom() {
-    window.scrollTo({ left: 0, top: document.body.scrollHeight, behavior: 'smooth' })
+  updateRangeInputValues(values, handle) {
+    this.inputRanges[handle].value = values[handle]
   }
 
-  enableSubmit() {
-    this.submitButton.classList.remove(CLASS_UTILITY_IS_INVISIBLE)
-
-    return this.scrollToBottom()
+  scrollToBottom() {
+    window.scrollTo({ left: 0, top: document.body.scrollHeight, behavior: 'smooth' })
   }
 
   enableButton(element) {
@@ -125,12 +163,17 @@ class FormSettings {
     element.setAttribute('disabled', '')
   }
 
+  enableSubmit() {
+    this.submitButton.classList.remove(CLASS_UTILITY_IS_INVISIBLE)
+
+    return this.scrollToBottom()
+  }
+
   submitForm() {
     this.form.submit()
   }
 }
 
-const getUpperParent = element => element.parentNode.parentNode
 const getInputFromParent = element => element.querySelector('input')
 const getInputsFromParent = element => [...element.querySelectorAll('input')]
 

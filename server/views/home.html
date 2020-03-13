@@ -1,19 +1,99 @@
 {% from '../components/image/image.html' import image %}
+{% from '../components/intro/intro.html' import intro %}
+{% from '../components/match/match.html' import match %}
+{% from '../components/match/match-wrapper.html' import matchWrapper %}
 
 {% extends 'rev-layouts/default.html' %}
 
 {% block content %}
 
-<div class="o-container">
 
-  <div class="o-grid">
+  {% if firstvisit %}
 
-    <div class="o-col-8--md u-pre-2--md">
-      {% include '../components/form-settings/form-settings.html' %}
+    <div class="o-container">
+
+      <div class="o-grid">
+
+          <div class="o-col-8--md u-pre-2--md u--max-width">
+
+            {% include '../components/form-settings/form-settings.html' %}
+
+          </div>
+
+        </div>
+
     </div>
 
-  </div>
+    {% else %}
 
-</div>
+    <div class="o-container-fluid">
+
+      <div class="o-grid">
+
+         <div class="o-col-8--md match__background match__background-extend">
+
+          {% call matchWrapper() %}
+
+            {% if possibleMatches | length %}
+
+              {% for person in possibleMatches %}
+
+                {{ match({
+                  id: person.id,
+                  image: person.avatar,
+                  username: person.username,
+                  age: person.age,
+                  level: person.level,
+                  options: true
+                }) }}
+
+              {% endfor %}
+
+            {% else %}
+
+              <h3>I'm sorry, I can't find anyone! Maybe <a href="/profile">adjust your age range?</a></h3>
+
+            {% endif %}
+
+          {% endcall %}
+
+         </div>
+
+         <div class="o-col-4--md match__background">
+
+          {% call matchWrapper({
+            subtitle: 'Your matches',
+            multiple: true
+          }) %}
+
+            {% if matched | length %}
+
+              {% for person in matched %}
+
+                {{ match({
+                  id: person.id,
+                  image: person.avatar,
+                  username: person.username,
+                  age: person.age,
+                  level: person.level
+                }) }}
+              
+              {% endfor %}
+
+            {% else %}
+
+              <h4 class="match__none">Who shall be your first?</h4>
+
+            {% endif %}
+
+          {% endcall %}
+
+         </div>
+
+      </div>
+
+    </div>
+
+    {% endif %}
 
 {% endblock %}

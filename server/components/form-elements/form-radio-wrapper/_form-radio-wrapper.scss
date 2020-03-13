@@ -1,5 +1,16 @@
 .radio__wrapper {
+  @include hide-scrollbars;
+  position: relative;
   display: flex;
+  overflow-x: auto;
+  margin-left: -$global-spacing-sm;
+  margin-right: -$global-spacing-sm;
+  padding-left: $global-spacing-sm;
+
+  &:after {
+    content: '';
+    padding-right: $global-spacing-sm;
+  }
 }
 
 .radio__label {

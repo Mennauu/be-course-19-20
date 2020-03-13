@@ -3,12 +3,9 @@
   align-items: flex-start;
   justify-content: center;
   flex-direction: column;
-  height: calc(100vh - #{$global-spacing * 11.3});
+  height: 100vh;
+  margin-top: -$global-spacing * 11.3;
   color: $color-white;
-
-  @include screen-tablet-portrait-and-bigger {
-    height: 100vh;
-  }
 }
 
 .intro__title {
@@ -32,4 +29,5 @@
 
 .intro__text--is-centered {
   align-items: center;
+  text-align: center;
 }

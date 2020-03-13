@@ -3,9 +3,12 @@
 }
 
 .image__default {
-  min-width: 100%;
   min-height: 100%;
   width: 100%;
   height: auto;
   object-fit: cover;
+}
+
+.image--has-shadow {
+  box-shadow: 0 5px 10px rgba($color-black, 0.15);
 }

@@ -1,11 +1,20 @@
 {% macro image(data) %}
 
-    <figure class="c-image">
+    <figure class="c-image {%- if data.figureClass %} {{ data.figureClass }}{% endif -%}">
 
+      {% if data.srcset %}
       <picture>
-        {%- if data.srcset %} <source srcset="{{ data.srcset }}" type="image/webp">{% endif -%}
-        <img class="image__default" src="{{ data.image }}" alt="{{ data.alt or 'Image' }}">
+        <source srcset="{{ data.srcset }}" type="image/webp">
+        {% endif %}
+        <img class="image__default 
+          {%- if data.shadow %} image--has-shadow{% endif -%}
+          {%- if data.class %} {{ data.class }}{% endif -%}" 
+          src="{{ data.image }}" 
+          alt="{{ data.alt or 'Image' }}"
+        >
+        {% if data.srcset %}
       </picture>
+      {% endif %}
 
       {%- if data.caption %}
       <figcaption class="c-image__caption">

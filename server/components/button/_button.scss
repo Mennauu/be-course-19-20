@@ -1,6 +1,7 @@
 @import 'mixins/mixin.button';
 @import 'mixins/variants/mixin.black';
 @import 'mixins/variants/mixin.green';
+@import 'mixins/variants/mixin.red';
 @import 'mixins/variants/mixin.white';
 @import 'mixins/variants/mixin.primary';
 @import 'mixins/variants/mixin.secondary';
@@ -20,6 +21,10 @@
 
 .c-button--green {
   @include button--green;
+}
+
+.c-button--red {
+  @include button--red;
 }
 
 .c-button--white {

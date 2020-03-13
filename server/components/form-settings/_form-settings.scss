@@ -47,10 +47,6 @@
     }
   }
 
-  .form__button {
-    align-self: flex-end;
-  }
-
   .form__item--is-visible {
     display: block;
 
@@ -62,6 +58,13 @@
       @include fluid-type(10, 7.5, 'height');
     }
   }
+}
+
+.form__settings-next {
+  align-self: flex-end;
+  position: fixed;
+  bottom: $global-spacing-md;
+  right: $global-spacing-sm;
 }
 
 .form__settings-submit {

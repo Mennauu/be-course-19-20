@@ -3,14 +3,16 @@
 {% macro header( data ) %}
 
     <header class="c-header 
-        {% if data.shadow %} header--has-shadow{% endif %}
-        {% if data.class %} {{ data.class }}{% endif %}" 
-        {% if data.condenses %} condenses{% endif %}
-        {% if data.reveals %} reveals{% endif %}
-        {% if data.fixed %} fixed{% endif %}
+        {%- if data.shadow %} header--has-shadow{% endif -%}
+        {%- if data.class %} {{ data.class }}{% endif -%}" 
+        {%- if data.condenses %} condenses{% endif -%}
+        {%- if data.reveals %} reveals{% endif -%}
+        {%- if data.fixed %} fixed{% endif -%}
         js-hook-header>
 
-        <div class="o-container">
+        {% if data.visit %}
+            <div class="o-container">
+        {% endif %}
 
             <div class="header__wrapper">
 
@@ -35,7 +37,9 @@
 
             </div>
 
-        </div>
+        {% if data.visit %}
+            </div>
+        {% endif %}
 
     </header>
 

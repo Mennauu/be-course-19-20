@@ -1,0 +1,79 @@
+{% from '../image/image.html' import image %}
+{% from '../form-elements/form/form.html' import form %}
+{% from '../button/button.html' import button %}
+
+{% macro match(data) %}
+
+  <div class="c-match">
+
+    <div class="match__card
+      {%- if data.class %} {{ data.class }}{% endif -%}
+      {%- if data.shadow %} card--has-shadow{% endif -%}"
+      {%- if data.hook %} js-hook-{{ data.hook }}{% endif -%}>
+
+      {% if data.image %}
+
+        {{ image({
+          image: data.image,
+          alt: data.name,
+          shadow: true,
+          class: 'match__image',
+          figureClass: 'match__figure'
+        }) }}
+
+      {% endif %}
+
+      {% if data.username %}
+
+        <div class="match__details">
+          <div class="match__details-wrapper">
+            <span class="match__details-item">{{ data.username }}</span>
+            <span class="match__details-item">{{ data.age }}</span>
+          </div>
+          <span class="match__details-item">{{ data.level }}</span>
+        </div>
+
+      {% endif %}
+
+    </div>
+
+    {% if data.options %}
+
+      <div class="match__options">
+
+      {% call form({
+        method: 'POST',
+        action: '/user-matches',
+        hook: 'form-match'
+      }) %}
+
+        {{ button({ 
+          element: 'button',
+          label: 'Like ♥',
+          variant: 'green',
+          type: 'submit',
+          name: 'liked',
+          value: data.id,
+          hook: 'form-match-button'
+        }) }}
+
+
+        {{ button({ 
+          element: 'button',
+          label: 'Dislike!',
+          variant: 'red',
+          type: 'submit',
+          name: 'disliked',
+          value: data.id,
+          hook: 'form-match-button'
+        }) }}
+
+      {% endcall %}
+
+      </div>
+
+    {% endif %}
+  
+  </div>
+
+{% endmacro %}

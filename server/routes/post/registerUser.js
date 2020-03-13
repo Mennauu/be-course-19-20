@@ -32,7 +32,7 @@ const validateUsernameAlphaNumeric = username => !validator.isAlphanumeric(usern
 const validatePasswordLength = password => !validator.isByteLength(password, { min: 6, max: 256 })
 
 const createNewUser = (req, res, username, password) => {
-  const newUser = new User({ username, password })
+  const newUser = new User({ username, password, firstVisit: true })
 
   /* Loop through database to check if username already exists */
   User.findOne({ username }, (err, result) => {
@@ -53,7 +53,7 @@ const createNewUser = (req, res, username, password) => {
       if (add) {
         req.flash('success', message.accountHasBeenCreated)
 
-        res.redirect(`${process.env.LOCAL_URI}login`)
+        res.redirect(`${process.env.LOCAL_URI}home`)
       }
     }
   })

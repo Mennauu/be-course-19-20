@@ -3,11 +3,15 @@
   flex-direction: column;
   align-items: center;
   position: relative;
-  padding: $global-spacing-lg;
+  padding: $global-spacing-md;
   cursor: pointer;
   margin-bottom: $global-spacing-sm;
   margin-right: $global-spacing-sm;
-  min-width: $global-spacing * 18;
+  min-width: $global-spacing * 16;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
 
   &:hover {
     .form__radio-title,

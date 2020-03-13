@@ -1,0 +1,16 @@
+{% macro matchWrapper(data) %}
+
+  <div class="match__container {%- if data.multiple %} match__container--multiple{% endif -%}">
+
+    {%- if data.title %}<h1 class="match__title">{{ data.title }}</h1>{% endif -%}
+    {%- if data.subtitle %}<h2 class="match__subtitle">{{ data.subtitle }}</h2>{% endif -%}
+
+    <div class="match__wrapper {%- if data.multiple %} match__wrapper--multiple{% endif -%}">
+
+      {{ caller() }}
+
+    </div>
+  
+  </div>
+
+{% endmacro %}

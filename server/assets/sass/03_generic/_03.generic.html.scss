@@ -22,5 +22,6 @@ body {
   word-break: normal;
   background-color: $color-primary;
   overflow-y: auto;
+  overflow-x: hidden;
   min-height: 100%;
 }
