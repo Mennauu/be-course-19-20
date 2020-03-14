@@ -28,11 +28,11 @@ export const home = async (req, res) => {
         if (err) console.log(err)
 
         if (results) {
-          const filteredLikedResults = results.filter(match => !req.user.liked.includes(match._id))
-          const filteredAllResults = filteredLikedResults.filter(
-            match => !req.user.disliked.includes(match._id),
+          console.log(results)
+          const filteredResults = results.filter(
+            match => !req.user.liked.includes(match._id) && !req.user.disliked.includes(match._id),
           )
-          const persons = await filterAllData(filteredAllResults)
+          const persons = await filterAllData(filteredResults)
           const possibleMatches = await Promise.all(persons)
           const matches = await User.find({ _id: { $in: req.user.matched } }, results => results)
 

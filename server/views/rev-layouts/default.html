@@ -43,6 +43,8 @@
 
     <body class="{{ bodyClass }} {{ authenticatedClass }} {{ dashboard }}">
 
+        {% include "../../components/overlay/overlay.html" %}
+
         {% call header({
             class: headerClass,
             image: logo,
