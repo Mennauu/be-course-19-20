@@ -1,3 +1,5 @@
+import message from '../../data/messages.json'
+
 const JS_HOOK_MATCH = '[js-hook-match]'
 const JS_HOOK_FORM_MATCH_BUTTONS = '[js-hook-form-match-button]'
 const JS_HOOK_SINGLE_MATCH_WRAPPER = '[js-hook-single-match-wrapper]'
@@ -45,6 +47,7 @@ class Match {
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
+          'X-Requested-With': 'XMLHttpRequest',
         },
         body: JSON.stringify(values),
       }
@@ -61,10 +64,7 @@ class Match {
           element.remove()
 
           if (!this.matchWrapper.children.length) {
-            this.matchWrapper.insertAdjacentHTML(
-              'afterbegin',
-              `<h3>I'm sorry, I can't find anyone! Maybe <a href="/profile">adjust your age range?</a></h3>`,
-            )
+            this.matchWrapper.insertAdjacentHTML('afterbegin', message.noResults)
           }
         })
       }

@@ -14,5 +14,6 @@
   "userSettingsFail": "Couldn't update your information. Please check if you filled in everything.",
   "userSettingsSuccess": "Your information has been updated.",
   "userMatchFail": "Couldn't sample this person, please try again.",
-  "userMatchSuccess": "Person has been liked/disliked"
+  "userMatchSuccess": "Person has been liked/disliked",
+  "noResults": "<h3>I'm sorry, I can't find anyone! Maybe <a href='/profile'>adjust your age range?</a></h3>"
 }

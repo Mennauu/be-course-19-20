@@ -4,6 +4,8 @@
 
 {% macro match(data) %}
 
+{% set shadowBoolean = false if data.options %}
+
   {% if data.username %}
 
     <div class="c-match" js-hook-match>
@@ -18,7 +20,7 @@
           {{ image({
             image: data.image,
             alt: data.name,
-            shadow: true,
+            shadow: shadowBoolean,
             class: 'match__image',
             figureClass: 'match__figure'
           }) }}
