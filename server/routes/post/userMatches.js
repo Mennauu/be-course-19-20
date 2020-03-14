@@ -32,7 +32,6 @@ export const userMatches = (req, res) => {
         { _id: req.session.passport.user },
         {
           $addToSet: { matched: userID },
-          $pull: { liked: userID },
         },
         (err, success) => {
           if (err) console.log(err)
@@ -44,7 +43,6 @@ export const userMatches = (req, res) => {
         { _id: userID },
         {
           $addToSet: { matched: req.session.passport.user },
-          $pull: { liked: req.session.passport.user },
         },
         (err, success) => {
           if (err) console.log(err)

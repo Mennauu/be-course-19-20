@@ -2,6 +2,10 @@ $match-image-size-width: $global-spacing * 3;
 $match-image-size-height: $global-spacing * 4;
 $match-image-border-radius: 3px;
 
+.c-match {
+  transition: opacity 600ms;
+}
+
 .match__container {
   padding-top: $global-spacing-md;
 }
@@ -176,4 +180,8 @@ $match-image-border-radius: 3px;
 .match--has-padding {
   padding-left: $global-spacing;
   padding-right: $global-spacing;
+}
+
+.match--is-transitioning {
+  opacity: 0;
 }

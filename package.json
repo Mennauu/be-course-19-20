@@ -29,6 +29,7 @@
     "watch": "chokidar '**/*.js' -c 'npm run lint-js -s & npm run build-js && npm run revision-js' --ignore 'build/assets/js/*.js' --ignore 'server/server.js' --ignore 'server/routes/**/*' --ignore 'server/middleware/**/*' --ignore 'server/database/**/*' & chokidar '**/*.scss' -c 'npm run build-css & npm run lint-css && npm run revision-css' & chokidar 'server/assets/fonts/*' -c 'npm run move-fonts' --throttle 5000 & chokidar 'server/assets/images/*' -c 'npm run move-images' --throttle 5000"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.4",
     "debounce": "^1.2.0",

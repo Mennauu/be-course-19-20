@@ -5,7 +5,9 @@
     {%- if data.title %}<h1 class="match__title">{{ data.title }}</h1>{% endif -%}
     {%- if data.subtitle %}<h2 class="match__subtitle">{{ data.subtitle }}</h2>{% endif -%}
 
-    <div class="match__wrapper {%- if data.multiple %} match__wrapper--multiple{% endif -%}">
+    <div class="match__wrapper 
+      {%- if data.multiple %} match__wrapper--multiple{% endif -%}"
+      {%- if data.hook %} js-hook-{{ data.hook }}{% endif -%}>
 
       {{ caller() }}
 

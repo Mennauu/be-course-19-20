@@ -1,14 +1,21 @@
+const JS_HOOK_MATCH = '[js-hook-match]'
 const JS_HOOK_FORM_MATCH_BUTTONS = '[js-hook-form-match-button]'
+const JS_HOOK_SINGLE_MATCH_WRAPPER = '[js-hook-single-match-wrapper]'
+
+const CLASS_IS_TRANSITIONING = 'match--is-transitioning'
 
 class Match {
   constructor(element) {
     this.form = element
     this.buttons = [...element.querySelectorAll(JS_HOOK_FORM_MATCH_BUTTONS)]
+    this.matchWrapper = document.querySelector(JS_HOOK_SINGLE_MATCH_WRAPPER)
+
+    if (!this.matchWrapper.hasChildNodes()) {
+      console.log('hoi')
+    }
 
     this.bindEvents()
   }
-
-  initialLoadEvents() {}
 
   bindEvents() {
     for (const button of this.buttons) {
@@ -46,8 +53,21 @@ class Match {
       const text = await response.text()
       const data = text === '' ? {} : JSON.parse(text)
 
-      console.log(data)
-      return data
+      if (data) {
+        const element = this.form.closest(JS_HOOK_MATCH)
+
+        element.classList.add(CLASS_IS_TRANSITIONING)
+        element.addEventListener('transitionend', () => {
+          element.remove()
+
+          if (!this.matchWrapper.children.length) {
+            this.matchWrapper.insertAdjacentHTML(
+              'afterbegin',
+              `<h3>I'm sorry, I can't find anyone! Maybe <a href="/profile">adjust your age range?</a></h3>`,
+            )
+          }
+        })
+      }
     } catch (err) {
       console.log(err)
     }

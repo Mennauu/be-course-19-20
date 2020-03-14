@@ -28,12 +28,12 @@ export const home = async (req, res) => {
         if (err) console.log(err)
 
         if (results) {
-          const persons = results.map(async match => {
-            return await filterData(match)
-          })
-
+          const filteredLikedResults = results.filter(match => !req.user.liked.includes(match._id))
+          const filteredAllResults = filteredLikedResults.filter(
+            match => !req.user.disliked.includes(match._id),
+          )
+          const persons = await filterAllData(filteredAllResults)
           const possibleMatches = await Promise.all(persons)
-
           const matches = await User.find({ _id: { $in: req.user.matched } }, results => results)
 
           res.render('home', {
@@ -63,7 +63,11 @@ export const home = async (req, res) => {
   }
 }
 
-const filterData = ({ _id, username, avatar, age, gender, level }) => {
+const filterAllData = data => {
+  return data.map(filterSingleData)
+}
+
+const filterSingleData = ({ _id, username, avatar, age, gender, level }) => {
   return {
     id: _id,
     username,

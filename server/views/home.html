@@ -32,7 +32,9 @@
 
          <div class="o-col-8--md match__background match__background-extend">
 
-          {% call matchWrapper() %}
+          {% call matchWrapper({
+            hook: 'single-match-wrapper'
+          }) %}
 
             {% if possibleMatches | length %}
 
