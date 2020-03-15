@@ -13,29 +13,31 @@ export const generateRandomFemaleUsers = () => {
     .map(item => item.name)
 
   for (const image of images) {
-    const randomName = random_name({ first: true, gender: 'female' })
-    const randomAge = Math.floor(Math.random() * 10) + 18
-    const randomLevel = levels[Math.floor(Math.random() * levels.length)]
+    setTimeout(() => {
+      const randomName = random_name({ first: true, gender: 'female' })
+      const randomAge = Math.floor(Math.random() * 10) + 18
+      const randomLevel = levels[Math.floor(Math.random() * levels.length)]
 
-    const newUser = new User({
-      username: randomName,
-      password: '123456',
-      name: randomName,
-      age: randomAge,
-      gender: 'Female',
-      attraction: 'Males',
-      fromAge: 18,
-      toAge: 30,
-      level: randomLevel,
-      avatar: `/assets/uploads/females/${image}`,
-      firstVisit: false,
-    })
+      const newUser = new User({
+        username: randomName,
+        password: '123456',
+        name: randomName,
+        age: randomAge,
+        gender: 'Female',
+        attraction: 'Males',
+        fromAge: 18,
+        toAge: 30,
+        level: randomLevel,
+        avatar: `/assets/uploads/females/${image}`,
+        firstVisit: false,
+      })
 
-    User.findOne({ username: randomName }, (err, result) => {
-      if (result === null) {
-        newUser.save()
-      }
-    })
+      User.findOne({ username: randomName }, (err, result) => {
+        if (result === null) {
+          newUser.save()
+        }
+      })
+    }, 50)
   }
 }
 
@@ -49,28 +51,30 @@ export const generateRandomMaleUsers = () => {
     .map(item => item.name)
 
   for (const image of images) {
-    const randomName = random_name({ first: true, gender: 'male' })
-    const randomAge = Math.floor(Math.random() * 10) + 18
-    const randomLevel = levels[Math.floor(Math.random() * levels.length)]
+    setTimeout(() => {
+      const randomName = random_name({ first: true, gender: 'male' })
+      const randomAge = Math.floor(Math.random() * 10) + 18
+      const randomLevel = levels[Math.floor(Math.random() * levels.length)]
 
-    const newUser = new User({
-      username: randomName,
-      password: '123456',
-      name: randomName,
-      age: randomAge,
-      gender: 'Male',
-      attraction: 'Females',
-      fromAge: 10,
-      toAge: 30,
-      level: randomLevel,
-      avatar: `/assets/uploads/males/${image}`,
-      firstVisit: false,
-    })
+      const newUser = new User({
+        username: randomName,
+        password: '123456',
+        name: randomName,
+        age: randomAge,
+        gender: 'Male',
+        attraction: 'Females',
+        fromAge: 10,
+        toAge: 30,
+        level: randomLevel,
+        avatar: `/assets/uploads/males/${image}`,
+        firstVisit: false,
+      })
 
-    User.findOne({ username: randomName }, (err, result) => {
-      if (result === null) {
-        newUser.save()
-      }
-    })
+      User.findOne({ username: randomName }, (err, result) => {
+        if (result === null) {
+          newUser.save()
+        }
+      })
+    }, 50)
   }
 }

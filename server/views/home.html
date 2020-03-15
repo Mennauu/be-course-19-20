@@ -3,14 +3,10 @@
 {% from '../components/match/match.html' import match %}
 {% from '../components/match/match-wrapper.html' import matchWrapper %}
 {% from '../components/form-elements/form-message/form-message.html' import message %}
-{% from '../components/modal/modal.html' import modal %}
-
-{% set modalClass = 'modal--is-active' if matchedAvatar != '' %}
 
 {% extends 'rev-layouts/default.html' %}
 
 {% block content %}
-
 
   {% if firstvisit %}
 
@@ -99,16 +95,6 @@
       </div>
 
     </div>
-
-    {{ modal({
-      username: matcheduser,
-      class: modalClass,
-      ownImage: avatar,
-      ownUsername: username,
-      title: "It's a match!",
-      description: 'You and ' + matcheduser + ' liked each other!',
-      image: matchedavatar
-    }) }}
 
     {% endif %}
 

@@ -1,1 +1,5 @@
-<div class="c-overlay" js-hook-overlay></div>
+{% macro overlay(data) %}
+
+  <div class="c-overlay {%- if data.class %} {{ data.class }}{% endif -%}" js-hook-overlay></div>
+
+{% endmacro %}

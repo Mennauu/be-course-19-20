@@ -1,6 +1,10 @@
 {% from '../../components/header/header.html' import header %}
 {% from '../../components/modal/modal.html' import modal %}
+{% from '../../components/overlay/overlay.html' import overlay %}
+
 {% set authenticatedClass = 'user--is-authenticated' if authenticated %}
+{% set modalClass = 'modal--is-active' if matcheduser %}
+{% set overlayClass = 'overlay--is-active' if matcheduser %}
 {% set dashboard = 't-dashboard' if not firstvisit %}
 
 {% if not firstvisit %}
@@ -44,7 +48,7 @@
 
     <body class="{{ bodyClass }} {{ authenticatedClass }} {{ dashboard }}">
 
-        {% include "../../components/overlay/overlay.html" %}
+        {{ overlay({ class: overlayClass }) }}
 
         {% call header({
             class: headerClass,
@@ -66,8 +70,18 @@
 
         </main>
 
+        {{ modal({
+            username: matcheduser,
+            class: modalClass,
+            ownImage: avatar,
+            ownUsername: username,
+            title: "It's a match!",
+            description: 'You and ' + matcheduser + ' liked each other!',
+            image: matchedavatar
+        }) }}
+
         {% if environment == 'local' %}
-            <script type="module" async="async" src="/assets/js/main-es-4449adbc88.js"></script>
+            <script type="module" async="async" src="/assets/js/main-es-4d8b71bd66.js"></script>
         {% else %}
             <script type="module" async="async" src="/assets/js/main-es.min.js"></script>
             <script nomodule="nomodule" async="async" src="/assets/js/main.min.js"></script>

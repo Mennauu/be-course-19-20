@@ -22,24 +22,23 @@
                     {% endif -%}
 
      
-                        <div class="modal__image-wrapper">
-                            <img class="modal__image" src="{{ data.ownImage }}" alt="{{ data.ownUsername }}">
-                            <img class="modal__image" src="{{ data.image }}" alt="{{ data.username }}">
-                        </div>
-               
+                    <div class="modal__image-wrapper">
+                        <img class="modal__image" src="{{ data.ownImage }}" alt="{{ data.ownUsername }}">
+                        <img class="modal__image" src="{{ data.image }}" alt="{{ data.username }}">
+                    </div>
+
+                    {{ button({ 
+                        element: 'a',
+                        class: 'modal__button-close',
+                        label: "That's awesome!",
+                        variant: 'primary',
+                        ariaLabel: 'Close modalbox',
+                        url: '/home'
+                    }) }}
 
                 </div>
 
             </div>
-
-            {{ button({ 
-                element: 'a',
-                class: 'modal__button-close',
-                label: "That's awesome!",
-                variant: 'primary',
-                ariaLabel: 'Close modalbox',
-                url: '/home'
-            }) }}
 
         </div>
 

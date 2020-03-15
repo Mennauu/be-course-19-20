@@ -33,10 +33,12 @@ export const home = async (req, res) => {
           )
           const persons = await filterAllData(filteredResults)
           const possibleMatches = await Promise.all(persons)
+          // const possibleMatchesRandomized = possibleMatches.sort(() => Math.random() - 0.5)
+
           const matches = await User.find({ _id: { $in: req.user.matched } }, results => results)
 
-          console.log(req.flash('matcheduser')[0])
-          console.log(req.flash('matchedavatar')[0])
+          const matchedUser = req.flash('matcheduser')[0]
+          const matchedAvatar = req.flash('matchedavatar')[0]
 
           res.render('home', {
             navigation: dataNavigation,
@@ -47,8 +49,8 @@ export const home = async (req, res) => {
             name: req.user.name || req.user.username,
             possibleMatches,
             matched: matches || [],
-            matcheduser: req.flash('matcheduser'),
-            matchedavatar: req.flash('matchedavatar'),
+            matcheduser: matchedUser,
+            matchedavatar: matchedAvatar,
           })
         }
       })

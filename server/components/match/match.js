@@ -70,7 +70,13 @@ class Match {
              <img class="modal__image" src="${data.ownAvatar}" alt="${data.ownUsername}">
              <img class="modal__image" src="${data.avatar}" alt="${data.username}">
             </div>
+            <a class="c-button--primary modal__button-close" href="/home" aria-label="Close modalbox">
+              <span class="button__label">That's awesome!</span>
+            </a>
           `
+
+          while (this.modalContent.firstChild)
+            this.modalContent.removeChild(this.modalContent.firstChild)
 
           this.modalContent.insertAdjacentHTML('afterbegin', html)
           this.showModal()
