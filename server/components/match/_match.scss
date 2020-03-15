@@ -1,9 +1,10 @@
 $match-image-size-width: $global-spacing * 3;
 $match-image-size-height: $global-spacing * 4;
 $match-image-border-radius: 3px;
+$match-transition-speed: 600ms;
 
 .c-match {
-  transition: opacity 600ms;
+  transition: opacity $match-transition-speed;
 }
 
 .match__container {
@@ -49,7 +50,12 @@ $match-image-border-radius: 3px;
 
 .match__image {
   border-radius: $match-image-border-radius;
+  position: absolute;
   object-fit: cover;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
 }
 
 .match__details {
@@ -109,12 +115,14 @@ $match-image-border-radius: 3px;
 }
 
 .match__background {
+  // sass-lint:disable-block no-important
   @include hide-scrollbars;
   position: relative;
   overflow-y: visible;
   padding-left: $global-spacing-sm !important;
   padding-right: $global-spacing-sm !important;
   width: 100%;
+  background-color: $color-white;
 
   @include screen-tablet-portrait-and-bigger {
     overflow-y: auto;
@@ -181,16 +189,8 @@ $match-image-border-radius: 3px;
   }
 }
 
-.match__image {
-  position: absolute;
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-  max-width: none;
-  max-height: none;
-}
-
 .match__none {
+  // sass-lint:disable-block no-important
   position: absolute;
   margin-right: $global-spacing-sm;
   color: rgba($color-black, 0.2) !important;

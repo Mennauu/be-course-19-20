@@ -16,5 +16,6 @@
 }
 
 .form__subtitle {
+  // sass-lint:disable-block no-important
   color: rgba($color-white, 0.8) !important;
 }

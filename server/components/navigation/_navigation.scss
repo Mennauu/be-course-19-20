@@ -1,4 +1,6 @@
 $navigation-transition-speed: 300ms;
+$navigation-image-size: $global-spacing-md;
+$navigation-image-border-radius: 50%;
 
 .c-navigation {
   display: flex;
@@ -35,10 +37,10 @@ $navigation-transition-speed: 300ms;
 }
 
 .navigation__image {
-  border-radius: 50%;
+  border-radius: $navigation-image-border-radius;
   object-fit: cover;
-  height: $global-spacing-md;
-  width: $global-spacing-md;
+  height: $navigation-image-size;
+  width: $navigation-image-size;
 }
 
 .navigation__image-wrapper {

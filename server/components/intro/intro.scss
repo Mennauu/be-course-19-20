@@ -1,16 +1,20 @@
+$intro-height: 100vh;
+$intro-top-offset: -$global-spacing * 11.3;
+$intro-color: $color-white;
+
 .c-intro {
   display: flex;
   align-items: flex-start;
   justify-content: center;
   flex-direction: column;
-  height: 100vh;
-  margin-top: -$global-spacing * 11.3;
-  color: $color-white;
+  height: $intro-height;
+  margin-top: $intro-top-offset;
+  color: $intro-color;
 }
 
 .intro__title {
   @include fluid-type(10, 5);
-  color: $color-white;
+  color: $intro-color;
 }
 
 .intro__copy {
@@ -18,7 +22,7 @@
 }
 
 .intro__link {
-  color: $color-white;
+  color: $intro-color;
   text-decoration: underline;
   cursor: pointer;
 

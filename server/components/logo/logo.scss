@@ -1,12 +1,16 @@
+$logo-font: $font-stack-secondary;
+$logo-color: $color-white;
+$logo-side-size: 2.8rem;
+
 .c-logo {
   display: flex;
-  font-family: $font-stack-secondary;
-  color: $color-white;
+  font-family: $logo-font;
+  color: $logo-color;
   height: 100%;
 }
 
 .logo__side {
-  font-size: 2.8rem;
+  font-size: $logo-side-size;
   display: inline-block;
 }
 
@@ -17,7 +21,7 @@
 }
 
 .logo__text {
-  font-size: 2.8rem;
+  font-size: $logo-side-size;
   margin-right: $global-spacing;
   display: none;
 

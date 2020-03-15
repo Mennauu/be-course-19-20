@@ -6,34 +6,41 @@ import User from '../../database/models/user.js'
 
 export const registerUser = (req, res) => {
   const { username, password } = req.body
+  const passwordCheck = req.body['password-check']
 
   // generateRandomFemaleUsers()
   // generateRandomMaleUsers()
 
-  if (validateUsernameLength(username)) {
+  // Validate username length
+  if (!validator.isByteLength(username, { min: 3, max: 20 })) {
     req.flash('error', message.usernameLength)
 
     return res.redirect('back')
   }
 
-  if (validateUsernameAlphaNumeric(username)) {
+  // Check if username contains only letters and numbers
+  if (!validator.isAlphanumeric(username)) {
     req.flash('error', message.usernameCheck)
 
     return res.redirect('back')
   }
 
-  if (validatePasswordLength(password)) {
+  // Validate password length
+  if (!validator.isByteLength(password, { min: 6, max: 256 })) {
     req.flash('error', message.passwordLength)
+
+    return res.redirect('back')
+  }
+
+  // Validate if confirmed password is equal to password
+  if (!validator.equals(passwordCheck, password)) {
+    req.flash('error', message.passwordConfirmedCheck)
 
     return res.redirect('back')
   }
 
   createNewUser(req, res, username, password)
 }
-
-const validateUsernameLength = username => !validator.isByteLength(username, { min: 3, max: 20 })
-const validateUsernameAlphaNumeric = username => !validator.isAlphanumeric(username)
-const validatePasswordLength = password => !validator.isByteLength(password, { min: 6, max: 256 })
 
 const createNewUser = (req, res, username, password) => {
   const newUser = new User({ username, password, firstVisit: true })

@@ -55,6 +55,8 @@ export const home = async (req, res) => {
         }
       })
     } else {
+      const notificationMessage = req.flash('error')[0]
+
       res.render('home', {
         navigation: dataNavigation,
         username: req.user.username,
@@ -62,6 +64,7 @@ export const home = async (req, res) => {
         authenticated: true,
         firstvisit: req.user.firstVisit,
         name: req.user.name || req.user.username,
+        notificationMessage,
       })
     }
   } else {

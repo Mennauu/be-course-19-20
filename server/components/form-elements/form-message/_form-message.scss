@@ -1,22 +1,26 @@
-$form-error-transition-time: 750ms;
-$form-error-transition-ease: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+$form-message-transition-time: 750ms;
+$form-message-transition-ease: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+$form-message-error-color: $color-red;
+$form-message-success-color: $color-green;
 
 .form__message {
   display: block;
   min-height: $global-spacing * 5.6;
   transform: translateX(15px);
   opacity: 0;
-  transition: all $form-error-transition-time $form-error-transition-ease;
+  transition: opacity $form-message-transition-time $form-message-transition-ease,
+    transform $form-message-transition-time $form-message-transition-ease,
+    color $form-message-transition-time $form-message-transition-ease;
 }
 
 .form__message--has-error {
   opacity: 1;
   transform: translateX(0);
-  color: $color-red;
+  color: $form-message-error-color;
 }
 
 .form__message--has-success {
   opacity: 1;
   transform: translateX(0);
-  color: $color-green;
+  color: $form-message-success-color;
 }

@@ -27,10 +27,12 @@
     label: 'Firstly, what is your real name?',
     hook: 'input-name',
     autofocus: true,
-    class: 'form__item--is-visible',
+    class: 'form__item--is-visible form__item--first',
     maxlength: '256',
     placeholder: 'Robin Williams'
   }) }}
+
+  <div class="form__settings--pe" js-hook-form-settings-pe>
 
   {{ input({
     name: 'age',
@@ -133,7 +135,8 @@
     id: 'avatar',
     label: 'Almost there. How do you look?',
     hook: 'input-avatar',
-    class: 'form__item--is-visible'
+    class: 'form__item--is-visible',
+    accept: 'image/*'
   }) }}
 
   {% call radioWrapper({
@@ -161,6 +164,8 @@
     }) }}
   
   {% endcall %}
+
+  </div>
 
   {{ button({ 
     element: 'button',

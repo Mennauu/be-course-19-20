@@ -1,4 +1,8 @@
 .form__settings {
+  @include screen-tablet-portrait-and-bigger {
+    position: relative;
+  }
+
   .form__item {
     display: none;
     animation: fadeIn 900ms;
@@ -50,27 +54,36 @@
   .form__item--is-visible {
     display: block;
 
-    &:first-of-type {
-      animation: delayedFadeIn 4.2s;
-    }
-
     .input__input {
       @include fluid-type(10, 7.5, 'height');
     }
   }
+
+  .form__item--first {
+    animation: delayedFadeIn 4.2s;
+  }
 }
 
 .form__settings-next {
-  align-self: flex-end;
   position: fixed;
   bottom: $global-spacing-md;
   right: $global-spacing-sm;
+  align-self: flex-end;
+
+  @include screen-tablet-portrait-and-bigger {
+    position: absolute;
+  }
 }
 
 .form__settings-submit {
+  // sass-lint:disable-block no-important
   animation: fadeIn 1.25s;
   margin-bottom: $global-spacing * 10;
   align-self: center !important;
+}
+
+.form__settings--pe {
+  animation: delayedFadeIn 4.22s;
 }
 
 @keyframes fadeIn {
@@ -78,6 +91,7 @@
     opacity: 0;
     transform: translateY(#{$global-spacing-sm});
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -88,10 +102,12 @@
   0% {
     opacity: 0;
   }
+
   66% {
     opacity: 0;
     transform: translateY(#{$global-spacing-sm});
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);

@@ -1,14 +1,22 @@
+$modal-padding: $global-spacing-lg;
+$modal-background-color: rgba($color-white, 0.95);
+$modal-border-radius: 3px;
+$modal-color: $color-black;
+$modal-image-size: $global-spacing * 10;
+$modal-image-border-radius: 50%;
+$modal-transition-speed: 400ms;
+$modal-z-index: 101;
+
 .c-modal {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  padding: $global-spacing-lg;
-  background-color: rgba($color-white, 0.95);
-  border-radius: 3px;
+  padding: $modal-padding;
+  background-color: $modal-background-color;
+  border-radius: $modal-border-radius;
   opacity: 0;
   visibility: hidden;
-  transition: visibility 400ms, opacity 400ms;
 }
 
 .modal__container {
@@ -20,21 +28,18 @@
 }
 
 .modal__description {
-  color: $color-black;
-}
-
-.modal__description {
+  color: $modal-color;
   margin-bottom: $global-spacing-sm;
 }
 
 .modal__image {
-  border-radius: 50%;
-  max-height: $global-spacing * 10;
-  max-width: $global-spacing * 10;
+  border-radius: $modal-image-border-radius;
+  max-height: $modal-image-size;
+  max-width: $modal-image-size;
   height: 100%;
   width: 100%;
   object-fit: cover;
-  border: 3px solid $color-primary;
+  border: $modal-border-radius solid $color-primary;
 
   + .modal__image {
     margin-left: $global-spacing * 1.5;
@@ -53,5 +58,6 @@
 .modal--is-active {
   opacity: 1;
   visibility: visible;
-  z-index: 101;
+  z-index: $modal-z-index;
+  transition: visibility $modal-transition-speed, opacity $modal-transition-speed;
 }

@@ -1,4 +1,5 @@
 @mixin hide-scrollbars {
+  // sass-lint:disable-block no-misspelled-properties
   scrollbar-width: none;
   -ms-overflow-style: -ms-autohiding-scrollbar;
 

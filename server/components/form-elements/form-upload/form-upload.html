@@ -8,9 +8,8 @@
                 {{ data.label | safe }}
             </span>
             <div class="input__file-wrapper">
-                <label class="input__input file__label" for="{{ data.id }}" js-hook-file-label>Upload an image of yourself, please.</label>
-                <input class="u--sr-only"
-                    type="file"
+                <label class="input__input file__label u--sr-only" for="{{ data.id }}" js-hook-file-label>Upload an image of yourself, please.</label>
+                <input type="file"
                     name="{{ data.name }}"
                     id="{{ data.id }}"
                     {%- if data.hook %} js-hook-{{ data.hook }} {% endif -%}

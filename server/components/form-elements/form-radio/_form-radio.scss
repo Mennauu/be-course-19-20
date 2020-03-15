@@ -1,3 +1,6 @@
+$form-radio-image-size: $global-spacing * 6.4;
+$form-radio-transition-speed: 300ms;
+
 .form__radio--is-image {
   display: flex;
   flex-direction: column;
@@ -43,8 +46,8 @@
 .form__radio-image {
   position: relative;
   z-index: 10;
-  width: $global-spacing * 6.4;
-  height: $global-spacing * 6.4;
+  width: $form-radio-image-size;
+  height: $form-radio-image-size;
 }
 
 .form__radio-title {
@@ -59,5 +62,5 @@
 .form__radio-background,
 .form__radio-image,
 .form__radio-title {
-  transition: transform 300ms, background-color 300ms;
+  transition: transform $form-radio-transition-speed, background-color $form-radio-transition-speed;
 }

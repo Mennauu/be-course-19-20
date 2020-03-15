@@ -4,7 +4,12 @@
 
       <span class="form__radio-title">{{ data.value }}</span>
       
-      <input class="form__radio" type="radio" name="{{ data.name }}" id="{{ data.value }}" value="{{ data.value }}">
+      <input class="form__radio" 
+        type="radio" 
+        name="{{ data.name }}" 
+        id="{{ data.value }}" 
+        value="{{ data.value }}"
+        {% if data.required %} required{% endif %}>
       
       {% if data.image %}
         <div class="form__radio-background"></div>

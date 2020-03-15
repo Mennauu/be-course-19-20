@@ -7,7 +7,13 @@ class FormUpload {
     this.preview = document.querySelector(JS_HOOK_PREVIEW_IMAGE)
     this.label = document.querySelector(JS_HOOK_FILE_LABEL)
 
+    this.initLoadEvents()
     this.bindEvents()
+  }
+
+  initLoadEvents() {
+    this.input.classList.add('u--sr-only')
+    this.label.classList.remove('u--sr-only')
   }
 
   bindEvents() {

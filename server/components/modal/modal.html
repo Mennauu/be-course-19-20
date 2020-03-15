@@ -13,28 +13,32 @@
 
                 <div class="modal__content" role="dialog" js-hook-modal-content>
 
-                    {%- if data.title %}
-                        <h2 class="modal__title">{{ data.title }}</h2>
+                    {%- if data.image %}
+
+                        {%- if data.title %}
+                            <h2 class="modal__title">{{ data.title }}</h2>
+                        {% endif -%}
+
+                        {%- if data.description %}
+                            <p class="modal__description">{{ data.description }}</p>
+                        {% endif -%}
+
+        
+                        <div class="modal__image-wrapper">
+                            <img class="modal__image" src="{{ data.ownImage }}" alt="{{ data.ownUsername }}">
+                            <img class="modal__image" src="{{ data.image }}" alt="{{ data.username }}">
+                        </div>
+
+                        {{ button({ 
+                            element: 'a',
+                            class: 'modal__button-close',
+                            label: "That's awesome!",
+                            variant: 'primary',
+                            ariaLabel: 'Close modalbox',
+                            url: '/home'
+                        }) }}
+
                     {% endif -%}
-
-                    {%- if data.description %}
-                        <p class="modal__description">{{ data.description }}</p>
-                    {% endif -%}
-
-     
-                    <div class="modal__image-wrapper">
-                        <img class="modal__image" src="{{ data.ownImage }}" alt="{{ data.ownUsername }}">
-                        <img class="modal__image" src="{{ data.image }}" alt="{{ data.username }}">
-                    </div>
-
-                    {{ button({ 
-                        element: 'a',
-                        class: 'modal__button-close',
-                        label: "That's awesome!",
-                        variant: 'primary',
-                        ariaLabel: 'Close modalbox',
-                        url: '/home'
-                    }) }}
 
                 </div>
 

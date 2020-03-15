@@ -1,0 +1,13 @@
+{% macro notification(data) %}
+
+  <div class="c-notification {%- if data.class %} {{ data.class }}{% endif -%}" js-hook-notification>
+
+      <p class="notification__message" js-hook-notification-message>
+
+        {%- if data.message %}{{ data.message }}{% endif -%}
+        
+      </p>
+
+  </div>
+
+{% endmacro %}

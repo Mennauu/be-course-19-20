@@ -1,0 +1,40 @@
+$notification-transition-speed: 400ms;
+$notification-z-index: 10;
+$notification-shadow: 0 5px 10px rgba($color-black, 0.15);
+$notification-border-radius: 3px;
+$notification-background-color: $color-white;
+$notification-padding: $global-spacing-sm;
+$notification-positioning: $global-spacing-md;
+$notification-width: $global-spacing * 40;
+
+.c-notification {
+  background-color: $notification-background-color;
+  border-radius: $notification-border-radius;
+  box-shadow: $notification-shadow;
+  padding: $notification-padding;
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  left: $notification-positioning;
+  max-width: 100%;
+  color: $color-red;
+  font-weight: $font-weight-bold;
+  font-family: $font-stack-secondary;
+  margin-right: $notification-positioning;
+
+  @include screen-mobile-plus-and-smaller {
+    top: $notification-positioning;
+  }
+
+  @include screen-tablet-portrait-and-bigger {
+    bottom: $notification-positioning;
+    max-width: $notification-width;
+  }
+}
+
+.notification--is-active {
+  opacity: 1;
+  visibility: visible;
+  z-index: $notification-z-index;
+  transition: visibility $notification-transition-speed, opacity $notification-transition-speed;
+}

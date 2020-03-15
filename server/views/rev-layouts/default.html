@@ -1,11 +1,14 @@
 {% from '../../components/header/header.html' import header %}
 {% from '../../components/modal/modal.html' import modal %}
 {% from '../../components/overlay/overlay.html' import overlay %}
+{% from '../../components/notification/notification.html' import notification %}
 
 {% set authenticatedClass = 'user--is-authenticated' if authenticated %}
 {% set modalClass = 'modal--is-active' if matcheduser %}
 {% set overlayClass = 'overlay--is-active' if matcheduser %}
 {% set dashboard = 't-dashboard' if not firstvisit %}
+{% set notificationMessage = notificationMessage if notificationMessage %}
+{% set notificationClass = 'notification--is-active' if notificationMessage %}
 
 {% if not firstvisit %}
     {% set logo = 'logo_white' %}
@@ -31,7 +34,7 @@
 
         <title>BE Course 2020</title>
 
-        <link rel="stylesheet" href="/assets/css/styles-86a5b97625.min.css">
+        <link rel="stylesheet" href="/assets/css/styles-0cc37d20ae.min.css">
 
         <!-- Favicons -->
         <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon.png">
@@ -80,8 +83,10 @@
             image: matchedavatar
         }) }}
 
+        {{ notification({ message: notificationMessage, class: notificationClass }) }}
+
         {% if environment == 'local' %}
-            <script type="module" async="async" src="/assets/js/main-es-4d8b71bd66.js"></script>
+            <script type="module" async="async" src="/assets/js/main-es-86623fe132.js"></script>
         {% else %}
             <script type="module" async="async" src="/assets/js/main-es.min.js"></script>
             <script nomodule="nomodule" async="async" src="/assets/js/main.min.js"></script>

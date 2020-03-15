@@ -1,6 +1,8 @@
 {% macro form(data) %}
 
-<div class="c-form {%- if data.class %} {{ data.class }}{% endif -%}">
+<div class="c-form 
+  {%- if data.class %} {{ data.class }}{% endif -%}"
+  {% if data.novalidate %} novalidate{% endif %}>
 
     {%- if data.title %}
       <h1 class="form__title">{{ data.title }}</h1>

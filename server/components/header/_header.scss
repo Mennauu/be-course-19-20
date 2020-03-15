@@ -1,10 +1,13 @@
 $header-shadow-color: inset 0 2px 4px -3px rgba($color-black, 0.2);
+$header-width: 100%;
+$header-background-color: transparent;
+$header-z-index: 2;
 
 .c-header {
-  background-color: transparent;
-  width: 100%;
+  background-color: $header-background-color;
+  width: $header-width;
   position: relative;
-  z-index: 2;
+  z-index: $header-z-index;
 
   .user--is-authenticated & {
     padding-left: $global-spacing-sm;
