@@ -73,12 +73,19 @@ $match-image-border-radius: 3px;
 }
 
 .match__details-item {
-  display: block;
+  display: flex;
+  align-items: center;
   text-shadow: 0 2px 4px rgba($color-black, 0.2);
 
   &::first-letter {
     text-transform: uppercase;
   }
+}
+
+.match__details-svg {
+  height: $global-spacing-sm;
+  fill: $color-white;
+  margin-right: $global-spacing / 2;
 }
 
 .match__options {
@@ -142,11 +149,23 @@ $match-image-border-radius: 3px;
 
   .match__wrapper {
     display: grid;
+    position: relative;
   }
 
   .c-match {
     grid-column: 1;
     grid-row: 1;
+    display: none;
+
+    &:first-of-type,
+    &:nth-child(2) {
+      display: block;
+    }
+
+    &:first-of-type {
+      position: relative;
+      z-index: 5;
+    }
   }
 }
 

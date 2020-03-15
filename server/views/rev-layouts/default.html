@@ -1,4 +1,5 @@
 {% from '../../components/header/header.html' import header %}
+{% from '../../components/modal/modal.html' import modal %}
 {% set authenticatedClass = 'user--is-authenticated' if authenticated %}
 {% set dashboard = 't-dashboard' if not firstvisit %}
 
@@ -26,7 +27,7 @@
 
         <title>BE Course 2020</title>
 
-        <link rel="stylesheet" href="/assets/css/styles-63788d622f.min.css">
+        <link rel="stylesheet" href="/assets/css/styles-86a5b97625.min.css">
 
         <!-- Favicons -->
         <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon.png">
@@ -66,7 +67,7 @@
         </main>
 
         {% if environment == 'local' %}
-            <script type="module" async="async" src="/assets/js/main-es-f9ae56c431.js"></script>
+            <script type="module" async="async" src="/assets/js/main-es-4449adbc88.js"></script>
         {% else %}
             <script type="module" async="async" src="/assets/js/main-es.min.js"></script>
             <script nomodule="nomodule" async="async" src="/assets/js/main.min.js"></script>

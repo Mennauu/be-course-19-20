@@ -24,20 +24,24 @@ export const generateRandomFemaleUsers = () => {
       age: randomAge,
       gender: 'Female',
       attraction: 'Males',
-      fromAge: 10,
+      fromAge: 18,
       toAge: 30,
       level: randomLevel,
       avatar: `/assets/uploads/females/${image}`,
       firstVisit: false,
     })
 
-    newUser.save()
+    User.findOne({ username: randomName }, (err, result) => {
+      if (result === null) {
+        newUser.save()
+      }
+    })
   }
 }
 
 export const generateRandomMaleUsers = () => {
   const levels = ['Noob', 'Advanced', 'God']
-  const testFolder = 'server/assets/uploads/females/'
+  const testFolder = 'server/assets/uploads/males/'
 
   const images = fs
     .readdirSync(testFolder, { withFileTypes: true })
@@ -63,6 +67,10 @@ export const generateRandomMaleUsers = () => {
       firstVisit: false,
     })
 
-    newUser.save()
+    User.findOne({ username: randomName }, (err, result) => {
+      if (result === null) {
+        newUser.save()
+      }
+    })
   }
 }

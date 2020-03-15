@@ -3,18 +3,22 @@ import message from '../../data/messages.json'
 const JS_HOOK_MATCH = '[js-hook-match]'
 const JS_HOOK_FORM_MATCH_BUTTONS = '[js-hook-form-match-button]'
 const JS_HOOK_SINGLE_MATCH_WRAPPER = '[js-hook-single-match-wrapper]'
+const JS_HOOK_OVERLAY = '[js-hook-overlay]'
+const JS_HOOK_MODAL = '[js-hook-modal]'
+const JS_HOOK_MODAL_CONTENT = '[js-hook-modal-content]'
 
 const CLASS_IS_TRANSITIONING = 'match--is-transitioning'
+const CLASS_OVERLAY_IS_ACTIVE = 'overlay--is-active'
+const CLASS_MODAL_IS_ACTIVE = 'modal--is-active'
 
 class Match {
   constructor(element) {
     this.form = element
     this.buttons = [...element.querySelectorAll(JS_HOOK_FORM_MATCH_BUTTONS)]
     this.matchWrapper = document.querySelector(JS_HOOK_SINGLE_MATCH_WRAPPER)
-
-    if (!this.matchWrapper.hasChildNodes()) {
-      console.log('hoi')
-    }
+    this.overlay = document.querySelector(JS_HOOK_OVERLAY)
+    this.modal = document.querySelector(JS_HOOK_MODAL)
+    this.modalContent = document.querySelector(JS_HOOK_MODAL_CONTENT)
 
     this.bindEvents()
   }
@@ -53,11 +57,24 @@ class Match {
       }
 
       const response = await fetch('/user-matches', config)
-      const text = await response.text()
-      const data = text === '' ? {} : JSON.parse(text)
+      const data = await response.json()
 
       if (data) {
         const element = this.form.closest(JS_HOOK_MATCH)
+
+        if (data.match) {
+          const html = `
+            <h2 class="modal__title">It's a match!</h2>
+            <p class="modal__description">You and ${data.username} liked each other!</p>
+            <div class="modal__image-wrapper">
+             <img class="modal__image" src="${data.ownAvatar}" alt="${data.ownUsername}">
+             <img class="modal__image" src="${data.avatar}" alt="${data.username}">
+            </div>
+          `
+
+          this.modalContent.insertAdjacentHTML('afterbegin', html)
+          this.showModal()
+        }
 
         element.classList.add(CLASS_IS_TRANSITIONING)
         element.addEventListener('transitionend', () => {
@@ -73,8 +90,9 @@ class Match {
     }
   }
 
-  submitForm() {
-    this.form.submit()
+  showModal() {
+    this.overlay.classList.add(CLASS_OVERLAY_IS_ACTIVE)
+    this.modal.classList.add(CLASS_MODAL_IS_ACTIVE)
   }
 }
 

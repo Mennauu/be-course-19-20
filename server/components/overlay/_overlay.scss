@@ -1,7 +1,7 @@
 $overlay-transition-speed: 400ms;
 $overlay-color: $color-black;
 $overlay-opacity: 0.5;
-$overlay-z-index: 6;
+$overlay-z-index: 100;
 
 .c-overlay {
   position: fixed;

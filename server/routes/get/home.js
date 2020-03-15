@@ -25,16 +25,18 @@ export const home = async (req, res) => {
       }
 
       await User.find({ age: allowedAges, gender: attraction }, async (err, results) => {
-        if (err) console.log(err)
+        if (err) return res.redirect('back')
 
         if (results) {
-          console.log(results)
           const filteredResults = results.filter(
             match => !req.user.liked.includes(match._id) && !req.user.disliked.includes(match._id),
           )
           const persons = await filterAllData(filteredResults)
           const possibleMatches = await Promise.all(persons)
           const matches = await User.find({ _id: { $in: req.user.matched } }, results => results)
+
+          console.log(req.flash('matcheduser')[0])
+          console.log(req.flash('matchedavatar')[0])
 
           res.render('home', {
             navigation: dataNavigation,
@@ -45,6 +47,8 @@ export const home = async (req, res) => {
             name: req.user.name || req.user.username,
             possibleMatches,
             matched: matches || [],
+            matcheduser: req.flash('matcheduser'),
+            matchedavatar: req.flash('matchedavatar'),
           })
         }
       })

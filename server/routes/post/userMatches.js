@@ -23,8 +23,6 @@ export const userMatches = (req, res) => {
                 (err, success) => {
                   if (err) return res.redirect('back')
                   if (success) {
-                    console.log('id is toegevoegd aan `Matched`')
-
                     User.updateOne(
                       { _id: userID },
                       {
@@ -33,11 +31,27 @@ export const userMatches = (req, res) => {
                       (err, success) => {
                         if (err) return res.redirect('back')
                         if (success) {
-                          console.log('id is toegevoegd aan `Matched` (andere user)')
-
                           if (req.xhr) {
-                            return res.send()
+                            User.findOne({ _id: req.session.passport.user }, (err, sessionUser) => {
+                              if (err) res.redirect('back')
+                              if (sessionUser) {
+                                const clientData = {
+                                  username: person.username,
+                                  avatar: person.avatar,
+                                  age: person.age,
+                                  id: person._id,
+                                  match: true,
+                                  ownUsername: sessionUser.username,
+                                  ownAvatar: sessionUser.avatar,
+                                }
+
+                                return res.send(JSON.stringify(clientData))
+                              }
+                            })
                           } else {
+                            req.flash('matchedavatar', person.avatar)
+                            req.flash('matcheduser', person.username)
+
                             return res.redirect('back')
                           }
                         }
@@ -48,7 +62,7 @@ export const userMatches = (req, res) => {
               )
             } else {
               if (req.xhr) {
-                return res.end()
+                return res.send(JSON.stringify({}))
               } else {
                 return res.redirect('back')
               }

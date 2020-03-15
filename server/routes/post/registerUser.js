@@ -7,6 +7,9 @@ import User from '../../database/models/user.js'
 export const registerUser = (req, res) => {
   const { username, password } = req.body
 
+  // generateRandomFemaleUsers()
+  // generateRandomMaleUsers()
+
   if (validateUsernameLength(username)) {
     req.flash('error', message.usernameLength)
 

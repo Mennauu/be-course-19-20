@@ -9,10 +9,11 @@
     {%- if data.type %} type="{{ data.type }}"{% endif -%}
     {%- if not data.type and data.element == 'button' %} type="button"{% endif -%}
     {%- if data.url %} href="{{ data.url }}"{% endif -%}
-    {%- if data.hook %} js-hook-{{ data.hook }}{% endif -%}
     {%- if data.controls %} aria-controls="{{ data.controls }}"{% endif -%}
+    {%- if data.ariaLabel %} aria-label="{{ data.ariaLabel }}"{% endif -%}
     {%- if data.name %} name="{{ data.name }}"{% endif -%}
-    {%- if data.value %} value="{{ data.value }}"{% endif -%}>
+    {%- if data.value %} value="{{ data.value }}"{% endif -%}
+    {%- if data.hook %} js-hook-{{ data.hook }}{% endif -%}>
 
         <span class="button__label">
             {%- if data.arrowLeft %} 
