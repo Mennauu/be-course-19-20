@@ -354,4 +354,3 @@ Underneath you will find sources that have been used or were helpful for the cre
 <a href="https://choosealicense.com/licenses/gpl-3.0/">
   <img src="https://img.shields.io/badge/license-GNU_GPLv3-green.svg?style=flat-square" alt="License">
 </a>
-````
