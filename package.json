@@ -53,7 +53,9 @@
     "range-inclusive": "^1.0.2",
     "shrink-ray-current": "^4.1.2",
     "validator": "^12.2.0",
-    "wnumb": "^1.2.0"
+    "wnumb": "^1.2.0",
+    "fs": "0.0.1-security",
+    "node-random-name": "^1.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
@@ -88,7 +90,6 @@
     "kill-port": "^1.6.0",
     "make-dir-cli": "^2.0.0",
     "ncp": "^2.0.0",
-    "node-random-name": "^1.0.1",
     "node-sass-glob-importer": "^5.3.2",
     "nodemon": "^2.0.2",
     "postcss": "^7.0.27",
