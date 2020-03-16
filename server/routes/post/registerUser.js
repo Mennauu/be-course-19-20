@@ -2,14 +2,14 @@ import validator from 'validator'
 
 import message from '../../data/messages.json'
 import User from '../../database/models/user.js'
-import { generateRandomFemaleUsers, generateRandomMaleUsers } from './generateRandomUsers.js'
+// import { generateRandomFemaleUsers, generateRandomMaleUsers } from './generateRandomUsers.js'
 
 export const registerUser = (req, res) => {
   const { username, password } = req.body
   const passwordCheck = req.body['password-check']
 
-  generateRandomFemaleUsers()
-  generateRandomMaleUsers()
+  // generateRandomFemaleUsers()
+  // generateRandomMaleUsers()
 
   // Validate username length
   if (!validator.isByteLength(username, { min: 3, max: 20 })) {
