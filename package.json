@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "author": "Menno de Vries",
   "description": "Backend · 2019-2020 · University of Amsterdam assignment",
+  "license" : "GPL-3.0",
   "engines": {
     "node": "10.16.3"
   },
