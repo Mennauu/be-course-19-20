@@ -10,8 +10,8 @@
   "scripts": {
     "server": "node -r esm server/server.js",
     "server-nodemon": "nodemon -r esm server/server.js",
-    "build": "npm run build-directories && npm run build-images && npm run build-js && npm run build-css && npm run prefix-css && npm run move-images && npm run move-fonts && npm run revision-js && npm run revision-css && npm run optimize-svgs",
-    "start": "npm run server & npm run build",
+    "build": "del build && npm run build-directories && npm run build-images && npm run build-js && npm run build-css && npm run prefix-css && npm run move-images && npm run move-fonts && npm run revision-js && npm run revision-css && npm run optimize-svgs",
+    "start": "npm run server",
     "dev": "npm run kill-port & npm run server-nodemon & npm run watch & npm run lint-js -s & npm run lint-css & npm run build && npm run browser-sync",
     "browser-sync": "browser-sync start --proxy 'localhost:3000' --files 'server/build' 'server/views' 'server/components/**/*.html'",
     "optimize-svgs": "svgo -f build/assets/images",
@@ -52,8 +52,7 @@
     "range-inclusive": "^1.0.2",
     "shrink-ray-current": "^4.1.2",
     "validator": "^12.2.0",
-    "wnumb": "^1.2.0",
-    "del-cli": "^3.0.0"
+    "wnumb": "^1.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
@@ -70,6 +69,7 @@
     "browser-sync": "^2.26.7",
     "chokidar-cli": "^2.1.0",
     "connect-browser-sync": "^2.1.0",
+    "del-cli": "^3.0.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-import": "^2.20.1",
