@@ -23,11 +23,11 @@
 
     {% endfor %}
 
-    {% if username %}
+    {%- if username %}
       <a class="navigation__link navigation__profile" href="/#profile">
         <span class="navigation__label">{{ username }}</span>
 
-        {% if avatar %}
+        {%- if avatar %}
           <div class="navigation__image-wrapper {% if firstvisit %}navigation__image--is-generic{% endif %}">
 
             {{ image({
@@ -37,9 +37,9 @@
             }) }}
 
           </div>
-        {% endif %}
+        {% endif -%}
 
       </a>
-    {% endif %}
+    {% endif -%}
     
 </nav>

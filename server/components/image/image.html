@@ -2,7 +2,7 @@
 
     <figure class="c-image {%- if data.figureClass %} {{ data.figureClass }}{% endif -%}">
 
-      {% if data.srcset %}
+      {%- if data.srcset %}
       <picture>
         <source srcset="{{ data.srcset }}" type="image/webp">
         {% endif %}
@@ -14,7 +14,7 @@
         >
         {% if data.srcset %}
       </picture>
-      {% endif %}
+      {% endif -%}
 
       {%- if data.caption %}
       <figcaption class="c-image__caption">

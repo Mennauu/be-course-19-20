@@ -4,7 +4,7 @@
         {%- if data.class %} {{ data.class }}{% endif -%}" 
         {%- if data.hook %} js-hook-{{ data.hook }}{% endif -%}>
         
-        {{ data.text }}
+        {{- data.text -}}
     </p>
 
 {% endmacro %}

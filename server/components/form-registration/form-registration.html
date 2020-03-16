@@ -2,6 +2,7 @@
 {% from '../form-elements/form-input/form-input.html' import input %}
 {% from '../form-elements/form-message/form-message.html' import message %}
 {% from '../form-elements/form-notice/form-notice.html' import notice %}
+{% from '../form-elements/form-fieldset/form-fieldset.html' import fieldset %}
 {% from '../button/button.html' import button %}
 
 {% set errorClass = 'form__message--has-error' if error != '' %}
@@ -11,6 +12,11 @@
   action: '/register-user',
   hook: 'form-register',
   title: 'Register'
+}) %}
+
+{% call fieldset({
+  legend: 'Registration inputs',
+  sronly: true
 }) %}
 
   {{ input({
@@ -37,6 +43,8 @@
     autocomplete: true,
     hook: 'input-password-check'
   }) }}
+
+{% endcall %}
 
   {% if error %} 
     {{ message({ 

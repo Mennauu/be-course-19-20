@@ -7,6 +7,7 @@
 {% from '../form-elements/form-select/form-select.html' import select %}
 {% from '../form-elements/form-range/form-range.html' import range %}
 {% from '../form-elements/form-upload/form-upload.html' import upload %}
+{% from '../form-elements/form-fieldset/form-fieldset.html' import fieldset %}
 {% from '../button/button.html' import button %}
 
 {% set errorClass = 'form__message--has-error' if error != '' %}
@@ -19,6 +20,11 @@
   hook: 'form-settings',
   title: 'Hello ' +  username + '.',
   subtitle: 'Since this is your first time visiting you have to fill in some information.'
+}) %}
+
+{% call fieldset({
+  legend: 'Main personal information',
+  sronly: true
 }) %}
 
   {{ input({
@@ -87,6 +93,13 @@
   
   {% endcall %}
 
+{% endcall %}
+
+{% call fieldset({
+  legend: 'Type of person you are looking for',
+  sronly: true
+}) %}
+
   {% call radioWrapper({
     label: "Who are you looking for?",
     hook: 'looking-form',
@@ -130,6 +143,13 @@
     }) }} 
   {% endif %}
 
+{% endcall %}
+
+{% call fieldset({
+  legend: 'Secondary personal information',
+  sronly: true
+}) %}
+
   {{ upload({
     name: 'avatar',
     id: 'avatar',
@@ -164,6 +184,8 @@
     }) }}
   
   {% endcall %}
+
+{% endcall %}
 
   </div>
 

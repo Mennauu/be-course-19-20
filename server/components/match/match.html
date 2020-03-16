@@ -4,7 +4,7 @@
 
 {% macro match(data) %}
 
-  {% if data.username %}
+  {%- if data.username %}
 
     <div class="c-match" js-hook-match>
 
@@ -13,7 +13,7 @@
         {%- if data.shadow %} card--has-shadow{% endif -%}"
         {%- if data.hook %} js-hook-{{ data.hook }}{% endif -%}>
 
-        {% if data.image %}
+        {%- if data.image %}
 
           {{ image({
             image: data.image,
@@ -23,7 +23,7 @@
             figureClass: 'match__figure'
           }) }}
 
-        {% endif %}
+        {% endif -%}
 
         <div class="match__details">
           <div class="match__details-wrapper">
@@ -35,7 +35,7 @@
 
       </div>
 
-      {% if data.options %}
+      {%- if data.options %}
 
         <div class="match__options">
 
@@ -70,10 +70,10 @@
 
         </div>
 
-      {% endif %}
+      {% endif -%}
     
     </div>
 
-  {% endif %}
+  {% endif -%}
 
 {% endmacro %}
