@@ -29,10 +29,17 @@ main {
   .t-dashboard & {
     min-height: 100vh;
     padding-top: 0;
-    padding-bottom: $global-spacing * 6;
+    padding-bottom: 0;
+
+    .match__background {
+      padding-bottom: $global-spacing * 3;
+    }
+
+    .match__background-extend {
+      padding-bottom: $global-spacing-md;
+    }
 
     @include screen-tablet-portrait-and-bigger {
-      padding-bottom: 0;
       padding-top: $global-spacing * 6;
     }
   }
