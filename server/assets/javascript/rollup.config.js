@@ -60,7 +60,9 @@ const productionConfig = {
     babel({
       exclude: 'node_modules/**',
       babelrc: false,
+      runtimeHelpers: true,
       presets: [['@babel/env', { modules: false }]],
+      plugins: ['@babel/plugin-transform-runtime'],
     }),
     prettier({ parser: 'babel' }),
     alias({
