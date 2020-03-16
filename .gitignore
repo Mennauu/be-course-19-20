@@ -21,6 +21,9 @@ Desktop.ini
 .idea/
 .idea_modules/
 
+# Environment file
+.env
+
 ### VSCode ###
 .gitignore/
 

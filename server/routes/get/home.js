@@ -33,7 +33,6 @@ export const home = async (req, res) => {
           )
           const persons = await filterAllData(filteredResults)
           const possibleMatches = await Promise.all(persons)
-          // const possibleMatchesRandomized = possibleMatches.sort(() => Math.random() - 0.5)
 
           const matches = await User.find({ _id: { $in: req.user.matched } }, results => results)
 
