@@ -17,7 +17,7 @@
   "userMatchSuccess": "Person has been liked/disliked",
   "noResults": "<h3>I'm sorry, I can't find anyone! Maybe <a href='/profile'>adjust your age range?</a></h3>",
   "nameCheck": "Your name isn't shorter than 2 character and definitely not longer than 256. Please check again!",
-  "nameLetters": "Your real name doesn't contain numbers...",
+  "nameLetters": "Your real name doesn't contain numbers or spaces...",
   "ageCheck": "Your age should be between 18 and 99. Sorry if you are older than 99.",
   "ageLetters": "Your age doesn't contain any letters...",
   "chooseGender": "Please choose your gender",
