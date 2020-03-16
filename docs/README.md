@@ -247,7 +247,7 @@ If something is wrong, an error message is returned to the user.
 
 - [ ] First input from Settings Form loses autofocus when clicking on the page before the input field is visible (it animates to visible after 5 seconds)
 - [ ] No error message if age is under 18
-- [ ] If a user doesn't have a image (which shouldn't be possible in the first place), the found possible match overlaps with another one
+- [x] If a user doesn't have a image (which shouldn't be possible in the first place), the found possible match overlaps with another one
 - [ ] Adjusting the default.html doesn't automatically update the rev-default.html (you have to make an adjustment in a SASS or JS file)
 
 ## Wishlist

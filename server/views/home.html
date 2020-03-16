@@ -40,14 +40,22 @@
 
               {% for person in possibleMatches %}
 
-                {{ match({
-                  id: person.id,
-                  image: person.avatar,
-                  username: person.username,
-                  age: person.age,
-                  level: person.level,
-                  options: true
-                }) }}
+                {%- if person.id 
+                    and person.avatar 
+                    and person.username 
+                    and person.age
+                    and person.level %}
+
+                  {{ match({
+                    id: person.id,
+                    image: person.avatar,
+                    username: person.username,
+                    age: person.age,
+                    level: person.level,
+                    options: true
+                  }) }}
+
+                {% endif -%}
 
               {% endfor %}
 
