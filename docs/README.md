@@ -34,6 +34,12 @@ You can find a live version of the dating app here: <a href="https://project-tec
 ## Table of Contents
 
 - [Installation](#installation)
+- [Application](#application)
+  - [Views](#views)
+  - [Database](#database)
+    - [Setup](#setup)
+  - [Authentication](#authentication)
+  - [Validation](#validation)
 - [Needs testing](#needs-testing)
 - [Known bugs](#known-bugs)
 - [Wishlist](#wishlist)
