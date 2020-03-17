@@ -2,6 +2,7 @@
 {% from '../../components/modal/modal.html' import modal %}
 {% from '../../components/overlay/overlay.html' import overlay %}
 {% from '../../components/notification/notification.html' import notification %}
+{% from '../../components/pre-render/pre-render.html' import preRender %}
 
 {% set authenticatedClass = 'user--is-authenticated' if authenticated %}
 {% set modalClass = 'modal--is-active' if matcheduser %}
@@ -9,6 +10,7 @@
 {% set dashboard = 't-dashboard' if not firstvisit %}
 {% set notificationMessage = notificationMessage if notificationMessage %}
 {% set notificationClass = 'notification--is-active' if notificationMessage %}
+{% set preRenderItems = true if bodyClass == 't-root' %}
 
 {% if not firstvisit %}
     {% set logo = 'logo_white' %}
@@ -34,7 +36,7 @@
 
         <title>BE Course 2020</title>
 
-        <link rel="stylesheet" href="/assets/css/styles-6e67badcd2.min.css">
+        <link rel="stylesheet" href="/assets/css/styles-546e063c62.min.css">
 
         <!-- Favicons -->
         <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon.png">
@@ -50,6 +52,16 @@
     </head>
 
     <body class="{{ bodyClass }} {{ authenticatedClass }} {{ dashboard }}">
+
+        {% if preRenderItems %}
+
+        {% call preRender() %}
+            <img class="pre-render__image" src="/assets/images/couple2.jpg">
+            <img class="pre-render__image" src="/assets/images/couple3.jpg">
+            <img class="pre-render__image" src="/assets/images/couple7.jpg">
+        {% endcall %}
+
+        {% endif %}
 
         {{ overlay({ class: overlayClass }) }}
 
@@ -86,10 +98,10 @@
         {{ notification({ message: notificationMessage, class: notificationClass }) }}
 
         {% if environment == 'local' %}
-            <script type="module" async="async" src="/assets/js/main-es.js"></script>
+            <script type="module" async="async" src="/assets/js/main-es-37c6162ad6.js"></script>
         {% else %}
-            <script type="module" async="async" src="/assets/js/main-es-91a23d1866.min.js"></script>
-            <script nomodule="nomodule" async="async" src="/assets/js/main-8a82cd9bf5.min.js"></script>
+            <script type="module" async="async" src="/assets/js/main-es.min.js"></script>
+            <script nomodule="nomodule" async="async" src="/assets/js/main.min.js"></script>
         {% endif %}
 
     </body>

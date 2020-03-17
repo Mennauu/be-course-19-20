@@ -2,6 +2,7 @@
 {% from '../../components/modal/modal.html' import modal %}
 {% from '../../components/overlay/overlay.html' import overlay %}
 {% from '../../components/notification/notification.html' import notification %}
+{% from '../../components/pre-render/pre-render.html' import preRender %}
 
 {% set authenticatedClass = 'user--is-authenticated' if authenticated %}
 {% set modalClass = 'modal--is-active' if matcheduser %}
@@ -9,6 +10,7 @@
 {% set dashboard = 't-dashboard' if not firstvisit %}
 {% set notificationMessage = notificationMessage if notificationMessage %}
 {% set notificationClass = 'notification--is-active' if notificationMessage %}
+{% set preRenderItems = true if bodyClass == 't-root' %}
 
 {% if not firstvisit %}
     {% set logo = 'logo_white' %}
@@ -50,6 +52,16 @@
     </head>
 
     <body class="{{ bodyClass }} {{ authenticatedClass }} {{ dashboard }}">
+
+        {% if preRenderItems %}
+
+        {% call preRender() %}
+            <img class="pre-render__image" src="/assets/images/couple2.jpg">
+            <img class="pre-render__image" src="/assets/images/couple3.jpg">
+            <img class="pre-render__image" src="/assets/images/couple7.jpg">
+        {% endcall %}
+
+        {% endif %}
 
         {{ overlay({ class: overlayClass }) }}
 
